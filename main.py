@@ -12,6 +12,7 @@ FPS = 60
 level = Level(level_map, screen)
 
 pygame.display.set_caption('Pixel Platformer')
+pygame.display.set_icon(None)
 
 while True:
     for event in pygame.event.get():
@@ -25,4 +26,3 @@ while True:
 
     pygame.display.update()
     clock.tick(FPS)
-    # Cool
