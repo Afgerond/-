@@ -12,9 +12,9 @@ class Tile(pygame.sprite.Sprite):
 
     def create_tile(self, pos, size, tile_type):
         if tile_type == 'grass':
-            image_path = "D:/Animations/graphics/map/Grass.png"
+            image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Grass.png"
         elif tile_type == 'dirt':
-            image_path = "D:/Animations/graphics/map/Dirt.png"
+            image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Dirt.png"
 
         tile_image = self.load_image(image_path, size)
         self.image = tile_image

@@ -2,7 +2,7 @@ from os import walk
 import pygame
 from settings import WIDTH, HEIGHT
 
-background = pygame.image.load("D:/Animations/graphics/assets/background.png")
+background = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/assets/background.png")
 background = pygame.transform.scale(background, (WIDTH, HEIGHT))
 
 def import_folder(path):

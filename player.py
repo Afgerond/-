@@ -23,7 +23,7 @@ class Player(pygame.sprite.Sprite):
         self.rechts = True
 
     def imports(self):
-        character_path = 'D:/Animations/graphics/character/'
+        character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/character/'
         self.animations = {'idle': [], 'run':[], 'jump': [], 'fall': []}
 
         for animation in self.animations.keys():
