@@ -22,6 +22,9 @@ class Player(pygame.sprite.Sprite):
         self.status = 'idle'
         self.rechts = True
 
+        # Health
+        self.health = 100
+
     def imports(self):
         character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/character/'
         self.animations = {'idle': [], 'run':[], 'jump': [], 'fall': []}
@@ -53,16 +56,16 @@ class Player(pygame.sprite.Sprite):
 
         else:
 
-            if self.keys[pygame.K_RIGHT]:
+            if self.keys[pygame.K_RIGHT or pygame.K_d]:
                 self.direction.x = 1
                 self.rechts = True
-            elif self.keys[pygame.K_LEFT]:
+            elif self.keys[pygame.K_LEFT or pygame.K_a]:
                 self.direction.x = -1
                 self.rechts = False
             else:
                 self.direction.x = 0
 
-            if self.keys[pygame.K_SPACE]:
+            if self.keys[pygame.K_SPACE or pygame.K_UP or pygame.K_w]:
                 self.jump()
 
     def get_status(self):

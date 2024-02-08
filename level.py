@@ -25,7 +25,7 @@ class Level:
                     tile = Tile()
                     tile.create_tile((x, y), tile_size, 'dirt')
                     self.tiles.add(tile)
-                elif cell == 'F':
+                elif cell == 'B':
                     pass
                 elif cell == 'P':
                     player = Player((x, y))
@@ -56,6 +56,12 @@ class Level:
                     player.rect.left = sprite.rect.right
                 elif player.direction.x > 0:
                     player.rect.right = sprite.rect.left
+
+        if player.rect.left < self.map_left or player.rect.right > self.map_right:
+            pygame.quit()
+            sys.exit()
+        else:
+            print("Niks aan de hand")
 
     def verticale_movement_collisions(self):
         player = self.player.sprite

@@ -3,6 +3,7 @@ from settings import *
 from tiles import Tile
 from level import *
 from sprites import *
+from player import Player
 
 pygame.init()
 
@@ -18,6 +19,10 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_q:
+                pygame.quit()
+                sys.exit()
 
     screen.fill("black")
     screen.blit(background, (0, 0))
@@ -25,4 +30,3 @@ while True:
 
     pygame.display.update()
     clock.tick(FPS)
-    
