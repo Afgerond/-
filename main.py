@@ -40,7 +40,8 @@ while True:
                 pygame.quit()
                 sys.exit()
     if health_bar.hp <= 0:
-        pass
+        pygame.quit()
+        sys.exit()
 
     screen.fill("black")
     screen.blit(background, (0, 0))
