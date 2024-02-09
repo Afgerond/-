@@ -9,9 +9,6 @@ class Level:
         self.setup_level(level_data)
         self.world_shift = 0 # Snelheid waarmee de map een bepaalde kant op beweegt!
 
-        self.map_left = 0
-        self.map_right = len(level_data[0])
-
     def setup_level(self, layout):
         self.tiles = pygame.sprite.Group()
         self.player = pygame.sprite.GroupSingle()
@@ -59,12 +56,6 @@ class Level:
                     player.rect.left = sprite.rect.right
                 elif player.direction.x > 0:
                     player.rect.right = sprite.rect.left
-
-        if player.rect.left < self.map_left or player.rect.right > self.map_right:
-            pygame.quit()
-            sys.exit()
-        else:
-            print("Niks aan de hand")
 
     def verticale_movement_collisions(self):
         player = self.player.sprite
