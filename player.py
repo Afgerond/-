@@ -83,6 +83,8 @@ class Player(pygame.sprite.Sprite):
         self.direction.y += self.gravity
         self.rect.y += self.direction.y
 
+        print(self.rect.x, self.rect.y)
+
     def jump(self):
         self.direction.y = self.jump_speed
 

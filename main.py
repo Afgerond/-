@@ -45,7 +45,6 @@ while True:
 
     screen.fill("black")
     screen.blit(background, (0, 0))
-    print(Player.rect.x, Player.rect.y)
 
     health_bar.hp = 30
     health_bar.draw(screen)
