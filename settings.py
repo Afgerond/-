@@ -2,9 +2,8 @@ level_map = [
 'BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB',
 '                                                               ',
 '                                                               ',
-'                                                               ',
-'B                                                        GG   B',
-'B                                GG            GG             B',
+'B                                                             B',
+'B                                GG            GG        GG   B',
 'B                           GG         GG                     B',
 'B          GG     GG                                          B',
 'B                       GG                                    B',
@@ -13,7 +12,8 @@ level_map = [
 'BGGGGGG                    GGG  G  GGG    GDDD   D   D   DDDDDB',
 'BDDDDDD               GGGGGDDD  D  DDDGGGGDDDD   D   D   DDDDDB',   
 'BDDDDDD GGGGGGGGGGGGG DDDDDDDD  D  DDDDDDDDDDD   D   D   DDDDDB',
-'BDDDDDD DDDDDDDDDDDDD DDDDDDDD  D  DDDDDDDDDDD   D   D   DDDDDB']
+'BDDDDDDBDDDDDDDDDDDDDBDDDDDDDDBBDBBDDDDDDDDDDDBBBDBBBDBBBDDDDDB']
+
 
 tile_size = 64
 WIDTH = 1200
