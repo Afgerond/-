@@ -43,6 +43,8 @@ while True:
         pygame.quit()
         sys.exit()
 
+    print(pygame.mouse.get_pos())
+
 
     screen.fill("black")
     screen.blit(background, (0, 0))
