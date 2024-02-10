@@ -1,6 +1,3 @@
-import pygame
-import time
-
 class Tile(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
@@ -11,6 +8,8 @@ class Tile(pygame.sprite.Sprite):
         return image
 
     def create_tile(self, pos, tile_type, size):
+        image_path = ""  # Standaardwaarde toekennen aan image_path
+
         if tile_type == 'grass':
             image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Grass.png"
         elif tile_type == 'dirt':
