@@ -8,7 +8,6 @@ class Level:
         self.display_surface = surface
         self.setup_level(level_data)
         self.world_shift = 0 # Snelheid waarmee de map een bepaalde kant op beweegt!
-        self.world_shift_total = 0
 
     def setup_level(self, layout):
         self.tiles = pygame.sprite.Group()

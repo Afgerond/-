@@ -51,22 +51,17 @@ class Player(pygame.sprite.Sprite):
     def movement(self):
         self.keys = pygame.key.get_pressed()
 
-        if self.rect.x <= 3:
-            pass
-
+        if self.keys[pygame.K_RIGHT or pygame.K_d]:
+            self.direction.x = 1
+            self.rechts = True
+        elif self.keys[pygame.K_LEFT or pygame.K_a]:
+            self.direction.x = -1
+            self.rechts = False
         else:
+            self.direction.x = 0
 
-            if self.keys[pygame.K_RIGHT or pygame.K_d]:
-                self.direction.x = 1
-                self.rechts = True
-            elif self.keys[pygame.K_LEFT or pygame.K_a]:
-                self.direction.x = -1
-                self.rechts = False
-            else:
-                self.direction.x = 0
-
-            if self.keys[pygame.K_SPACE or pygame.K_UP or pygame.K_w]:
-                self.jump()
+        if self.keys[pygame.K_SPACE or pygame.K_UP or pygame.K_w]:
+            self.jump()
 
     def get_status(self):
         if self.direction.y < 0:
