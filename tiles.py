@@ -32,7 +32,7 @@ class Tile(pygame.sprite.Sprite):
 
     def import_flag(self):
         full_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/flag/'
-        self.animations = import_flag(full_path)
+        self.animations = flag(full_path)
 
     def animatie(self):
         self.index = 0

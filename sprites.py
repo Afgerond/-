@@ -1,4 +1,5 @@
 from os import walk
+import os
 import pygame
 from settings import WIDTH, HEIGHT
 
