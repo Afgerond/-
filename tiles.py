@@ -4,6 +4,11 @@ class Tile(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
 
+    def load_image(self, image_path, size):
+        image = pygame.image.load(image_path)
+        image = pygame.transform.scale(image, (size, size))
+        return image
+
     def create_tile(self, pos, tile_type, size):
         image_path = ""  # Standaardwaarde toekennen aan image_path
 
@@ -17,11 +22,6 @@ class Tile(pygame.sprite.Sprite):
         tile_image = self.load_image(image_path, size)
         self.image = tile_image
         self.rect = self.image.get_rect(topleft=pos)
-
-    def load_image(self, image_path, size):
-        image = pygame.image.load(image_path)
-        image = pygame.transform.scale(image, (size, size))
-        return image
 
     def update(self, x_shift):
         self.rect.x += x_shift
