@@ -41,17 +41,13 @@ class Level:
 
         if player_x < WIDTH / 4 and direction_x < 0:
             self.world_shift = 8
-            self.world_shift_total += self.world_shift
             player.speed = 0
         elif player_x > WIDTH - (WIDTH / 4) and direction_x > 0:
             self.world_shift = -8
-            self.world_shift_total += self.world_shift
             player.speed = 0
-        else:
-            #if self.world_shift > 
+        else: 
             self.world_shift = 0
             player.speed = 8
-        print(self.world_shift_total)
 
     def horizontale_movement_collisions(self):
         player = self.player.sprite
