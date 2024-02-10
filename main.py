@@ -47,7 +47,7 @@ while True:
     screen.fill("black")
     screen.blit(background, (0, 0))
 
-    health_bar.hp = 30
+    health_bar.hp = 70
     health_bar.draw(screen)
     level.run()
 
