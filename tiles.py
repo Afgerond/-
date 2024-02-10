@@ -1,3 +1,5 @@
+import pygame, sys
+
 class Tile(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
