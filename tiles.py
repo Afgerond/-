@@ -6,6 +6,7 @@ class Tile(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
         self.animations = []  # Initial animations as an empty list
+        self.image_path = ""  # Initial image_path as an empty string
 
     def load_image(self, image_path, size):
         image = pygame.image.load(image_path)
@@ -14,17 +15,17 @@ class Tile(pygame.sprite.Sprite):
 
     def create_tile(self, pos, tile_type, size):
         if tile_type == 'grass':
-            image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Grass.png"
+            self.image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Grass.png"
         elif tile_type == 'dirt':
-            image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Dirt.png"
+            self.image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Dirt.png"
         elif tile_type == 'border':
-            image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/transparant.png"
+            self.image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/transparant.png"
         elif tile_type == 'flag':
             self.import_flag()  # Import the flag animation
 
         self.size = size  # Store the size as an attribute
 
-        tile_image = self.load_image(image_path, self.size)  # Use the size parameter
+        tile_image = self.load_image(self.image_path, self.size)  # Use the stored image_path and size
         self.image = tile_image
         self.rect = self.image.get_rect(topleft=pos)
 
