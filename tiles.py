@@ -1,6 +1,6 @@
 import pygame
 import time
-from sprites import import_flag
+from sprites import flag
 
 class Tile(pygame.sprite.Sprite):
     def __init__(self):
@@ -45,7 +45,7 @@ class Tile(pygame.sprite.Sprite):
 
         image = animation[int(self.index)]
 
-        tile_image = self.load_image(image, self.size)  # Use the stored size attribute
+        tile_image = self.load_image(image, self.size)
         self.image = tile_image
         self.rect = self.image.get_rect(topleft=self.rect.topleft)
 
