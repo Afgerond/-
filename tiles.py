@@ -24,5 +24,4 @@ class Tile(pygame.sprite.Sprite):
             image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/flag/1.png"
 
     def update(self, x_shift):
-        self.animatie()
         self.rect.x += x_shift
