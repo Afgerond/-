@@ -21,7 +21,7 @@ class Tile(pygame.sprite.Sprite):
         elif tile_type == 'border':
             self.image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/transparant.png"
         elif tile_type == 'flag':
-            self.import_flag()  # Import the flag animation
+            self.import_flag()  # Correctly call the import_flag method
 
         self.size = size  # Store the size as an attribute
 
