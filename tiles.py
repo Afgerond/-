@@ -10,13 +10,11 @@ class Tile(pygame.sprite.Sprite):
         return image
 
     def create_tile(self, pos, tile_type, size):
-        image_path = None  # Standaardwaarde toekennen aan image_path
-
         if tile_type == 'grass':
             image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Grass.png"
-        elif tile_type == 'dirt':
+        if tile_type == 'dirt':
             image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Dirt.png"
-        elif tile_type == 'border':
+        if tile_type == 'border':
             image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/transparant.png"
 
         tile_image = self.load_image(image_path, size)
