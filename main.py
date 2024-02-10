@@ -12,7 +12,7 @@ clock = pygame.time.Clock()
 FPS = 60 
 level = Level(level_map, screen)
 
-pygame.display.set_caption('Pixel Platformer')
+pygame.display.set_caption('Pixel Platformer - Duo Game')
 
 class Health:
     def __init__(self, x, y, w, h, max_hp):
