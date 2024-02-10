@@ -26,7 +26,7 @@ class Level:
                     tile.create_tile((x, y), tile_size, 'dirt')
                     self.tiles.add(tile)
                 elif cell == 'B':
-                    pass
+                    tile.create_tile((x,y), tile_size, 'border')
                 elif cell == 'P':
                     player = Player((x, y))
                     self.player.add(player)
