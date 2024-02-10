@@ -17,8 +17,6 @@ class Tile(pygame.sprite.Sprite):
             image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Dirt.png"
         elif tile_type == 'border':
             image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/transparant.png"
-        elif tile_type == 'flag':
-            image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/flag/1.png"
 
         tile_image = self.load_image(image_path, size)
         self.image = tile_image
