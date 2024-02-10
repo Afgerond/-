@@ -28,7 +28,7 @@ class Health:
         pygame.draw.rect(surface, "red", (self.x, self.y, self.w, self.h))
         pygame.draw.rect(surface, "green", (self.x, self.y, self.w * ratio, self.h))
 
-health_bar = Health(250, 200, 300, 40, 100)
+health_bar = Health(36, 42, 300, 40, 100)
 
 while True:
     for event in pygame.event.get():
@@ -42,8 +42,6 @@ while True:
     if health_bar.hp <= 0:
         pygame.quit()
         sys.exit()
-
-    print(pygame.mouse.get_pos())
 
 
     screen.fill("black")
