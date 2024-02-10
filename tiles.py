@@ -21,34 +21,7 @@ class Tile(pygame.sprite.Sprite):
         elif tile_type == 'border':
             image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/transparant.png"
         elif tile_type == 'flag':
-            self.import_flag()  # Correctly call the import_flag method
-            return
-
-        self.size = size  # Store the size as an attribute
-
-        tile_image = self.load_image(image_path, self.size)  # Use the directly specified image_path and size
-        self.image = tile_image
-        self.rect = self.image.get_rect(topleft=pos)
-
-    def import_flag(self):
-        full_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/flag/'
-        self.animations = flag(full_path)
-
-    def animatie(self):
-        self.index = 0
-        self.animation_speed = 0.15
-        animation = self.animations
-
-        self.index += self.animation_speed
-
-        if self.index >= len(animation):
-            self.index = 0
-
-        image = animation[int(self.index)]
-
-        tile_image = self.load_image(image, self.size)
-        self.image = tile_image
-        self.rect = self.image.get_rect(topleft=self.rect.topleft)
+            image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/flag/1.png"
 
     def update(self, x_shift):
         self.animatie()
