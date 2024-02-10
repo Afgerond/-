@@ -15,17 +15,18 @@ class Tile(pygame.sprite.Sprite):
 
     def create_tile(self, pos, tile_type, size):
         if tile_type == 'grass':
-            self.image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Grass.png"
+            image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Grass.png"
         elif tile_type == 'dirt':
-            self.image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Dirt.png"
+            image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Dirt.png"
         elif tile_type == 'border':
-            self.image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/transparant.png"
+            image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/transparant.png"
         elif tile_type == 'flag':
             self.import_flag()  # Correctly call the import_flag method
+            return
 
         self.size = size  # Store the size as an attribute
 
-        tile_image = self.load_image(self.image_path, self.size)  # Use the stored image_path and size
+        tile_image = self.load_image(image_path, self.size)  # Use the directly specified image_path and size
         self.image = tile_image
         self.rect = self.image.get_rect(topleft=pos)
 
