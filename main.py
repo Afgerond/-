@@ -4,7 +4,7 @@ from tiles import Tile
 from level import *
 from sprites import *
 from player import Player
-from health import Health
+from health import *
 
 pygame.init()
 
@@ -14,8 +14,6 @@ FPS = 60
 level = Level(level_map, screen)
 
 pygame.display.set_caption('Pixel Platformer - Duo Game')
-
-health_bar = Health(36, 42, 300, 40, 100)
 
 while True:
     for event in pygame.event.get():

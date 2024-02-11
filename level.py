@@ -2,6 +2,7 @@ import pygame, sys
 from tiles import Tile
 from settings import tile_size, WIDTH
 from player import Player
+from health import *
 
 class Level:
     def __init__(self, level_data, surface):
@@ -78,8 +79,7 @@ class Level:
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Tile) and sprite.tile_type == 'spikes':
-                    pygame.quit()
-                    sys.exit()                
+                    health_bar.hp -= 10
                 else:
                     if player.direction.y > 0:
                         player.rect.bottom = sprite.rect.top
