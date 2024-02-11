@@ -1,4 +1,4 @@
-import pygame, sys
+import pygame
 
 class Tile(pygame.sprite.Sprite):
     def __init__(self):
@@ -9,13 +9,15 @@ class Tile(pygame.sprite.Sprite):
         image = pygame.transform.scale(image, (size, size))
         return image
 
-    def create_tile(self, pos, tile_type, size):
+    def create_tile(self, pos, size, tile_type):
         if tile_type == 'grass':
             image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Grass.png"
-        if tile_type == 'dirt':
+        elif tile_type == 'dirt':
             image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Dirt.png"
-        if tile_type == 'border':
+        elif tile_type == 'border':
             image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/transparant.png"
+        else:
+            raise ValueError("Ongeldig tegeltype")
 
         tile_image = self.load_image(image_path, size)
         self.image = tile_image
