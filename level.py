@@ -62,14 +62,10 @@ class Level:
 
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
-                tiles = self.tiles.sprites
-                if tiles.tile_type == 'spikes':
-                    print("dood")
-                else:
-                    if player.direction.x < 0:
-                        player.rect.left = sprite.rect.right
-                    elif player.direction.x > 0:
-                        player.rect.right = sprite.rect.left
+                if player.direction.x < 0:
+                    player.rect.left = sprite.rect.right
+                elif player.direction.x > 0:
+                    player.rect.right = sprite.rect.left
 
     def verticale_movement_collisions(self):
         player = self.player.sprite
@@ -77,17 +73,13 @@ class Level:
 
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
-                tiles = self.tiles.sprites
-                if tiles.tile_type == 'spikes':
-                    print("dood")
-                else:
-                    if player.direction.y > 0:
-                        player.rect.bottom = sprite.rect.top
-                        player.direction.y = 0
-                    elif player.direction.y < 0:
-                        player.rect.top = sprite.rect.bottom
-                        player.direction.y = 0
-                    
+                if player.direction.y > 0:
+                    player.rect.bottom = sprite.rect.top
+                    player.direction.y = 0
+                elif player.direction.y < 0:
+                    player.rect.top = sprite.rect.bottom
+                    player.direction.y = 0
+                
     def run(self):
 
         # Level tiles
