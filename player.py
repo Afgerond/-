@@ -81,6 +81,9 @@ class Player(pygame.sprite.Sprite):
     def jump(self):
         self.direction.y = self.jump_speed
 
+    def die(self):
+        self.kill()
+
     def update(self):
         self.movement()
         self.get_status()
