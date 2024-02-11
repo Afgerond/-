@@ -1,4 +1,4 @@
-import pygame, sys, random
+import pygame, sys, os, random
 from settings import *
 from tiles import Tile
 from level import *
@@ -15,12 +15,20 @@ level = Level(level_map, screen)
 
 pygame.display.set_caption('Pixel Platformer - Duo Game')
 
+clouds_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/"
+
+big_cloud_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Big Clouds.png").convert_alpha()
+small_cloud1_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 1.png").convert_alpha
+small_cloud2_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 2.png").convert_alpha()
+small_cloud3_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 1.png").convert_alpha()
+
 class Cloud:
-    def __init__(self, x, y, speed, size):
+    def __init__(self, x, y, speed, size, image):
         self.x = x
         self.y = y
         self.speed = speed
         self.size = size
+        self.image = image
 
     def move(self):
         self.x += self.speed
@@ -29,15 +37,16 @@ class Cloud:
             self.x = -self.size
 
     def draw(self, surface):
-        pygame.draw.circle(surface, (255, 255, 255), (int(self.x), int(self.y)), self.size)
+        surface.blit(self.image, (int(self.x), int(self.y)))
 
 cloud_list = []
-for _ in range(4):  # Aantal wolken op het scherm
+for _ in range(5):
     x = random.randint(0, WIDTH)
     y = random.randint(0, HEIGHT // 2)
     speed = random.uniform(0.1, 0.5)
     size = random.randint(30, 80)
-    cloud = Cloud(x, y, speed, size)
+    image = random.choice([big_cloud_image, small_cloud1_image, small_cloud2_image, small_cloud3_image])
+    cloud = Cloud(x, y, speed, size, image)
     cloud_list.append(cloud)
 
 while True:
