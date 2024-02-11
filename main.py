@@ -1,5 +1,4 @@
-import pygame
-import sys
+import pygame, sys, random
 from settings import *
 from tiles import Tile
 from level import *
