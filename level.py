@@ -65,6 +65,7 @@ class Level:
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Tile) and sprite.tile_type == 'spikes':
+                    print("Collision horizontaal")
                     health_bar.hp -= 10
                     self.collision_cooldown = 60
                 else:
@@ -80,6 +81,7 @@ class Level:
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Tile) and sprite.tile_type == 'spikes':
+                    print("Collision verticaal")
                     health_bar.hp -= 10
                     self.collision_cooldown = 60
                 else:
