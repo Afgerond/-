@@ -18,23 +18,23 @@ class Level:
                 y = row_index * tile_size
 
                 if cell == 'G':
-                    tile = Tile()
+                    tile = Tile('grass')
                     tile.create_tile((x, y), tile_size, 'grass')
                     self.tiles.add(tile)
                 elif cell == 'D':
-                    tile = Tile()
+                    tile = Tile('dirt')
                     tile.create_tile((x, y), tile_size, 'dirt')
                     self.tiles.add(tile)
                 elif cell == 'B':
-                    tile = Tile()
+                    tile = Tile('border')
                     tile.create_tile((x,y), tile_size, 'border')
                     self.tiles.add(tile)
                 elif cell == 'S':
-                    tile = Tile()
+                    tile = Tile('spikes')
                     tile.create_tile((x,y), tile_size, 'spikes')
                     self.tiles.add(tile)
                 elif cell == 'F':
-                    tile = Tile()
+                    tile = Tile('flag')
                     tile.create_tile((x,y), tile_size, 'flag')
                     self.tiles.add(tile)
                 elif cell == 'P':
