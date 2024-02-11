@@ -64,8 +64,7 @@ class Level:
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Tile) and sprite.tile_type == 'spikes':
-                    pygame.quit()
-                    sys.exit()
+                    health_bar.hp -= 10
                 else:
                     if player.direction.x < 0:
                         player.rect.left = sprite.rect.right
