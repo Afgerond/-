@@ -62,10 +62,8 @@ class Level:
 
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
-                tile_type = sprite.tile_type
-
-                if tile_type == 'spikes':
-                    print("Collision!")
+                if isinstance(sprite, Tile) and sprite.tile_type == 'spikes':
+                    player.die()  # Voer hier de acties uit die moeten worden uitgevoerd als de speler botst met spikes
                 else:
                     if player.direction.x < 0:
                         player.rect.left = sprite.rect.right
@@ -78,10 +76,8 @@ class Level:
 
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
-                tile_type = sprite.tile_type
-
-                if tile_type == 'spikes':
-                    print("Collision!")
+                if isinstance(sprite, Tile) and sprite.tile_type == 'spikes':
+                    player.die()  # Voer hier de acties uit die moeten worden uitgevoerd als de speler botst met spikes
                 else:
                     if player.direction.y > 0:
                         player.rect.bottom = sprite.rect.top
