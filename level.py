@@ -62,7 +62,7 @@ class Level:
 
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
-                tiles = self.tiles.sprite
+                tiles = self.tiles.sprites
                 if tiles.tile_type == 'spikes':
                     print("dood")
                 else:
@@ -77,7 +77,7 @@ class Level:
 
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
-                tiles = self.tiles.sprite
+                tiles = self.tiles.sprites
                 if tiles.tile_type == 'spikes':
                     print("dood")
                 else:
