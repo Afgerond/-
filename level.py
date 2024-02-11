@@ -29,6 +29,10 @@ class Level:
                     tile = Tile()
                     tile.create_tile((x,y), tile_size, 'border')
                     self.tiles.add(tile)
+                elif cell == 'S':
+                    tile = Tile()
+                    tile.create_tile((x,y), tile_size, 'spikes')
+                    self.tiles.add(tile)
                 elif cell == 'F':
                     tile = Tile()
                     tile.create_tile((x,y), tile_size, 'flag')
@@ -58,10 +62,14 @@ class Level:
 
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
-                if player.direction.x < 0:
-                    player.rect.left = sprite.rect.right
-                elif player.direction.x > 0:
-                    player.rect.right = sprite.rect.left
+                tiles = self.tiles.sprite
+                if tiles.tile_type == 'spikes':
+                    print("dood")
+                else:
+                    if player.direction.x < 0:
+                        player.rect.left = sprite.rect.right
+                    elif player.direction.x > 0:
+                        player.rect.right = sprite.rect.left
 
     def verticale_movement_collisions(self):
         player = self.player.sprite
@@ -69,13 +77,17 @@ class Level:
 
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
-                if player.direction.y > 0:
-                    player.rect.bottom = sprite.rect.top
-                    player.direction.y = 0
-                elif player.direction.y < 0:
-                    player.rect.top = sprite.rect.bottom
-                    player.direction.y = 0
-                
+                tiles = self.tiles.sprite
+                if tiles.tile_type == 'spikes':
+                    print("dood")
+                else:
+                    if player.direction.y > 0:
+                        player.rect.bottom = sprite.rect.top
+                        player.direction.y = 0
+                    elif player.direction.y < 0:
+                        player.rect.top = sprite.rect.bottom
+                        player.direction.y = 0
+                    
     def run(self):
 
         # Level tiles
