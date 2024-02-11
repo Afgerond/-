@@ -21,6 +21,10 @@ big_cloud_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfoli
 small_cloud1_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 1.png").convert_alpha()
 small_cloud2_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 2.png").convert_alpha()
 small_cloud3_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 1.png").convert_alpha()
+big_cloud_image = pygame.transform.scale_by(big_cloud_image, 2)
+small_cloud1_image = pygame.transform.scale_by(small_cloud1_image, 2)
+small_cloud2_image = pygame.transform.scale_by(small_cloud2_image, 2)
+small_cloud3_image = pygame.transform.scale_by(small_cloud3_image, 2)
 
 class Cloud:
     def __init__(self, x, y, speed, size, image):
@@ -40,6 +44,7 @@ class Cloud:
         surface.blit(self.image, (int(self.x), int(self.y)))
 
 cloud_list = []
+
 for _ in range(5):
     x = random.randint(0, WIDTH)
     y = random.randint(0, HEIGHT // 2)
