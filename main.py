@@ -35,4 +35,4 @@ while True:
     level.run()
 
     pygame.display.update()
-    clock.tick(FPS)
+    clock.tick(FPS) 
