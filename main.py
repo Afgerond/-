@@ -46,7 +46,7 @@ cloud_list = []
 for _ in range(6):
     x = random.randint(0, WIDTH)
     y = random.randint(0, HEIGHT // 2)
-    speed = random.uniform(0.1, 0.5)
+    speed = random.uniform(0.1, 0.8)
     size = random.randint(30, 80)
     image = random.choice([big_cloud_image, small_cloud1_image, small_cloud2_image, small_cloud3_image])
     cloud = Cloud(x, y, speed, size, image)
