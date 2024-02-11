@@ -1,9 +1,9 @@
 level_map = [
 'BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB',
 '     B                                                             B',
-'     B                                GG            GG        GG   B',
-'     B           S               GG         GG                     B',
-'     B          GG     GG     S                                    B',
+'     B                                                             B',
+'     B           S               GG         GG                GG   B',
+'     B          GG     GG     S       GG            GG             B',
 '     B                       GG                               S  F B',
 '     B                                            S           GGGGGB',
 '     B P  SS                                    GGG   G   G   DDDDDB',
