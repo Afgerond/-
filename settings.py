@@ -1,5 +1,6 @@
 level_map = [
 'BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB',
+'     B                                                              ',
 '     B                                                             B',
 '     B                                                             B',
 '     B           S               GG         GG      GG    GG       B',
