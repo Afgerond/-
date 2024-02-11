@@ -15,17 +15,6 @@ level = Level(level_map, screen)
 
 pygame.display.set_caption('Pixel Platformer - Duo Game')
 
-clouds_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/"
-
-big_cloud_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Big Clouds.png").convert_alpha()
-small_cloud1_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 1.png").convert_alpha()
-small_cloud2_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 2.png").convert_alpha()
-small_cloud3_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 1.png").convert_alpha()
-big_cloud_image = pygame.transform.scale_by(big_cloud_image, 2)
-small_cloud1_image = pygame.transform.scale_by(small_cloud1_image, 2)
-small_cloud2_image = pygame.transform.scale_by(small_cloud2_image, 2)
-small_cloud3_image = pygame.transform.scale_by(small_cloud3_image, 2)
-
 class Cloud:
     def __init__(self, x, y, speed, size, image):
         self.x = x
