@@ -78,7 +78,8 @@ class Level:
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Tile) and sprite.tile_type == 'spikes':
-                    pass          
+                    pygame.quit()
+                    sys.exit()                
                 else:
                     if player.direction.y > 0:
                         player.rect.bottom = sprite.rect.top
