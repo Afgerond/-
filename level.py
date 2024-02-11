@@ -62,7 +62,9 @@ class Level:
 
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
-                if sprite.tile_type == 'spikes':
+                tile_type = sprite.tile_type
+
+                if tile_type == 'spikes':
                     print("Collision!")
                 else:
                     if player.direction.x < 0:
@@ -76,7 +78,9 @@ class Level:
 
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
-                if sprite.tile_type == 'spikes':
+                tile_type = sprite.tile_type
+
+                if tile_type == 'spikes':
                     print("Collision!")
                 else:
                     if player.direction.y > 0:
