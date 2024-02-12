@@ -39,11 +39,13 @@ class Coin(pygame.sprite.Sprite):
         self.image = self.coin_images[self.index]
         self.rect = self.image.get_rect(topleft=pos)
 
-    def update(self, x_shift):
+    def animation(self):
         if self.index >= len(self.coin_images):
             self.index = 0
         else:
             self.index += self.animation_speed
+        
+    def update(self, x_shift):
         self.rect.x += x_shift
             
 
