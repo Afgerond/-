@@ -39,10 +39,11 @@ class Coin(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(topleft=pos)
 
     def update(self):
-        current_time = pygame.time.get_ticks()
-        if current_time - self.last_update_time > self.animation_speed * 1000:
-            self.index = (self.index + 1) % len(self.coin_images)
-            self.last_update_time = current_time
+        if self.index >= len(self.coin_images):
+            self.index = 0
+        else:
+            self.index += self.animation_speed
+            
 
     def get_current_image(self):
         return self.coin_images[self.index]
