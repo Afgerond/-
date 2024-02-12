@@ -5,6 +5,7 @@ from level import Level
 from sprites import *
 from player import Player
 from health import *
+from coins import Coin
 
 pygame.init()
 
@@ -97,6 +98,7 @@ while run:
     screen.blit(coin, coin_rect)
     screen.blit(clock_icon, clock_rect)
     screen.blit(time, time_r)
+    
     level.run()
 
     pygame.display.update()

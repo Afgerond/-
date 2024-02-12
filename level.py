@@ -54,7 +54,6 @@ class Level:
                     coin_animation_speed = 0.15
                     coin = Coin(coin_images, coin_animation_speed)
                     self.coins.add(coin)
-                    
                 elif cell == 'P':
                     player = Player((x, y))
                     self.player.add(player)
