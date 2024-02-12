@@ -58,9 +58,6 @@ class Level:
                 elif cell == 'P':
                     player = Player((x, y))
                     self.player.add(player)
-    
-    def update_coins(self):
-        self.coins.update()
 
     def scroll_systeem(self):
         player = self.player.sprite
@@ -133,6 +130,9 @@ class Level:
 
         # Level tiles
         self.tiles.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
+        self.tiles.draw(self.display_surface)
+
+        self.coins.update(self.world_shift)
         self.tiles.draw(self.display_surface)
 
         # Player
