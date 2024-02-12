@@ -18,13 +18,14 @@ coin_silver_4 = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/
 class Coin(pygame.sprite.Sprite):
     def __init__(self): 
         super().__init__()
+        self.coin_images = []
 
     def load_image(self, coin_type, size):
         for i in range(1, 4):
             image = pygame.image.load(f"C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/{self.coin_type}/0{i}.png").convert_alpha()
             image = pygame.transform.scale(image, size)
             return image
-        image.append(self.coin_images)
+        self.coin_images.append(self.image)
 
     def create_coin(self, pos, size, coin_type, animation_speed):
         self.coin_type = coin_type
