@@ -88,6 +88,7 @@ while True:
     screen.blit(health, health_rect)
     screen.blit(coin_txt, coin_txt_r)
     screen.blit(coin, coin_rect)
+    screen.blit(time, time_r)
     level.run()
 
     pygame.display.update()
