@@ -21,35 +21,35 @@ class Level:
                 y = row_index * tile_size
 
                 if cell == 'G':
-                    tile = Tile(tile_size, 'grass')
+                    tile = Tile('grass')
                     tile.create_tile((x, y), tile_size, 'grass')
                     self.tiles.add(tile)
                 elif cell == 'D':
-                    tile = Tile(tile_size, 'dirt')
+                    tile = Tile('dirt')
                     tile.create_tile((x, y), tile_size, 'dirt')
                     self.tiles.add(tile)
                 elif cell == 'B':
-                    tile = Tile(tile_size, 'border')
+                    tile = Tile('border')
                     tile.create_tile((x,y), tile_size, 'border')
                     self.tiles.add(tile)
                 elif cell == 'K':
-                    tile = Tile(tile_size, 'killingborder')
+                    tile = Tile('killingborder')
                     tile.create_tile((x, y), tile_size, 'killingborder')
                     self.tiles.add(tile)
                 elif cell == 'W':
-                    tile = Tile(tile_size, 'wheel')
+                    tile = Tile('wheel')
                     tile.create_tile((x,y), tile_size, 'wheel')
                     self.tiles.add(tile)
                 elif cell == 'S':
-                    tile = Tile(tile_size, 'spikes')
+                    tile = Tile('spikes')
                     tile.create_tile((x,y), tile_size, 'spikes')
                     self.tiles.add(tile)
                 elif cell == 'F':
-                    tile = Tile(tile_size, 'flag')
+                    tile = Tile('flag')
                     tile.create_tile((x,y), tile_size * 2, 'flag')
                     self.tiles.add(tile)
                 elif cell == 'C':
-                    tile = Tile(tile_size, 'coin')
+                    tile = Tile('coin')
                     tile.create_tile((x,y), tile_size * 0.8, 'coin')
                     self.tiles.add(tile)
                 elif cell == 'P':

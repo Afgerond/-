@@ -1,14 +1,19 @@
 import pygame
 
 class Tile(pygame.sprite.Sprite):
-    def __init__(self, pos, size, tile_type):
+    def __init__(self, tile_type):
         super().__init__()
-        self.pos = pos
-        self.size = size
         self.tile_type = tile_type
+        
         self.image = None
         self.rect = None
 
+    def load_image(self, image_path, size):
+        image = pygame.image.load(image_path)
+        image = pygame.transform.scale(image, (size, size))
+        return image
+
+    def create_tile(self, pos, size, tile_type):
         if self.tile_type == 'grass':
             image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Grass.png"
         elif self.tile_type == 'dirt':
