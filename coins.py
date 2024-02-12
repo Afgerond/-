@@ -26,8 +26,7 @@ class Coin(pygame.sprite.Sprite):
         for i in range(1, 4):
             image = pygame.image.load(f"C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/{self.coin_type}/0{i}.png").convert_alpha()
             image = pygame.transform.scale(image, size)
-            return image
-        self.coin_images.append(self.image)
+            self.coin_images.append(self.image)
 
     def create_coin(self, pos, size, coin_type, animation_speed):
         self.coin_type = coin_type
