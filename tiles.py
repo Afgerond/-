@@ -22,7 +22,7 @@ class Tile(pygame.sprite.Sprite):
         elif tile_type == 'flag':
             image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/flag/1.png"
         elif tile_type == 'coin':
-            image_path = None
+            image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/01.png"
         else:
             raise ValueError("Ongeldig tegeltype")
 

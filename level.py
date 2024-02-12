@@ -69,12 +69,14 @@ class Level:
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Tile) and sprite.tile_type == 'spikes':
-                    self.tiles.remove(sprite)
                     health_bar.hp -= 1
                     self.collision_cooldown = 60
                 elif isinstance(sprite, Tile) and sprite.tile_type == 'flag':
                     print("Gewonnen")
                     health_bar.hp = health_bar.max_hp
+                elif isinstance(sprite, Tile) and sprite.tile_type == 'coin':
+                    self.tiles.remove(sprite)
+                    print("Coin opgeraapt!")
                 else:
                     if player.direction.x < 0:
                         player.rect.left = sprite.rect.right
