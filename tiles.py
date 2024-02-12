@@ -51,6 +51,4 @@ class Tile(pygame.sprite.Sprite):
                 self.index = (self.index + 1) % len(self.coin_images)
                 self.image = self.coin_images[self.index]
                 self.last_update_time = current_time
-
-coin_tile = Tile('coin')
-coin_tile.animate_coin()
+        self.animate_coin()
