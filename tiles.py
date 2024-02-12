@@ -32,7 +32,7 @@ class Tile(pygame.sprite.Sprite):
                 i += 0.15
                 if i >= len(image_paths):
                     i = 0
-                image_path = [int(image_paths)]
+                image_path = int(image_paths)
         else:
             raise ValueError("Ongeldig tegeltype")
 
