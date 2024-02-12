@@ -65,7 +65,7 @@ while True:
     coin_txt_r = coin_txt.get_rect(topleft = (90, coin_rect.y + 10))
 
     time = pygame.font.SysFont("behnschrift", 45).render(f"{round((pygame.time.get_ticks() / 1000), 1)}", "white", True)
-    time_r = time.get_rect(topleft = (90, 142))
+    time_r = time.get_rect(topleft = (90, 152))
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
