@@ -15,7 +15,7 @@ level = Level(level_map, screen)
 
 pygame.display.set_caption('Pixel Platformer - Duo Game')
 
-coin = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/01.png")
+coin = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/01.png")
 coin = pygame.transform.scale(coin, (45, 45))
 coin_rect = coin.get_rect(topleft = (33, 82))
 
