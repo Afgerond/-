@@ -1,7 +1,7 @@
 from os import walk
 import pygame
 from settings import WIDTH, HEIGHT
-from level import *
+from level import Level
 
 pygame.init()
 
