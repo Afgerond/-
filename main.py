@@ -70,12 +70,14 @@ while True:
 
     screen.fill("black")
     screen.blit(background, (0, 0))
-    screen.blit(health, health_rect)
 
     for cloud in cloud_list:
         cloud.draw(screen)
 
     health_bar.draw(screen)
+    screen.blit(health, health_rect)
+    screen.blit(coin_txt, coin_txt_r)
+    screen.blit(coin, coin_rect)
     level.run()
 
     pygame.display.update()
