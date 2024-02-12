@@ -27,8 +27,6 @@ class Tile(pygame.sprite.Sprite):
         elif tile_type == 'flag':
             image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/flag/1.png"
         elif tile_type == 'coin':
-            self.frame_index = 0
-            self.animation_speed = 10
             image_paths = ["C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/01.png", "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/02.png", "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/03.png", "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/04.png",]
             
         else:
@@ -40,11 +38,3 @@ class Tile(pygame.sprite.Sprite):
 
     def update(self, x_shift):
         self.rect.x += x_shift
-        if self.tile_type == 'coin':
-            self.frame_index = (self.frame_index + 1) % len(self.image_paths)
-
-    def draw(self, screen):
-         if self.tile_type == 'coin':
-            image_path = self.image_paths[self.frame_index]
-            coin_image = pygame.image.load(image_path)
-            screen.blit(coin_image, (self.x, self.y))
