@@ -42,7 +42,7 @@ class Level:
                     self.tiles.add(tile)
                 elif cell == 'F':
                     tile = Tile('flag')
-                    tile.create_tile((x,y), tile_size, 'flag')
+                    tile.create_tile((x,y), tile_size * 1.5, 'flag')
                     self.tiles.add(tile)
                 elif cell == 'C':
                     tile = Tile('coin')
