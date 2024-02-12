@@ -1,7 +1,9 @@
 import pygame
-from main import screen
+from settings import WIDTH, HEIGHT
 
 pygame.init()
+
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
 coin_gold_1 = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/01.png").convert_alpha()
 coin_gold_2 = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/02.png").convert_alpha()
