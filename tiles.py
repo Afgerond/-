@@ -19,13 +19,15 @@ class Tile(pygame.sprite.Sprite):
         elif tile_type == 'border':
             image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/transparant.png"
         elif tile_type == 'killingborder':
-            image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/transparant.png"            
+            image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/transparant.png"          
+        elif tile_type == 'wheel':
+            image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/wheel/Ship Helm Turn 01.png"
         elif tile_type == 'spikes':
             image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/spikes/Spikes.png"
         elif tile_type == 'flag':
             image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/flag/1.png"
         elif tile_type == 'coin':
-            image_path = random.choice(["C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/01.png", "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/silver/01.png"])
+            image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/01.png"        
         else:
             raise ValueError("Ongeldig tegeltype")
 
