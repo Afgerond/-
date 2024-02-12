@@ -14,6 +14,9 @@ clock = pygame.time.Clock()
 FPS = 60
 level = Level(level_map, screen)
 
+coins = Coin()
+proef = coins.create_coin((100, 100), (40, 40), 'gold', 0.15)
+
 pygame.display.set_caption('Pixel Platformer - Duo Game')
 
 coin = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/01.png")
@@ -98,6 +101,7 @@ while run:
     screen.blit(coin, coin_rect)
     screen.blit(clock_icon, clock_rect)
     screen.blit(time, time_r)
+    proef.draw(screen)
     
     level.run()
 
