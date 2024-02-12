@@ -19,9 +19,7 @@ coin = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platforme
 coin = pygame.transform.scale(coin, (40, 40))
 coin_rect = coin.get_rect(topleft = (36, 82))
 
-amount_coins = level.coins
-
-coin_txt = pygame.font.SysFont("arial", 40).render(f"{amount_coins}", "white", True)
+coin_txt = pygame.font.SysFont("arial", 40).render(f"{level.coins}", "white", True)
 coin_txt_r = coin_txt.get_rect(topleft = (90, 82))
 
 big_cloud_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Big Clouds.png").convert_alpha()
