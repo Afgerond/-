@@ -19,9 +19,6 @@ coin = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platforme
 coin = pygame.transform.scale(coin, (40, 40))
 coin_rect = coin.get_rect(topleft = (36, 82))
 
-coin_txt = pygame.font.SysFont("arial", 40).render(f"{level.coins}", "white", True)
-coin_txt_r = coin_txt.get_rect(topleft = (90, 82))
-
 big_cloud_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Big Clouds.png").convert_alpha()
 small_cloud1_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 1.png").convert_alpha()
 small_cloud2_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 2.png").convert_alpha()
@@ -60,6 +57,9 @@ for _ in range(4):
     cloud_list.append(cloud)
 
 while True:
+    coin_txt = pygame.font.SysFont("arial", 40).render(f"{level.coins}", "white", True)
+    coin_txt_r = coin_txt.get_rect(topleft = (90, 82))
+    print(level.coins)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
