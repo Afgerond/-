@@ -15,26 +15,25 @@ coin_silver_2 = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/
 coin_silver_3 = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/silver/03.png").convert_alpha()
 coin_silver_4 = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/silver/04.png").convert_alpha()
 
-
 class Coin(pygame.sprite.Sprite):
     def __init__(self): 
         super().__init__()
 
-    def create_coin(self, pos, coin_type, animation_speed):
+    def load_image(self, coin_type, size):
+        for i in range(1, 4):
+            image = pygame.image.load(f"C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/{self.coin_type}/0{i}.png").convert_alpha()
+            image = pygame.transform.scale(image, size)
+            return image
+        image.append(self.coin_images)
+
+    def create_coin(self, pos, size, coin_type, animation_speed):
         self.coin_type = coin_type
 
-        if self.coin_type == 'gold':
-            coin_images = [coin_gold_1, coin_gold_2, coin_gold_3, coin_gold_4]
-        elif self.coin_type == 'silver':
-            coin_images = [coin_silver_1, coin_silver_2, coin_silver_3, coin_silver_4]
-        else:
-            raise ValueError("Ongeldig type")
-        
-        self.coin_images = coin_images
         self.animation_speed = animation_speed
         self.index = 0
         self.last_update_time = 0
 
+        tile_image = self.load_image(self.coin_type, size)
         self.image = self.coin_images[self.index]
         self.rect = self.image.get_rect(topleft=pos)
 
