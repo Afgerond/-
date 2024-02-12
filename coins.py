@@ -18,6 +18,7 @@ coin_silver_4 = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/
 
 class Coin(pygame.sprite.Sprite):
     def __init__(self, coin_images, animation_speed):
+        super().__init__()
         self.coin_images = coin_images
         self.animation_speed = animation_speed
         self.index = 0
