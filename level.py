@@ -3,6 +3,7 @@ from tiles import *
 from settings import tile_size, WIDTH
 from player import Player
 from health import *
+from main import coin_gold_1, coin_gold_2, coin_gold_3, coin_gold_4, coin_images, Coin
 
 class Level:
     def __init__(self, level_data, surface):
