@@ -10,6 +10,7 @@ class Level:
         self.setup_level(level_data)
         self.world_shift = 0 # Snelheid waarmee de map een bepaalde kant op beweegt!
         self.collision_cooldown = 0
+        self.coins = 0
 
     def setup_level(self, layout):
         self.tiles = pygame.sprite.Group()
@@ -41,7 +42,7 @@ class Level:
                     self.tiles.add(tile)
                 elif cell == 'C':
                     tile = Tile('coin')
-                    tile.create_tile((x,y), tile_size, 'coin')
+                    tile.create_tile((x,y), tile_size * 0.5, 'coin')
                     self.tiles.add(tile)
                 elif cell == 'P':
                     player = Player((x, y))
@@ -76,7 +77,8 @@ class Level:
                     health_bar.hp = health_bar.max_hp
                 elif isinstance(sprite, Tile) and sprite.tile_type == 'coin':
                     self.tiles.remove(sprite)
-                    print("Coin opgeraapt!")
+                    self.coins += 1
+                    print(f"Coin opgeraapt! Je hebt nu {self.coins} coins")
                 else:
                     if player.direction.x < 0:
                         player.rect.left = sprite.rect.right
@@ -97,7 +99,8 @@ class Level:
                     health_bar.hp = health_bar.max_hp
                 elif isinstance(sprite, Tile) and sprite.tile_type == 'coin':
                     self.tiles.remove(sprite)
-                    print("Coin opgeraapt!")
+                    self.coins += 1
+                    print(f"Coin opgeraapt! Je hebt nu {self.coins} coins")
                 else:
                     if player.direction.y > 0:
                         player.rect.bottom = sprite.rect.top
