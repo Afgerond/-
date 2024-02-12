@@ -82,7 +82,11 @@ while True:
     for cloud in cloud_list:
         cloud.move()
 
+    for tile in level.tiles:
+        tile.update()
+
     screen.fill("black")
+    
     screen.blit(background, (0, 0))
 
     for cloud in cloud_list:
