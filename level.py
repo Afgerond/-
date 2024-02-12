@@ -36,6 +36,10 @@ class Level:
                     tile = Tile('killingborder')
                     tile.create_tile((x, y), tile_size, 'killingborder')
                     self.tiles.add(tile)
+                elif cell == 'W':
+                    tile = Tile('wheel')
+                    tile.create_tile((x,y), tile_size, 'wheel')
+                    self.tiles.add(tile)
                 elif cell == 'S':
                     tile = Tile('spikes')
                     tile.create_tile((x,y), tile_size, 'spikes')
