@@ -7,7 +7,7 @@ background = pygame.transform.scale(background, (WIDTH, HEIGHT))
 
 health = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/assets/heart.png")
 health = pygame.transform.scale(health, (40, 40))
-health_rect = health.get_rect(midleft = (36, 42))
+health_rect = health.get_rect(topleft = (36, 42))
 
 def import_folder(path):
     surface_list = []
