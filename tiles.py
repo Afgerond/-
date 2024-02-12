@@ -25,7 +25,7 @@ class Tile(pygame.sprite.Sprite):
         elif tile_type == 'flag':
             image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/flag/1.png"
         elif tile_type == 'coin':
-            image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/01.png"
+            image_path = random.choice(["C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/01.png", "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/silver/01.png"])
         else:
             raise ValueError("Ongeldig tegeltype")
 
@@ -33,22 +33,5 @@ class Tile(pygame.sprite.Sprite):
         self.image = tile_image
         self.rect = self.image.get_rect(topleft=pos)
 
-    def animate_coin(self):
-        if self.tile_type == 'coin':
-            self.coin_images = []
-            for i in range(1, 4):
-                image_path = f"C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/0{i}.png"
-                self.coin_images.append(self.load_image(image_path, self.rect.width))
-            self.index = 0
-            self.animation_speed = 0.15
-            self.last_update_time = 0
-
-            self.index += 0.1
-            if self.index >= len(self.coin_images):
-                self.index = 0
-
-            self.image = self.coin_images[int(self.index)]
-
     def update(self, x_shift):
         self.rect.x += x_shift
-        self.animate_coin()
