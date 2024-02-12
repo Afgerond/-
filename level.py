@@ -32,6 +32,10 @@ class Level:
                     tile = Tile('border')
                     tile.create_tile((x,y), tile_size, 'border')
                     self.tiles.add(tile)
+                elif cell == 'K':
+                    tile = Tile('killingborder')
+                    tile.create_tile((x, y), tile_size, 'killingborder')
+                    self.tiles.add(tile)
                 elif cell == 'S':
                     tile = Tile('spikes')
                     tile.create_tile((x,y), tile_size, 'spikes')
@@ -79,6 +83,9 @@ class Level:
                     self.tiles.remove(sprite)
                     self.coins += 1
                     print(f"Coin opgeraapt! Je hebt nu {self.coins} coins")
+                elif isinstance(sprite, Tile) and sprite.tile_type == 'killingborder':
+                    pygame.quit()
+                    sys.exit()
                 else:
                     if player.direction.x < 0:
                         player.rect.left = sprite.rect.right
@@ -101,6 +108,9 @@ class Level:
                     self.tiles.remove(sprite)
                     self.coins += 1
                     print(f"Coin opgeraapt! Je hebt nu {self.coins} coins")
+                elif isinstance(sprite, Tile) and sprite.tile_type == 'killingborder':
+                    pygame.quit()
+                    sys.exit()
                 else:
                     if player.direction.y > 0:
                         player.rect.bottom = sprite.rect.top

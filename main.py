@@ -52,8 +52,6 @@ for _ in range(4):
     cloud = Cloud(x, y, speed, size, image)
     cloud_list.append(cloud)
 
-
-
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
