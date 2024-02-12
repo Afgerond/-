@@ -20,6 +20,8 @@ coin = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platforme
 coin = pygame.transform.scale(coin, (45, 45))
 coin_rect = coin.get_rect(topleft = (33, 82))
 
+coins = pygame.sprite.Group()
+
 clock_icon = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/assets/clock.png")
 clock_icon = pygame.transform.scale(clock_icon, (40, 40))
 clock_rect = clock_icon.get_rect(topleft = (36, 142))
@@ -98,6 +100,7 @@ while run:
     screen.blit(coin, coin_rect)
     screen.blit(clock_icon, clock_rect)
     screen.blit(time, time_r)
+    coins.draw(screen)
     
     level.run()
 

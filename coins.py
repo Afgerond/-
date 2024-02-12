@@ -33,7 +33,4 @@ class Coin(pygame.sprite.Sprite):
     def get_current_image(self):
         return self.coin_images[self.index]
     
-    def blit_coins(coins, screen):
-        coins.draw(screen)
-    
 coin_images = [coin_gold_1, coin_gold_2, coin_gold_3, coin_gold_4]
