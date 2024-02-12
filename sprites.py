@@ -14,7 +14,7 @@ coin = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platforme
 coin = pygame.transform.scale(coin, (40, 40))
 coin_rect = coin.get_rect(topleft = (36, 82))
 
-coin_txt = pygame.font.SysFont("bahnschrift", 40).render(f"{Level.coins}", "white", True)
+coin_txt = pygame.font.SysFont("arial", 40).render(f"{Level.coins}", "white", True)
 coin_txt_r = coin_txt.get_rect(topleft = (90, 82))
 
 def import_folder(path):
