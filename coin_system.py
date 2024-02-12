@@ -1,9 +1,13 @@
-from settings import *
-from player import Player
+import pygame
 
-class Coins:
-    def __init__(self):
-        self.coin = None
-    
+class Coin(pygame.sprite.Sprite):
+    def __init__(self, x, y):
+        super().__init__()
+        self.image = pygame.Surface((32, 32))
+        self.image.fill((255, 255, 0))
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
     def update(self):
         pass

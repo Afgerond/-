@@ -39,6 +39,10 @@ class Level:
                     tile = Tile('flag')
                     tile.create_tile((x,y), tile_size, 'flag')
                     self.tiles.add(tile)
+                elif cell == 'C':
+                    tile = Tile('coin')
+                    tile.create_tile((x,y), tile_size, 'coin')
+                    self.tiles.add(tile)
                 elif cell == 'P':
                     player = Player((x, y))
                     self.player.add(player)
@@ -65,6 +69,7 @@ class Level:
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Tile) and sprite.tile_type == 'spikes':
+                    self.tiles.remove(sprite)
                     health_bar.hp -= 1
                     self.collision_cooldown = 60
                 elif isinstance(sprite, Tile) and sprite.tile_type == 'flag':
