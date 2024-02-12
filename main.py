@@ -40,7 +40,7 @@ class Cloud:
 
     def draw(self, surface):
         surface.blit(self.image, (int(self.x), int(self.y)))
-
+        
 cloud_list = []
 
 for _ in range(6):

@@ -67,6 +67,9 @@ class Level:
                 if isinstance(sprite, Tile) and sprite.tile_type == 'spikes':
                     health_bar.hp -= 1
                     self.collision_cooldown = 60
+                elif isinstance(sprite, Tile) and sprite.tile_type == 'flag':
+                    print("Gewonnen")
+                    health_bar.hp = health_bar.max_hp
                 else:
                     if player.direction.x < 0:
                         player.rect.left = sprite.rect.right
@@ -82,6 +85,9 @@ class Level:
                 if isinstance(sprite, Tile) and sprite.tile_type == 'spikes':
                     health_bar.hp -= 1
                     self.collision_cooldown = 60
+                elif isinstance(sprite, Tile) and sprite.tile_type == 'flag':
+                    print("Gewonnen")
+                    health_bar.hp = health_bar.max_hp
                 else:
                     if player.direction.y > 0:
                         player.rect.bottom = sprite.rect.top
