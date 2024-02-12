@@ -22,7 +22,7 @@ class Coin(pygame.sprite.Sprite):
 
     def create_coin(self, pos, size, coin_type, animation_speed):
         self.coin_type = coin_type
-        
+
         if self.coin_type == 'gold':
             coin_images = [coin_gold_1, coin_gold_2, coin_gold_3, coin_gold_4]
         elif self.coin_type == 'silver':
@@ -34,6 +34,10 @@ class Coin(pygame.sprite.Sprite):
         self.animation_speed = animation_speed
         self.index = 0
         self.last_update_time = 0
+
+        tile_size = pygame.transform.scale(coin_images, size)
+        self.image = self.coin_images[self.index]
+        self.rect = self.image.get_rect(topleft=pos)
 
     def update(self):
         current_time = pygame.time.get_ticks()
