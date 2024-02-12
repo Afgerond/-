@@ -17,7 +17,7 @@ pygame.display.set_caption('Pixel Platformer - Duo Game')
 
 coin = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/01.png")
 coin = pygame.transform.scale(coin, (45, 45))
-coin_rect = coin.get_rect(topleft = (36, 82))
+coin_rect = coin.get_rect(topleft = (33, 82))
 
 big_cloud_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Big Clouds.png").convert_alpha()
 small_cloud1_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 1.png").convert_alpha()
