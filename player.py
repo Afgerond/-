@@ -1,6 +1,7 @@
 import pygame
 from sprites import import_folder
 
+
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos):
         # Initialisatie
