@@ -35,8 +35,9 @@ class Coin(pygame.sprite.Sprite):
         self.index = 0
         self.last_update_time = 0
 
-        for image in range(len(coin_images)):
-            size = pygame.transform.scale(image, size)
+        for i in range(len(coin_images)):
+            if self.coin_type == 'gold':
+                tile_size = pygame.transform.scale(coin_gold_{i}, size)
         self.image = self.coin_images[self.index]
         self.rect = self.image.get_rect(topleft=pos)
 
