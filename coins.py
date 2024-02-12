@@ -17,8 +17,19 @@ coin_silver_4 = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/
 
 
 class Coin(pygame.sprite.Sprite):
-    def __init__(self, coin_images, animation_speed):
+    def __init__(self): 
         super().__init__()
+
+    def create_coin(self, pos, size, coin_type, animation_speed):
+        self.coin_type = coin_type
+        
+        if self.coin_type == 'gold':
+            coin_images = [coin_gold_1, coin_gold_2, coin_gold_3, coin_gold_4]
+        elif self.coin_type == 'silver':
+            coin_images = [coin_silver_1, coin_silver_2, coin_silver_3, coin_silver_4]
+        else:
+            raise ValueError("Ongeldig type")
+        
         self.coin_images = coin_images
         self.animation_speed = animation_speed
         self.index = 0
@@ -33,4 +44,3 @@ class Coin(pygame.sprite.Sprite):
     def get_current_image(self):
         return self.coin_images[self.index]
     
-coin_images = [coin_gold_1, coin_gold_2, coin_gold_3, coin_gold_4]
