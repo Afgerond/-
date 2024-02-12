@@ -1,7 +1,7 @@
 import pygame, sys, os, random
 from settings import *
 from tiles import Tile
-from level import *
+from level import Level
 from sprites import *
 from player import Player
 from health import *
