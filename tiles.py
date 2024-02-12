@@ -49,4 +49,5 @@ class Tile(pygame.sprite.Sprite):
                 self.index = 0
             else:
                 self.index += self.animation_speed
+                self.index = int(self.index)
             self.image = self.coin_images[int(self.index)]
