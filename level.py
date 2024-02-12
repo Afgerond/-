@@ -8,7 +8,7 @@ class Level:
     def __init__(self, level_data, surface):
         self.display_surface = surface
         self.setup_level(level_data)
-        self.world_shift = 0 # Snelheid waarmee de map een bepaalde kant op beweegt!
+        self.world_shift = 0
         self.collision_cooldown = 0
         self.coins = 0
 
