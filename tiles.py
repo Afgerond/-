@@ -27,12 +27,21 @@ class Tile(pygame.sprite.Sprite):
         elif tile_type == 'flag':
             image_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/flag/1.png"
         elif tile_type == 'coin':
-            image_path = random.choice(["C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/01.png", "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/silver/01.png"])
+            image_paths = ["C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/01.png",
+                        "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/02.png",
+                        "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/03.png",
+                        "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/04.png"]
+            animation_frames = [self.load_image(image_path, size) for image_path in image_paths]
+            self.animation_frames = animation_frames
+            self.frame_index = 0
+            self.image = self.animation_frames[self.frame_index]
         else:
             raise ValueError("Ongeldig tegeltype")
 
-        tile_image = self.load_image(image_path, size)
-        self.image = tile_image
+        if tile_type != 'coin':
+            tile_image = self.load_image(image_path, size)
+            self.image = tile_image
+
         self.rect = self.image.get_rect(topleft=pos)
 
     def update(self, x_shift):
