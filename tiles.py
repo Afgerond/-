@@ -43,10 +43,11 @@ class Tile(pygame.sprite.Sprite):
             self.animation_speed = 0.15
             self.last_update_time = 0
 
+            self.index += 1
             if self.index >= len(self.coin_images):
                 self.index = 0
-            else:
-                self.index += self.animation_speed
+
+            self.image = self.coin_images[self.index]
 
     def update(self, x_shift):
         self.rect.x += x_shift
