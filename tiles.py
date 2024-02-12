@@ -5,6 +5,7 @@ class Tile(pygame.sprite.Sprite):
         super().__init__()
         self.tile_type = tile_type
         
+        self.size = None
         self.image = None
         self.rect = None
 
