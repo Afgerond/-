@@ -1,8 +1,7 @@
 import pygame, sys
-from tiles import Tile
+from tiles import *
 from settings import tile_size, WIDTH
 from player import Player
-from coins import *
 from health import *
 
 class Level:
