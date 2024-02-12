@@ -46,7 +46,7 @@ class Level:
                     self.tiles.add(tile)
                 elif cell == 'C':
                     tile = Tile('coin')
-                    tile.create_tile((x,y), tile_size * 0.8, 'coin')
+                    tile.animate_coin()
                     self.tiles.add(tile)
                 elif cell == 'P':
                     player = Player((x, y))
