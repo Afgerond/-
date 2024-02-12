@@ -58,7 +58,7 @@ for _ in range(4):
 
 while True:
     coin_txt = pygame.font.SysFont("behnschrift", 40).render(f"{level.coins}", "white", True)
-    coin_txt_r = coin_txt.get_rect(topleft = (90, coin_rect.y))
+    coin_txt_r = coin_txt.get_rect(topleft = (90, coin_rect.y + 10))
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
