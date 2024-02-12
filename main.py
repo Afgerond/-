@@ -11,6 +11,7 @@ pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 clock = pygame.time.Clock()
 FPS = 60
+level_map = [...]
 level = Level(level_map, screen)
 
 pygame.display.set_caption('Pixel Platformer - Duo Game')
