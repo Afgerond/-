@@ -19,6 +19,10 @@ coin = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platforme
 coin = pygame.transform.scale(coin, (45, 45))
 coin_rect = coin.get_rect(topleft = (33, 82))
 
+clock_icon = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/assets/clock.png")
+clock_icon = pygame.transform.scale(clock_icon, (40, 40))
+clock_rect = clock_icon.get_rect(topleft = (36, 142))
+
 big_cloud_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Big Clouds.png").convert_alpha()
 small_cloud1_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 1.png").convert_alpha()
 small_cloud2_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 2.png").convert_alpha()
@@ -88,6 +92,7 @@ while True:
     screen.blit(health, health_rect)
     screen.blit(coin_txt, coin_txt_r)
     screen.blit(coin, coin_rect)
+    screen.blit(clock_icon, clock_rect)
     screen.blit(time, time_r)
     level.run()
 
