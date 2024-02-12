@@ -5,6 +5,9 @@ from settings import WIDTH, HEIGHT
 background = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/assets/background.png")
 background = pygame.transform.scale(background, (WIDTH, HEIGHT))
 
+health = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/assets/heart.png")
+print(health.get_height())
+
 def import_folder(path):
     surface_list = []
 
