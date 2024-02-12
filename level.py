@@ -95,6 +95,9 @@ class Level:
                 elif isinstance(sprite, Tile) and sprite.tile_type == 'flag':
                     print("Gewonnen")
                     health_bar.hp = health_bar.max_hp
+                elif isinstance(sprite, Tile) and sprite.tile_type == 'coin':
+                    self.tiles.remove(sprite)
+                    print("Coin opgeraapt!")
                 else:
                     if player.direction.y > 0:
                         player.rect.bottom = sprite.rect.top
