@@ -60,7 +60,8 @@ for _ in range(4):
     cloud = Cloud(x, y, speed, size, image)
     cloud_list.append(cloud)
 
-while True:
+run = True
+while run:
     coin_txt = pygame.font.SysFont("behnschrift", 45).render(f"{level.coins}", "white", True)
     coin_txt_r = coin_txt.get_rect(topleft = (90, coin_rect.y + 10))
 
@@ -76,8 +77,11 @@ while True:
                 pygame.quit()
                 sys.exit()
     if health_bar.hp <= 0:
-        pygame.quit()
-        sys.exit()
+        run = False
+        for event in pygame.event.get():
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE:
+                    run = True
 
     for cloud in cloud_list:
         cloud.move()
