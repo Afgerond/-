@@ -58,7 +58,7 @@ class Level:
                     coin = Coin((x, y))
                     self.coin.add(coin)
                 elif cell == 'W':
-                    wheel = Wheel('wheel')
+                    wheel = Wheel((x, y))
                     self.wheel.add(wheel)
 
     def scroll_systeem(self):
