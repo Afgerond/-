@@ -1,5 +1,6 @@
 import pygame
 from sprites import import_folder
+import time
 
 
 class Player(pygame.sprite.Sprite):
@@ -18,6 +19,8 @@ class Player(pygame.sprite.Sprite):
         self.speed = 8
         self.gravity = 0.8
         self.jump_speed = -16
+        self.jump_cooldown = 3
+        self.jump_count = 0
 
         # Status
         self.status = 'idle'
@@ -61,8 +64,12 @@ class Player(pygame.sprite.Sprite):
         else:
             self.direction.x = 0
 
-        if self.keys[pygame.K_SPACE] or self.keys[pygame.K_UP] or self.keys[pygame.K_w]:
-            self.jump()
+        if (self.keys[pygame.K_SPACE] or self.keys[pygame.K_UP] or self.keys[pygame.K_w]) and self.jump_count < 2:
+            current_time = time.time()
+            if current_time - last_jump_time > self.jump_cooldown:
+                self.jump()
+                self.jump_count += 1
+                last_jump_time = current_time
 
     def get_status(self):
         if self.direction.y < 0:
