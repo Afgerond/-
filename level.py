@@ -102,6 +102,7 @@ class Level:
                 if isinstance(sprite, Coin):
                     self.coins += 1
                     print(f"Coin opgepakt. Je hebt nu {self.coins} coins!")
+                    self.coin.remove(sprite)
                 else:
                     if player.direction.y > 0:
                         player.rect.bottom = sprite.rect.top
@@ -138,6 +139,7 @@ class Level:
                 if isinstance(sprite, Coin):
                     self.coins += 1
                     print(f"Coin opgepakt. Je hebt nu {self.coins} coins!")
+                    self.coin.remove(sprite)
                 else:
                     if player.direction.y > 0:
                         player.rect.bottom = sprite.rect.top
