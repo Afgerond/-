@@ -126,6 +126,10 @@ class Level:
         self.tiles.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
         self.tiles.draw(self.display_surface)
 
+        # Coin
+        self.coin.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
+        self.coin.draw(self.display_surface)
+
         # Player
         self.player.update()
 
@@ -133,10 +137,6 @@ class Level:
         self.horizontale_movement_collisions()
         self.verticale_movement_collisions()
         self.player.draw(self.display_surface)
-
-        # Coin
-        self.coin.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
-        self.coin.draw(self.display_surface)
 
         if self.collision_cooldown > 0:
             self.collision_cooldown -= 1
