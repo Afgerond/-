@@ -47,7 +47,7 @@ class Cloud:
 
         if self.x > WIDTH:
             self.x = -self.size
-            
+
     def draw(self, surface):
         surface.blit(self.image, (int(self.x), int(self.y)))
         
@@ -97,7 +97,7 @@ while run:
     screen.blit(coin, coin_rect)
     screen.blit(clock_icon, clock_rect)
     screen.blit(time, time_r)
-    
+     
     level.run()
 
     pygame.display.update()
