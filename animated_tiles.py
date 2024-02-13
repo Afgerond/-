@@ -107,3 +107,38 @@ class Flag(pygame.sprite.Sprite):
     def update(self, x_shift):
         self.animatie()
         self.rect.x += x_shift
+
+class Water(pygame.sprite.Sprite):
+    def __init__(self, pos):
+        super().__init__()
+        self.imports()
+        self.index = 0
+        self.animation_speed = 0.2
+
+        self.image = self.animations['water'][self.index]
+        self.rect = self.image.get_rect(topleft = pos)
+
+        self.status = 'water'
+
+    def imports(self):
+        character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/water'
+        self.animations = {'water': []}
+
+        for animation in self.animations.keys():
+            full_path = character_path
+            self.animations[animation] = import_coins(full_path)
+
+    def animatie(self):
+        animation = self.animations['water']
+
+        self.index += self.animation_speed
+
+        if self.index >= len(animation):
+            self.index = 0
+
+        image = animation[int(self.index)]
+        self.image = image
+
+    def update(self, x_shift):
+        self.animatie()
+        self.rect.x += x_shift
