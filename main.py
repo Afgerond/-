@@ -99,6 +99,8 @@ while run:
     screen.blit(time, time_r)
     
     level.run()
+    level.coins_group.draw(screen)
+    level.coins_group.update(level.shift_amount)
 
     pygame.display.update()
     clock.tick(FPS)
