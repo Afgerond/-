@@ -146,9 +146,6 @@ class Level:
         self.tiles.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
         self.tiles.draw(self.display_surface)
 
-        #self.coins.update(self.world_shift)
-        self.tiles.draw(self.display_surface)
-
         # Coin
         self.coin.update(self.world_shift)
         self.coin.draw(self.display_surface)
