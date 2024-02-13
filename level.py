@@ -93,17 +93,17 @@ class Level:
                         player.rect.left = sprite.rect.right
                     elif player.direction.x > 0:
                         player.rect.right = sprite.rect.left
-        for sprite in self.coins.sprites():
-            if sprite.rect.colliderect(player.rect):
-                if isinstance(sprite, Tile) and sprite.tile_type == 'coin':
-                    self.coins.remove(sprite)
-                    self.coins += 1
-                    print(f"Coin opgeraapt! Je hebt nu {self.coins} coins")
-                else:
-                    if player.direction.x < 0:
-                        player.rect.left = sprite.rect.right
-                    elif player.direction.x > 0:
-                        player.rect.right = sprite.rect.left
+        #for sprite in self.coins.sprites():
+            #if sprite.rect.colliderect(player.rect):
+                #if isinstance(sprite, Tile) and sprite.tile_type == 'coin':
+                    #self.coins.remove(sprite)
+                    #self.coins += 1
+                    #print(f"Coin opgeraapt! Je hebt nu {self.coins} coins")
+                #else:
+                    #if player.direction.x < 0:
+                        #player.rect.left = sprite.rect.right
+                    #elif player.direction.x > 0:
+                        #player.rect.right = sprite.rect.left
 
     def verticale_movement_collisions(self):
         player = self.player.sprite
