@@ -16,7 +16,7 @@ class Coin(pygame.sprite.Sprite):
 
     def imports(self):
         character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/'
-        self.animations = {'gold': [], 'silver': []}
+        self.animations = {'gold': []}
 
         for animation in self.animations.keys():
             full_path = character_path + animation
