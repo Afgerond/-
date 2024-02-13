@@ -52,7 +52,7 @@ class Level:
                     self.tiles.add(tile)
                 elif cell == 'C':
                     coin = Coin()
-                    coin.create_coin((x, y), (64, 64), gold, 0.15)
+                    coin.create_coin((x, y), (64, 64), 'gold', 0.15)
                     self.coins.add(coin)
                 elif cell == 'P':
                     player = Player((x, y))

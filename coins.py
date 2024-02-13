@@ -49,5 +49,6 @@ class Coin(pygame.sprite.Sprite):
         self.rect.x += x_shift         
 
     def get_current_image(self):
+        print(self.coin_images)
         return self.coin_images[self.index]
     
