@@ -30,8 +30,6 @@ class Coin(pygame.sprite.Sprite):
         if self.index >= len(animation):
             self.index = 0
 
-        print(len(animation), self.index)
-
         image = animation[int(self.index)]
         self.image = image
 
