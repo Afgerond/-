@@ -57,6 +57,14 @@ class Level:
                     tile = Tile('coin')
                     tile.create_tile((x, y), tile_size, 'coin')
                     self.tiles.add(tile)
+                elif cell == 'H':
+                    tile = Tile('chest')
+                    tile.create_tile((x, y), tile_size, 'chest')
+                    self.tiles.add(tile)
+                elif cell == 'V':
+                    tile = Tile('barrel')
+                    tile.create_tile((x, y), tile_size, 'barrel')
+                    self.tiles.add(tile)
                 elif cell == 'P':
                     player = Player((x, y))
                     self.player.add(player)

@@ -22,9 +22,9 @@ class Coin(pygame.sprite.Sprite):
         super().__init__()
         self.coin_images = coin_images
 
-    def load_image(self, coin_type, size):
+    def load_image(self, size):
         for i in range(1, 5):
-            image = pygame.image.load(f"C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/{coin_type}/0{i}.png").convert_alpha()
+            image = pygame.image.load(f"C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/0{i}.png").convert_alpha()
             image = pygame.transform.scale(image, size)
             self.coin_images.append(image)
 
@@ -35,7 +35,7 @@ class Coin(pygame.sprite.Sprite):
         self.index = 0
         self.last_update_time = 0
 
-        tile_image = self.load_image(self.coin_type, size)
+        tile_image = self.load_image(size)
         self.image = self.coin_images[self.index]
         self.rect = self.image.get_rect(topleft=pos)
 
