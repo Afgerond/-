@@ -10,7 +10,7 @@ class Coin(pygame.sprite.Sprite):
         self.index = 0
         self.animation_speed = 0.05
 
-        self.image = self.animations['gold'][self.index]
+        self.image = self.animations[self.status][self.index]
         self.rect = self.image.get_rect(topleft = pos)
 
         self.status = random.choice(['gold', 'silver'])
@@ -24,7 +24,7 @@ class Coin(pygame.sprite.Sprite):
             self.animations[animation] = import_coins(full_path)
 
     def animatie(self):
-        animation = self.animations['gold']
+        animation = self.animations[self.status]
 
         self.index += self.animation_speed
 
