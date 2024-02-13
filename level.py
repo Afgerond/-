@@ -2,6 +2,7 @@ import pygame, sys
 from tiles import *
 from settings import tile_size, WIDTH
 from player import Player
+from player2 import Player2
 from health import *
 #from coins import Coin
 
@@ -17,6 +18,7 @@ class Level:
         self.tiles = pygame.sprite.Group()
         self.coins = pygame.sprite.Group()
         self.player = pygame.sprite.GroupSingle()
+        self.player2 = pygame.sprite.GroupSingle()
         for row_index, row in enumerate(layout):
             for col_index, cell in enumerate(row):
                 x = col_index * tile_size
@@ -61,9 +63,12 @@ class Level:
                     tile = Tile('barrel')
                     tile.create_tile((x, y), tile_size, 'barrel')
                     self.tiles.add(tile)
-                elif cell == 'P':
+                elif cell == '1':
                     player = Player((x, y))
                     self.player.add(player)
+                elif cell == '2':
+                    player2 = Player2((x, y))
+                    self.player2.add(player2)
 
     def scroll_systeem(self):
         player = self.player.sprite
