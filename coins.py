@@ -46,8 +46,7 @@ class Coin(pygame.sprite.Sprite):
             self.index += self.animation_speed
         
     def update(self, x_shift):
-        self.rect.x += x_shift
-            
+        self.rect.x += x_shift         
 
     def get_current_image(self):
         return self.coin_images[self.index]

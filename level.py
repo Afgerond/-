@@ -51,9 +51,8 @@ class Level:
                     tile.create_tile((x,y), tile_size * 2, 'flag')
                     self.tiles.add(tile)
                 elif cell == 'C':
-                    coin_animation_speed = 0.15
                     coin = Coin()
-                    coin.create_coin((x, y), (64, 64), 'gold', 0.15)
+                    coin.create_coin((x, y), (64, 64), gold, 0.15)
                     self.coins.add(coin)
                 elif cell == 'P':
                     player = Player((x, y))
