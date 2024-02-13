@@ -49,8 +49,6 @@ class Player(pygame.sprite.Sprite):
             flipped_image = pygame.transform.flip(image, True, False)
             self.image = flipped_image
 
-        print(self.animations[self.status])
-
     def movement(self):
         self.keys = pygame.key.get_pressed()
 
