@@ -135,8 +135,8 @@ class Level:
         self.player.draw(self.display_surface)
 
         # Coin
-        self.coin.draw(self.display_surface)
         self.coin.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
+        self.coin.draw(self.display_surface)
 
         if self.collision_cooldown > 0:
             self.collision_cooldown -= 1
