@@ -3,7 +3,7 @@ from tiles import *
 from settings import tile_size, WIDTH
 from player import Player
 from health import *
-from animated_tiles import Coin, Wheel, Flag, Water
+from animated_tiles import Coin, Wheel, Flag
 
 class Level:
     def __init__(self, level_data, surface):
@@ -18,7 +18,6 @@ class Level:
         self.coin = pygame.sprite.Group()
         self.wheel = pygame.sprite.Group()
         self.flag = pygame.sprite.Group()
-        self.water = pygame.sprite.Group()
         self.player = pygame.sprite.GroupSingle()
         for row_index, row in enumerate(layout):
             for col_index, cell in enumerate(row):
@@ -61,9 +60,6 @@ class Level:
                 elif cell == 'F':
                     flag = Flag((x, y))
                     self.flag.add(flag)
-                elif cell == 'Y':
-                    water = Water((x, y))
-                    self.water.add(water)
 
     def scroll_systeem(self):
         player = self.player.sprite
@@ -169,10 +165,6 @@ class Level:
         # Flag
         self.flag.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
         self.flag.draw(self.display_surface)
-
-        # Water
-        self.water.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
-        self.water.draw(self.display_surface)
 
         # Player
         self.player.update()
