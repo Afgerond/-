@@ -159,10 +159,13 @@ class Level:
 
         # Player
         self.player.update()
+        self.player2.update()
+
         self.scroll_systeem()
         self.horizontale_movement_collisions()
         self.verticale_movement_collisions()
         self.player.draw(self.display_surface)
+        self.player2.draw(self.display_surface)
 
         if self.collision_cooldown > 0:
             self.collision_cooldown -= 1
