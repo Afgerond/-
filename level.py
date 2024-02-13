@@ -79,6 +79,7 @@ class Level:
     def horizontale_movement_collisions(self):
         player = self.player.sprite
         player.rect.x += player.direction.x * player.speed
+        coin = self.coin.sprites
 
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
@@ -96,10 +97,23 @@ class Level:
                         player.rect.left = sprite.rect.right
                     elif player.direction.x > 0:
                         player.rect.right = sprite.rect.left
+        for sprite in self.coin.sprites():
+            if sprite.rect.colliderect(player.rect):
+                if isinstance(sprite, Coin):
+                    self.coins += 1
+                    print(f"Coin opgepakt. Je hebt nu {self.coins} coins!")
+                else:
+                    if player.direction.y > 0:
+                        player.rect.bottom = sprite.rect.top
+                        player.direction.y = 0
+                    elif player.direction.y < 0:
+                        player.rect.top = sprite.rect.bottom
+                        player.direction.y = 0
 
     def verticale_movement_collisions(self):
         player = self.player.sprite
         player.apply_gravity()
+        coin = self.coin.sprites
 
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
@@ -112,6 +126,18 @@ class Level:
                 elif isinstance(sprite, Tile) and sprite.tile_type == 'killingborder':
                     pygame.quit()
                     sys.exit()
+                else:
+                    if player.direction.y > 0:
+                        player.rect.bottom = sprite.rect.top
+                        player.direction.y = 0
+                    elif player.direction.y < 0:
+                        player.rect.top = sprite.rect.bottom
+                        player.direction.y = 0
+        for sprite in self.coin.sprites():
+            if sprite.rect.colliderect(player.rect):
+                if isinstance(sprite, Coin):
+                    self.coins += 1
+                    print(f"Coin opgepakt. Je hebt nu {self.coins} coins!")
                 else:
                     if player.direction.y > 0:
                         player.rect.bottom = sprite.rect.top
