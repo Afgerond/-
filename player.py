@@ -20,7 +20,7 @@ class Player(pygame.sprite.Sprite):
         self.gravity = 0.8
         self.jump_speed = -16
         self.last_jump_time = 0
-        self.jump_cooldown = 3
+        self.jump_cooldown = 1.5
         self.jump_count = 0
 
         # Status
