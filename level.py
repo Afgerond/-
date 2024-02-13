@@ -4,6 +4,7 @@ from settings import tile_size, WIDTH
 from player import Player
 from health import *
 #from coins import Coin
+from coin import Coin
 
 class Level:
     def __init__(self, level_data, surface):
@@ -15,7 +16,7 @@ class Level:
 
     def setup_level(self, layout):
         self.tiles = pygame.sprite.Group()
-        self.coins = pygame.sprite.Group()
+        self.coin = pygame.sprite.Group()
         self.player = pygame.sprite.GroupSingle()
         self.player2 = pygame.sprite.GroupSingle()
         for row_index, row in enumerate(layout):
@@ -52,12 +53,8 @@ class Level:
                     tile.create_tile((x,y), tile_size * 2, 'flag')
                     self.tiles.add(tile)
                 elif cell == 'C':
-                    #coin = Coin()
-                    #coin.create_coin((x, y), (64, 64), 'gold', 0.15)
-                    #self.coins.add(coin)
-                    tile = Tile('coin')
-                    tile.create_tile((x, y), tile_size, 'coin')
-                    self.tiles.add(tile)
+                    coin = Coin()
+                    self.coin.add(coin)
                 elif cell == 'V':
                     tile = Tile('barrel')
                     tile.create_tile((x, y), tile_size, 'barrel')
@@ -152,6 +149,10 @@ class Level:
 
         #self.coins.update(self.world_shift)
         self.tiles.draw(self.display_surface)
+
+        # Coin
+        self.coin.update()
+        self.coin.draw(self.display_surface)
 
         # Player
         self.player.update()
