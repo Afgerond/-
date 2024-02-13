@@ -1,5 +1,5 @@
 import pygame
-from sprites import import_folder, import_coins
+from sprites import import_folder, import_coins, import_wheel
 import random
 
 
@@ -56,7 +56,7 @@ class Wheel(pygame.sprite.Sprite):
 
         for animation in self.animations.keys():
             full_path = character_path
-            self.animations[animation] = import_coins(full_path)
+            self.animations[animation] = import_wheel(full_path)
 
     def animatie(self):
         animation = self.animations['random']
@@ -91,10 +91,45 @@ class Flag(pygame.sprite.Sprite):
 
         for animation in self.animations.keys():
             full_path = character_path
-            self.animations[animation] = import_coins(full_path)
+            self.animations[animation] = import_wheel(full_path)
 
     def animatie(self):
         animation = self.animations['flag']
+
+        self.index += self.animation_speed
+
+        if self.index >= len(animation):
+            self.index = 0
+
+        image = animation[int(self.index)]
+        self.image = image
+
+    def update(self, x_shift):
+        self.animatie()
+        self.rect.x += x_shift
+
+class Cannon(pygame.sprite.Sprite):
+    def __init__(self, pos):
+        super().__init__()
+        self.imports()
+        self.index = 0
+        self.animation_speed = 0.15
+
+        self.image = self.animations['idle'][self.index]
+        self.rect = self.image.get_rect(topleft = pos)
+
+        self.status = 'idle'
+
+    def imports(self):
+        character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/cannon/idle'
+        self.animations = {'idle': []}
+
+        for animation in self.animations.keys():
+            full_path = character_path
+            self.animations[animation] = import_wheel(full_path)
+
+    def animatie(self):
+        animation = self.animations['idle']
 
         self.index += self.animation_speed
 
