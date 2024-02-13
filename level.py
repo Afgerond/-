@@ -4,6 +4,7 @@ from settings import tile_size, WIDTH
 from player import Player
 from health import *
 from animated_tiles import Coin, Wheel, Flag
+from sprites import coin_collect
 
 class Level:
     def __init__(self, level_data, surface):
@@ -12,6 +13,8 @@ class Level:
         self.world_shift = 0
         self.collision_cooldown = 0
         self.coins = 0
+
+        self.sound_played = True
 
     def setup_level(self, layout):
         self.tiles = pygame.sprite.Group()
@@ -101,8 +104,12 @@ class Level:
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Coin):
                     self.coins += 1
-                    print(f"Coin opgepakt. Je hebt nu {self.coins} coins!")
                     self.coin.remove(sprite)
+                    if self.sound_played == True:
+                        self.sound_played = False
+                    if self.sound_played == False:
+                        coin_collect.play()
+                        self.sound_played = True
                 else:
                     if player.direction.y > 0:
                         player.rect.bottom = sprite.rect.top
@@ -138,8 +145,12 @@ class Level:
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Coin):
                     self.coins += 1
-                    print(f"Coin opgepakt. Je hebt nu {self.coins} coins!")
                     self.coin.remove(sprite)
+                    if self.sound_played == True:
+                        self.sound_played = False
+                    if self.sound_played == False:
+                        coin_collect.play()
+                        self.sound_played = True
                 else:
                     if player.direction.y > 0:
                         player.rect.bottom = sprite.rect.top

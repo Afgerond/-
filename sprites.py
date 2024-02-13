@@ -11,6 +11,8 @@ health = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platfor
 health = pygame.transform.scale(health, (40, 40))
 health_rect = health.get_rect(topleft = (36, 42))
 
+coin_collect = pygame.mixer.Sound("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/assets/coin_collect.mp3")
+
 def import_folder(path):
     surface_list = []
 
