@@ -99,6 +99,7 @@ while run:
     screen.blit(time, time_r)
     
     level.run()
+    coins_group = pygame.sprite.Group()
     level.coins_group.draw(screen)
     level.coins_group.update(level.shift_amount)
 
