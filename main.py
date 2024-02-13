@@ -5,7 +5,6 @@ from level import Level
 from sprites import *
 from player import Player
 from health import *
-from coins import Coin
 
 pygame.init()
 
