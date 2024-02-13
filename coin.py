@@ -1,5 +1,5 @@
 import pygame
-from sprites import import_folder
+from sprites import import_folder, import_coins
 
 
 class Coin(pygame.sprite.Sprite):
@@ -20,7 +20,7 @@ class Coin(pygame.sprite.Sprite):
 
         for animation in self.animations.keys():
             full_path = character_path + animation
-            self.animations[animation] = import_folder(full_path)
+            self.animations[animation] = import_coins(full_path)
 
     def animatie(self):
         animation = self.animations['gold']
