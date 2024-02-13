@@ -49,7 +49,7 @@ class Wheel(pygame.sprite.Sprite):
         self.index = 0
         self.animation_speed = 0.05
 
-        self.image = self.animations[self.status][self.index]
+        self.image = self.animations['random'][self.index]
         self.rect = self.image.get_rect(topleft = pos)
 
         self.status = 'random'
