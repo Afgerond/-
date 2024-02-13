@@ -18,7 +18,6 @@ class Level:
         self.tiles = pygame.sprite.Group()
         self.coin = pygame.sprite.Group()
         self.player = pygame.sprite.GroupSingle()
-        self.player2 = pygame.sprite.GroupSingle()
         for row_index, row in enumerate(layout):
             for col_index, cell in enumerate(row):
                 x = col_index * tile_size

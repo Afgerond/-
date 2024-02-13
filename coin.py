@@ -23,7 +23,7 @@ class Coin(pygame.sprite.Sprite):
             self.animations[animation] = import_folder(full_path)
 
     def animatie(self):
-        animation = self.animations[self.status]
+        animation = self.animations['gold']
 
         self.index += self.animation_speed
 
@@ -33,9 +33,5 @@ class Coin(pygame.sprite.Sprite):
         image = animation[int(self.index)]
         self.image = image
 
-    def get_status(self):
-        self.status = 'gold'
-
     def update(self):
-        self.get_status()
         self.animatie()
