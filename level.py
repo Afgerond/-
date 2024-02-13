@@ -3,7 +3,7 @@ from tiles import *
 from settings import tile_size, WIDTH
 from player import Player
 from health import *
-from coins import Coin
+#from coins import Coin
 
 class Level:
     def __init__(self, level_data, surface):
@@ -51,9 +51,12 @@ class Level:
                     tile.create_tile((x,y), tile_size * 2, 'flag')
                     self.tiles.add(tile)
                 elif cell == 'C':
-                    coin = Coin()
-                    coin.create_coin((x, y), (64, 64), 'gold', 0.15)
-                    self.coins.add(coin)
+                    #coin = Coin()
+                    #coin.create_coin((x, y), (64, 64), 'gold', 0.15)
+                    #self.coins.add(coin)
+                    tile = Tile('coin')
+                    tile.create_tile((x, y), tile_size, 'coin')
+                    self.tiles.add(tile)
                 elif cell == 'P':
                     player = Player((x, y))
                     self.player.add(player)
