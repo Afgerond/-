@@ -21,6 +21,8 @@ class Coin(pygame.sprite.Sprite):
         for animation in self.animations.keys():
             full_path = character_path + animation
             self.animations[animation] = import_folder(full_path)
+        
+        print(self.animations['gold'])
 
     def animatie(self):
         animation = self.animations['gold']
@@ -32,7 +34,6 @@ class Coin(pygame.sprite.Sprite):
 
         image = animation[int(self.index)]
         self.image = image
-        print(image)
 
     def update(self, x_shift):
         self.animatie()
