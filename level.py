@@ -2,7 +2,6 @@ import pygame, sys
 from tiles import *
 from settings import tile_size, WIDTH
 from player import Player
-from player2 import Player2
 from health import *
 #from coins import Coin
 
@@ -66,9 +65,6 @@ class Level:
                 elif cell == '1':
                     player = Player((x, y))
                     self.player.add(player)
-                elif cell == '2':
-                    player2 = Player2((x, y))
-                    self.player2.add(player2)
 
     def scroll_systeem(self):
         player = self.player.sprite
@@ -159,13 +155,11 @@ class Level:
 
         # Player
         self.player.update()
-        self.player2.update()
 
         self.scroll_systeem()
         self.horizontale_movement_collisions()
         self.verticale_movement_collisions()
         self.player.draw(self.display_surface)
-        self.player2.draw(self.display_surface)
 
         if self.collision_cooldown > 0:
             self.collision_cooldown -= 1
