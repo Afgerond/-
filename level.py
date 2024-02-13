@@ -3,7 +3,6 @@ from tiles import *
 from settings import tile_size, WIDTH
 from player import Player
 from health import *
-#from coins import Coin
 from coin import Coin
 
 class Level:
@@ -51,9 +50,6 @@ class Level:
                     tile = Tile('flag')
                     tile.create_tile((x,y), tile_size * 2, 'flag')
                     self.tiles.add(tile)
-                elif cell == 'C':
-                    coin = Coin((x, y))
-                    self.coin.add(coin)
                 elif cell == 'V':
                     tile = Tile('barrel')
                     tile.create_tile((x, y), tile_size, 'barrel')
@@ -61,6 +57,9 @@ class Level:
                 elif cell == '1':
                     player = Player((x, y))
                     self.player.add(player)
+                elif cell == 'C':
+                    coin = Coin((x, y))
+                    self.coin.add(coin)
 
     def scroll_systeem(self):
         player = self.player.sprite
@@ -92,26 +91,11 @@ class Level:
                 elif isinstance(sprite, Tile) and sprite.tile_type == 'killingborder':
                     pygame.quit()
                     sys.exit()
-                elif isinstance(sprite, Tile) and sprite.tile_type == 'coin':
-                    self.tiles.remove(sprite)
-                    self.coins += 1
-                    print(f"Coin opgeraapt! Je hebt nu {self.coins} coins.")
                 else:
                     if player.direction.x < 0:
                         player.rect.left = sprite.rect.right
                     elif player.direction.x > 0:
                         player.rect.right = sprite.rect.left
-        #for sprite in self.coins.sprites():
-            #if sprite.rect.colliderect(player.rect):
-                #if isinstance(sprite, Tile) and sprite.tile_type == 'coin':
-                    #self.coins.remove(sprite)
-                    #self.coins += 1
-                    #print(f"Coin opgeraapt! Je hebt nu {self.coins} coins")
-                #else:
-                    #if player.direction.x < 0:
-                        #player.rect.left = sprite.rect.right
-                    #elif player.direction.x > 0:
-                        #player.rect.right = sprite.rect.left
 
     def verticale_movement_collisions(self):
         player = self.player.sprite
@@ -125,10 +109,6 @@ class Level:
                 elif isinstance(sprite, Tile) and sprite.tile_type == 'flag':
                     print("Gewonnen")
                     health_bar.hp = health_bar.max_hp
-                elif isinstance(sprite, Tile) and sprite.tile_type == 'coin':
-                    self.tiles.remove(sprite)
-                    self.coins += 1
-                    print(f"Coin opgeraapt! Je hebt nu {self.coins} coins")
                 elif isinstance(sprite, Tile) and sprite.tile_type == 'killingborder':
                     pygame.quit()
                     sys.exit()

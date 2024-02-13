@@ -24,6 +24,7 @@ class Coin(pygame.sprite.Sprite):
 
     def animatie(self):
         animation = self.animations['gold']
+        print(self.animations['gold'])
 
         self.index += self.animation_speed
 
