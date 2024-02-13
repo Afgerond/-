@@ -46,7 +46,7 @@ class Cloud:
         self.x += self.speed
 
         if self.x > WIDTH:
-            self.x = -self.size
+            self.x = -self.size 
 
     def draw(self, surface):
         surface.blit(self.image, (int(self.x), int(self.y)))
