@@ -33,5 +33,6 @@ class Coin(pygame.sprite.Sprite):
         image = animation[int(self.index)]
         self.image = image
 
-    def update(self):
+    def update(self, x_shift):
         self.animatie()
+        self.rect.x += x_shift
