@@ -3,7 +3,7 @@ from tiles import *
 from settings import tile_size, WIDTH
 from player import Player
 from health import *
-from coin import Coin
+from animated_tiles import Coin, Wheel
 
 class Level:
     def __init__(self, level_data, surface):
@@ -16,6 +16,7 @@ class Level:
     def setup_level(self, layout):
         self.tiles = pygame.sprite.Group()
         self.coin = pygame.sprite.Group()
+        self.wheel = pygame.sprite.Group()
         self.player = pygame.sprite.GroupSingle()
         for row_index, row in enumerate(layout):
             for col_index, cell in enumerate(row):
@@ -38,10 +39,6 @@ class Level:
                     tile = Tile('killingborder')
                     tile.create_tile((x, y), tile_size, 'killingborder')
                     self.tiles.add(tile)
-                elif cell == 'W':
-                    tile = Tile('wheel')
-                    tile.create_tile((x,y), tile_size, 'wheel')
-                    self.tiles.add(tile)
                 elif cell == 'S':
                     tile = Tile('spikes')
                     tile.create_tile((x,y), tile_size, 'spikes')
@@ -60,6 +57,9 @@ class Level:
                 elif cell == 'C':
                     coin = Coin((x, y))
                     self.coin.add(coin)
+                elif cell == 'W':
+                    wheel = Wheel('wheel')
+                    self.wheel.add(wheel)
 
     def scroll_systeem(self):
         player = self.player.sprite
@@ -157,6 +157,10 @@ class Level:
         # Coin
         self.coin.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
         self.coin.draw(self.display_surface)
+
+        # Wheel
+        self.wheel.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
+        self.wheel.draw(self.display_surface)
 
         # Player
         self.player.update()
