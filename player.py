@@ -36,6 +36,7 @@ class Player(pygame.sprite.Sprite):
 
     def animatie(self):
         animation = self.animations[self.status]
+        print(self.animations[self.status])
 
         self.index += self.animation_speed
 
