@@ -150,7 +150,7 @@ class Level:
         self.tiles.draw(self.display_surface)
 
         # Coin
-        self.coin.update()
+        self.coin.update(self.world_shift)
         self.coin.draw(self.display_surface)
 
         # Player
