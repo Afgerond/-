@@ -91,6 +91,10 @@ class Level:
                 elif isinstance(sprite, Tile) and sprite.tile_type == 'killingborder':
                     pygame.quit()
                     sys.exit()
+                elif isinstance(sprite, Tile) and sprite.tile_type == 'coin':
+                    self.tiles.remove(sprite)
+                    self.coins += 1
+                    print(f"Coin opgeraapt! Je hebt nu {self.coins} coins.")
                 else:
                     if player.direction.x < 0:
                         player.rect.left = sprite.rect.right
