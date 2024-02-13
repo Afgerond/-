@@ -85,13 +85,20 @@ class Level:
                 elif isinstance(sprite, Tile) and sprite.tile_type == 'flag':
                     print("Gewonnen")
                     health_bar.hp = health_bar.max_hp
-                elif isinstance(sprite, Tile) and sprite.tile_type == 'coin':
-                    self.tiles.remove(sprite)
-                    self.coins += 1
-                    print(f"Coin opgeraapt! Je hebt nu {self.coins} coins")
                 elif isinstance(sprite, Tile) and sprite.tile_type == 'killingborder':
                     pygame.quit()
                     sys.exit()
+                else:
+                    if player.direction.x < 0:
+                        player.rect.left = sprite.rect.right
+                    elif player.direction.x > 0:
+                        player.rect.right = sprite.rect.left
+        for sprite in self.coins.sprites():
+            if sprite.rect.colliderect(player.rect):
+                if isinstance(sprite, Tile) and sprite.tile_type == 'coin':
+                    self.coins.remove(sprite)
+                    self.coins += 1
+                    print(f"Coin opgeraapt! Je hebt nu {self.coins} coins")
                 else:
                     if player.direction.x < 0:
                         player.rect.left = sprite.rect.right
