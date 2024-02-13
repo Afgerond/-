@@ -7,7 +7,7 @@ class Coin(pygame.sprite.Sprite):
         super().__init__()
         self.imports()
         self.index = 0
-        self.animation_speed = 0.15
+        self.animation_speed = 0.05
 
         self.image = self.animations['gold'][self.index]
         self.rect = self.image.get_rect(topleft = pos)
