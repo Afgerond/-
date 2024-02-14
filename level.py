@@ -3,7 +3,7 @@ from tiles import *
 from settings import tile_size, WIDTH
 from player import Player
 from health import *
-from animated_tiles import Coin, Wheel, Flag, Cannon, Diamond
+from animated_tiles import Coin, Wheel, Flag, Cannon
 from sprites import coin_collect
 
 class Level:
@@ -59,9 +59,6 @@ class Level:
                 elif cell == 'C':
                     coin = Coin((x, y))
                     self.coin.add(coin)
-                elif cell == 'A':
-                    diamond = Diamond((x, y))
-                    self.diamond.add(diamond)
                 elif cell == 'W':
                     wheel = Wheel((x, y))
                     self.wheel.add(wheel)
@@ -125,23 +122,6 @@ class Level:
                     elif player.direction.y < 0:
                         player.rect.top = sprite.rect.bottom
                         player.direction.y = 0
-        for sprite in self.diamond.sprites():
-            if sprite.rect.colliderect(player.rect):
-                if isinstance(sprite, Diamond):
-                    self.coins += 2
-                    self.diamond.remove(sprite)
-                    if self.sound_played == True:
-                        self.sound_played = False
-                    if self.sound_played == False:
-                        coin_collect.play()
-                        self.sound_played = True
-                else:
-                    if player.direction.y > 0:
-                        player.rect.bottom = sprite.rect.top
-                        player.direction.y = 0
-                    elif player.direction.y < 0:
-                        player.rect.top = sprite.rect.bottom
-                        player.direction.y = 0
 
     def verticale_movement_collisions(self):
         player = self.player.sprite
@@ -183,25 +163,7 @@ class Level:
                         player.direction.y = 0
                     elif player.direction.y < 0:
                         player.rect.top = sprite.rect.bottom
-                        player.direction.y = 0
-        for sprite in self.diamond.sprites():
-            if sprite.rect.colliderect(player.rect):
-                if isinstance(sprite, Diamond):
-                    self.coins += 2
-                    self.diamond.remove(sprite)
-                    if self.sound_played == True:
-                        self.sound_played = False
-                    if self.sound_played == False:
-                        coin_collect.play()
-                        self.sound_played = True
-            else:
-                    if player.direction.y > 0:
-                        player.rect.bottom = sprite.rect.top
-                        player.direction.y = 0
-                    elif player.direction.y < 0:
-                        player.rect.top = sprite.rect.bottom
-                        player.direction.y = 0
-                
+                        player.direction.y = 0        
                 
     def run(self):
 
@@ -224,10 +186,6 @@ class Level:
         # Cannon
         self.cannon.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
         self.cannon.draw(self.display_surface)
-
-        # Diamond
-        self.diamond.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
-        self.diamond.draw(self.display_surface)
 
         # Player
         self.player.update()
