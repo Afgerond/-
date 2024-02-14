@@ -135,7 +135,7 @@ class Level:
                     if self.sound_played == False:
                         coin_collect.play()
                         self.sound_played = True
-            else:
+                else:
                     if player.direction.y > 0:
                         player.rect.bottom = sprite.rect.top
                         player.direction.y = 0
