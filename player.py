@@ -124,3 +124,4 @@ class Player(pygame.sprite.Sprite):
         self.movement()
         self.get_status()
         self.animatie()
+  
