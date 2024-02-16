@@ -45,6 +45,7 @@ class Player(pygame.sprite.Sprite):
 
         if self.index >= len(animation):
             if self.status == 'taking gun':
+                self.index = 0
                 self.status = 'shoot'
             else:
                 self.index = 0
