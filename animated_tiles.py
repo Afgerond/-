@@ -10,7 +10,7 @@ class Coin(pygame.sprite.Sprite):
         self.index = 0
         self.animation_speed = 0.05
 
-        self.type = random.choice(['gold', 'silver', 'bluediamond', 'greendiamond', 'goldenskull'])
+        self.type = random.choice(['gold', 'silver', 'bluediamond', 'greendiamond', 'reddiamond', 'redpotion', 'goldenskull'])
 
         self.image = self.animations[self.type][self.index]
         self.rect = self.image.get_rect(topleft = pos)
@@ -19,7 +19,7 @@ class Coin(pygame.sprite.Sprite):
 
     def imports(self):
         character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/'
-        self.animations = {'gold': [], 'silver': [], 'bluediamond': [], 'greendiamond': [], 'goldenskull': []}
+        self.animations = {'gold': [], 'silver': [], 'bluediamond': [], 'greendiamond': [], 'reddiamond': [], 'redpotion': [], 'goldenskull': []}
 
         for animation in self.animations.keys():
             full_path = character_path + animation
