@@ -4,7 +4,7 @@ from settings import tile_size, WIDTH
 from player import Player
 from health import *
 from animated_tiles import Coin, Wheel, Flag, Cannon
-from sprites import coin_collect
+from sprites import coin_collect, coin_decrease
 
 class Level:
     def __init__(self, level_data, surface):
@@ -115,14 +115,17 @@ class Level:
                         amount = random.randint(1, 3)
                         if self.coins - amount <= 0:
                             self.coins += amount
+                            if self.sound_played == False:
+                                coin_collect.play()
+                                self.sound_played = True
                         else:
                             self.coins -= amount
+                            if self.sound_played == False:
+                                coin_decrease.play()
+                                self.sound_played = True
                     self.coin.remove(sprite)
                     if self.sound_played == True:
                         self.sound_played = False
-                    if self.sound_played == False:
-                        coin_collect.play()
-                        self.sound_played = True
                 else:
                     if player.direction.y > 0:
                         player.rect.bottom = sprite.rect.top
@@ -165,22 +168,24 @@ class Level:
                         amount = random.randint(1, 3)
                         if self.coins - amount <= 0:
                             self.coins += amount
+                            if self.sound_played == False:
+                                coin_collect.play()
+                                self.sound_played = True
                         else:
                             self.coins -= amount
+                            if self.sound_played == False:
+                                coin_decrease.play()
+                                self.sound_played = True
                     self.coin.remove(sprite)
                     if self.sound_played == True:
                         self.sound_played = False
-                    if self.sound_played == False:
-                        coin_collect.play()
-                        self.sound_played = True
                 else:
                     if player.direction.y > 0:
                         player.rect.bottom = sprite.rect.top
                         player.direction.y = 0
                     elif player.direction.y < 0:
                         player.rect.top = sprite.rect.bottom
-                        player.direction.y = 0        
-                
+                        player.direction.y = 0                
     def run(self):
 
         # Level tiles
