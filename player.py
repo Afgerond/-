@@ -105,7 +105,7 @@ class Player(pygame.sprite.Sprite):
     def jump(self):
         current_time = time.time()
 
-        if self.jump_count < self.max_jump_count and not self.jump_cooldown:
+        if self.jump_count != self.max_jump_count and not self.jump_cooldown:
             self.direction.y = self.jump_speed
             self.jump_count += 1
             self.last_jump_time = current_time
