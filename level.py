@@ -223,4 +223,4 @@ class Level:
         self.player.draw(self.display_surface)
 
         if self.collision_cooldown > 0:
-            self.collision_cooldown -= 1
+            self.collision_cooldown -= 1 
