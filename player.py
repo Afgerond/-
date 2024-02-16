@@ -44,7 +44,11 @@ class Player(pygame.sprite.Sprite):
         self.index += self.animation_speed
 
         if self.index >= len(animation):
-            self.index = 0
+            if self.status == 'shoot':
+                self.index = 0
+                self.get_status()
+            else:
+                self.index = 0
 
         image = animation[int(self.index)]
         if self.rechts == True:
@@ -74,7 +78,7 @@ class Player(pygame.sprite.Sprite):
             self.jump()
 
         if self.keys[pygame.K_s]:
-            pass
+            self.status = 'shoot'
 
     def get_status(self):
         if self.direction.y < 0:
@@ -86,8 +90,6 @@ class Player(pygame.sprite.Sprite):
                 self.status = 'run'
             else:
                 self.status = 'idle'
-        if self.keys[pygame.K_s]:
-            self.status = 'shoot'
 
     def apply_gravity(self):
         self.direction.y += self.gravity
