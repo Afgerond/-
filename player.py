@@ -24,7 +24,7 @@ class Player(pygame.sprite.Sprite):
         self.max_jump_count = 3
         self.jump_count = 0
         self.jump_cooldown = False
-        self.jump_cooldown_duration = 0.3
+        self.jump_cooldown_duration = 0.5
         self.last_jump_time = 0.0
 
         # Status
