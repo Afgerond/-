@@ -14,4 +14,4 @@ class Health:
         pygame.draw.rect(surface, "red", (self.x, self.y, self.w, self.h))
         pygame.draw.rect(surface, "green", (self.x, self.y, self.w * ratio, self.h))
 
-health_bar = Health(90, 42, 300, 40, 100)
+health_bar = Health(90, 42, 300, 40, 100000000)

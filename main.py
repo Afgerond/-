@@ -8,8 +8,8 @@ from health import *
 
 pygame.init()
 
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
-clock = pygame.time.Clock()
+screen = pygame.display.set_mode((WIDTH, HEIGHT)) 
+clock = pygame.time.Clock() 
 FPS = 60
 level = Level(level_map, screen)
 
