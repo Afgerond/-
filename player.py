@@ -1,5 +1,5 @@
 import pygame
-from sprites import import_folder
+from sprites import import_folder, jump_sound
 import time
 
 
@@ -26,6 +26,9 @@ class Player(pygame.sprite.Sprite):
 
         # Health
         self.health = 100
+
+        # Sound
+        self.sound_played = True
 
     def imports(self):
         character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/character/'
@@ -63,6 +66,11 @@ class Player(pygame.sprite.Sprite):
             self.direction.x = 0
 
         if self.keys[pygame.K_SPACE] or self.keys[pygame.K_UP] or self.keys[pygame.K_w]:
+            if self.sound_played == True:
+                self.sound_played = False
+            if self.sound_played == False:
+                jump_sound.play()
+                self.sound_played = True
             self.jump()
 
     def get_status(self):
