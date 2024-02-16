@@ -11,7 +11,7 @@ class Player(pygame.sprite.Sprite):
         self.index = 0
         self.animation_speed = 0.15
 
-        self.image = self.animations['shoot'][self.index]
+        self.image = self.animations['idle'][self.index]
         self.rect = self.image.get_rect(topleft = pos)
 
         # Player Movement
@@ -87,7 +87,7 @@ class Player(pygame.sprite.Sprite):
             else:
                 self.status = 'idle'
         if self.keys[pygame.K_s]:
-            self.status = 'taking gun'
+            self.status = 'shoot'
 
     def apply_gravity(self):
         self.direction.y += self.gravity
