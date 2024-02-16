@@ -105,9 +105,11 @@ class Level:
                         player.rect.left = sprite.rect.right
                     elif player.direction.x > 0:
                         player.rect.right = sprite.rect.left
+
         for sprite in self.coin.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Coin):
+                    self.sound_played = False
                     choice = random.choice([1, 2])
                     if choice == 1:
                         self.coins += random.randint(1, 3)
@@ -115,18 +117,17 @@ class Level:
                         amount = random.randint(1, 3)
                         if self.coins - amount <= 0:
                             self.coins += amount
-                            if self.sound_played == True:
-                                self.sound_played = False
-                            if self.sound_played == False:
-                                coin_collect.play()
-                                self.sound_played = True
                         else:
                             self.coins -= amount
-                            if self.sound_played == True:
-                                self.sound_played = False
-                            if self.sound_played == False:
+                    if self.sound_played == False:
+                        if choice == 1:
+                            coin_collect.play()
+                        elif choice == 2:
+                            if self.coins - amount <= 0:
+                                coin_collect.play()
+                            else:
                                 coin_decrease.play()
-                                self.sound_played = True
+                        self.sound_played = True
                     self.coin.remove(sprite)
 
                 else:
@@ -164,6 +165,7 @@ class Level:
         for sprite in self.coin.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Coin):
+                    self.sound_played = False
                     choice = random.choice([1, 2])
                     if choice == 1:
                         self.coins += random.randint(1, 3)
@@ -171,18 +173,17 @@ class Level:
                         amount = random.randint(1, 3)
                         if self.coins - amount <= 0:
                             self.coins += amount
-                            if self.sound_played == True:
-                                self.sound_played = False
-                            if self.sound_played == False:
-                                coin_collect.play()
-                                self.sound_played = True
                         else:
                             self.coins -= amount
-                            if self.sound_played == True:
-                                self.sound_played = False
-                            if self.sound_played == False:
+                    if self.sound_played == False:
+                        if choice == 1:
+                            coin_collect.play()
+                        elif choice == 2:
+                            if self.coins - amount <= 0:
+                                coin_collect.play()
+                            else:
                                 coin_decrease.play()
-                                self.sound_played = True                    
+                        self.sound_played = True
                     self.coin.remove(sprite)
                 else:
                     if player.direction.y > 0:
