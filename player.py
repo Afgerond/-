@@ -112,8 +112,9 @@ class Player(pygame.sprite.Sprite):
             self.jump_cooldown = True
             # jump_sound.play()
 
-        if self.jump_cooldown and current_time - self.last_jump_time >= self.jump_cooldown_duration:
-            self.jump_cooldown = False
+        if self.jump_cooldown:
+            if current_time - self.last_jump_time >= self.jump_cooldown_duration:
+                self.jump_cooldown = False
 
     def shoot(self):
         pass
