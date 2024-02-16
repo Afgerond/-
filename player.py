@@ -73,7 +73,7 @@ class Player(pygame.sprite.Sprite):
             if self.sound_played == True:
                 self.sound_played = False
             if self.sound_played == False:
-                jump_sound.play()
+                #jump_sound.play()
                 self.sound_played = True
             self.jump()
 
