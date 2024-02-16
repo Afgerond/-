@@ -115,17 +115,20 @@ class Level:
                         amount = random.randint(1, 3)
                         if self.coins - amount <= 0:
                             self.coins += amount
+                            if self.sound_played == True:
+                                self.sound_played = False
                             if self.sound_played == False:
                                 coin_collect.play()
                                 self.sound_played = True
                         else:
                             self.coins -= amount
+                            if self.sound_played == True:
+                                self.sound_played = False
                             if self.sound_played == False:
                                 coin_decrease.play()
                                 self.sound_played = True
                     self.coin.remove(sprite)
-                    if self.sound_played == True:
-                        self.sound_played = False
+
                 else:
                     if player.direction.y > 0:
                         player.rect.bottom = sprite.rect.top
@@ -168,17 +171,19 @@ class Level:
                         amount = random.randint(1, 3)
                         if self.coins - amount <= 0:
                             self.coins += amount
+                            if self.sound_played == True:
+                                self.sound_played = False
                             if self.sound_played == False:
                                 coin_collect.play()
                                 self.sound_played = True
                         else:
                             self.coins -= amount
+                            if self.sound_played == True:
+                                self.sound_played = False
                             if self.sound_played == False:
                                 coin_decrease.play()
-                                self.sound_played = True
+                                self.sound_played = True                    
                     self.coin.remove(sprite)
-                    if self.sound_played == True:
-                        self.sound_played = False
                 else:
                     if player.direction.y > 0:
                         player.rect.bottom = sprite.rect.top
