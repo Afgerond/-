@@ -108,7 +108,15 @@ class Level:
         for sprite in self.coin.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Coin):
-                    self.coins += 1
+                    choice = random.choice([1, 2])
+                    if choice == 1:
+                        self.coins += random.randint(1, 3)
+                    elif choice == 2:
+                        amount = random.randint(1, 3)
+                        if self.coins - amount <= 0:
+                            self.coins += amount
+                        else:
+                            self.coins -= amount
                     self.coin.remove(sprite)
                     if self.sound_played == True:
                         self.sound_played = False
@@ -150,7 +158,15 @@ class Level:
         for sprite in self.coin.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Coin):
-                    self.coins += 1
+                    choice = random.choice([1, 2])
+                    if choice == 1:
+                        self.coins += random.randint(1, 3)
+                    elif choice == 2:
+                        amount = random.randint(1, 3)
+                        if self.coins - amount <= 0:
+                            self.coins += amount
+                        else:
+                            self.coins -= amount
                     self.coin.remove(sprite)
                     if self.sound_played == True:
                         self.sound_played = False
