@@ -10,7 +10,7 @@ class Coin(pygame.sprite.Sprite):
         self.index = 0
         self.animation_speed = 0.05
 
-        self.type = random.choice(['gold', 'silver', ''])
+        self.type = random.choice(['gold', 'silver', 'bluediamond', 'greendiamond', 'goldenskull'])
 
         self.image = self.animations[self.type][self.index]
         self.rect = self.image.get_rect(topleft = pos)
