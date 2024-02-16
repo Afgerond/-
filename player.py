@@ -32,7 +32,7 @@ class Player(pygame.sprite.Sprite):
 
     def imports(self):
         character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/character/'
-        self.animations = {'idle': [], 'run':[], 'jump': [], 'fall': []}
+        self.animations = {'idle': [], 'run':[], 'jump': [], 'fall': [], 'die': [], 'taking gun': [], 'shoot': []}
 
         for animation in self.animations.keys():
             full_path = character_path + animation
@@ -44,7 +44,10 @@ class Player(pygame.sprite.Sprite):
         self.index += self.animation_speed
 
         if self.index >= len(animation):
-            self.index = 0
+            if self.status == 'taking gun':
+                self.status = 'shoot'
+            else:
+                self.index = 0
 
         image = animation[int(self.index)]
         if self.rechts == True:
@@ -73,6 +76,9 @@ class Player(pygame.sprite.Sprite):
                 self.sound_played = True
             self.jump()
 
+        if self.keys[pygame.K_s]:
+            pass
+
     def get_status(self):
         if self.direction.y < 0:
             self.status = 'jump'
@@ -83,6 +89,8 @@ class Player(pygame.sprite.Sprite):
                 self.status = 'run'
             else:
                 self.status = 'idle'
+        if self.keys[pygame.K_s]:
+            self.status = 'taking gun'
 
     def apply_gravity(self):
         self.direction.y += self.gravity
@@ -90,6 +98,9 @@ class Player(pygame.sprite.Sprite):
 
     def jump(self):
         self.direction.y = self.jump_speed
+
+    def shoot(self):
+        pass
 
     def update(self):
         self.movement()
