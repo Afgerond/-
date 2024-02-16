@@ -11,7 +11,7 @@ class Player(pygame.sprite.Sprite):
         self.index = 0
         self.animation_speed = 0.15
 
-        self.image = self.animations['idle'][self.index]
+        self.image = self.animations['shoot'][self.index]
         self.rect = self.image.get_rect(topleft = pos)
 
         # Player Movement
@@ -32,7 +32,7 @@ class Player(pygame.sprite.Sprite):
 
     def imports(self):
         character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/character/'
-        self.animations = {'idle': [], 'run':[], 'jump': [], 'fall': [], 'die': [], 'taking gun': [], 'shoot': []}
+        self.animations = {'idle': [], 'run':[], 'jump': [], 'fall': [], 'die': [], 'shoot': []}
 
         for animation in self.animations.keys():
             full_path = character_path + animation
@@ -44,11 +44,7 @@ class Player(pygame.sprite.Sprite):
         self.index += self.animation_speed
 
         if self.index >= len(animation):
-            if self.status == 'taking gun':
-                self.index = 0
-                self.status = 'shoot'
-            else:
-                self.index = 0
+            self.index = 0
 
         image = animation[int(self.index)]
         if self.rechts == True:
