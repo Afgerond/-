@@ -8,7 +8,7 @@ class Coin(pygame.sprite.Sprite):
         super().__init__()
         self.imports()
         self.index = 0
-        self.animation_speed = random.choice([0.15, 0.20, 0.25])
+        self.animation_speed = random.choice([0.04, 0.05, 0.06, 0.07, 0.08])
 
         self.type = random.choice(['gold', 'silver', 'bluediamond', 'greendiamond', 'reddiamond', 'redpotion', 'goldenskull'])
 
