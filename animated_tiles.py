@@ -144,6 +144,7 @@ class Cannon(pygame.sprite.Sprite):
     def shoot(self):
         pass
         # Check if player in range, dan schieten --> nieuw object wat zich moved en bij collision health omlaag
+        
 
     def update(self, x_shift):
         self.animatie()
@@ -163,7 +164,7 @@ class Enemy(pygame.sprite.Sprite):
         self.status = 'idle'
 
     def imports(self):
-        character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/seashell/Seashell Opening'
+        character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/seashell/Seashell Bite'
         self.animations = {'idle': []}
 
         for animation in self.animations.keys():
