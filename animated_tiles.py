@@ -123,7 +123,7 @@ class Cannon(pygame.sprite.Sprite):
         self.status = 'idle'
 
     def imports(self):
-        character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/cannon/idle'
+        character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/enemys/cannon/idle'
         self.animations = {'idle': []}
 
         for animation in self.animations.keys():
@@ -156,23 +156,25 @@ class Enemy(pygame.sprite.Sprite):
         super().__init__()
         self.imports()
         self.index = 0
-        self.animation_speed = 0.1
+        self.animation_speed = random.choice([0.1, 0.15])
 
-        self.image = self.animations['idle'][self.index]
+        self.type = random.choice(['seashell', 'cannon'])
+
+        self.image = self.animations[self.type][self.index]
         self.rect = self.image.get_rect(topleft = pos)
 
-        self.status = 'idle'
+        self.status = self.type
 
     def imports(self):
-        character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/seashell/Seashell Bite'
-        self.animations = {'idle': []}
+        character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/enemys/'
+        self.animations = {'seashell': [], 'cannon': []} 
 
         for animation in self.animations.keys():
-            full_path = character_path
-            self.animations[animation] = import_wheel(full_path)
+            full_path = character_path + animation
+            self.animations[animation] = import_coins(full_path)
 
     def animatie(self):
-        animation = self.animations['idle']
+        animation = self.animations[self.type]
 
         self.index += self.animation_speed
 
@@ -181,10 +183,6 @@ class Enemy(pygame.sprite.Sprite):
 
         image = animation[int(self.index)]
         self.image = image
-
-    def shoot(self):
-        pass
-        # Check if player in range, dan schieten --> nieuw object wat zich moved en bij collision health omlaag
 
     def update(self, x_shift):
         self.animatie()
