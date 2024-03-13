@@ -156,7 +156,7 @@ class Enemy(pygame.sprite.Sprite):
         super().__init__()
         self.imports()
         self.index = 0
-        self.animation_speed = 0.15
+        self.animation_speed = 0.1
 
         self.image = self.animations['idle'][self.index]
         self.rect = self.image.get_rect(topleft = pos)
