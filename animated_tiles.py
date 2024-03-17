@@ -1,5 +1,6 @@
 import pygame
 from sprites import import_folder, import_coins, import_wheel
+from player import Player
 import random
 
 
@@ -143,46 +144,11 @@ class Cannon(pygame.sprite.Sprite):
 
     def shoot(self):
         pass
-        # Check if player in range, dan schieten --> nieuw object wat zich moved en bij collision health omlaag
+        player = self.player.sprite
+        player_x = player.rect.centerx
+        direction_x = player.direction.x
+
         
-
-    def update(self, x_shift):
-        self.animatie()
-        self.rect.x += x_shift
-
-
-class Enemy(pygame.sprite.Sprite):
-    def __init__(self, pos):
-        super().__init__()
-        self.imports()
-        self.index = 0
-        self.animation_speed = random.choice([0.1, 0.15])
-
-        self.type = random.choice(['seashell', 'cannon'])
-
-        self.image = self.animations[self.type][self.index]
-        self.rect = self.image.get_rect(topleft = pos)
-
-        self.status = self.type
-
-    def imports(self):
-        character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/enemys/'
-        self.animations = {'seashell': [], 'cannon': []} 
-
-        for animation in self.animations.keys():
-            full_path = character_path + animation
-            self.animations[animation] = import_coins(full_path)
-
-    def animatie(self):
-        animation = self.animations[self.type]
-
-        self.index += self.animation_speed
-
-        if self.index >= len(animation):
-            self.index = 0
-
-        image = animation[int(self.index)]
-        self.image = image
 
     def update(self, x_shift):
         self.animatie()
