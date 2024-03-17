@@ -139,7 +139,9 @@ class Player(pygame.sprite.Sprite):
                 bullet_pos = self.rect.topleft
                 bullet_direction = -1
 
-            bullet = PlayerBullet(bullet_pos, bullet_direction)
+            bullets = pygame.sprite.Group()
+            bullet = PlayerBullet(bullet_pos, bullet_direction)0
+            bullets.add(bullet)
 
     def update(self):
         self.movement()
