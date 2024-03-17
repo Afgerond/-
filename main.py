@@ -1,4 +1,4 @@
-import pygame, sys, os, random
+import pygame, sys, os, random, cv2, numpy
 from settings import *
 from tiles import Tile
 from level import Level
@@ -61,6 +61,37 @@ for _ in range(random.randint(4, 7)):
     image = random.choice([big_cloud_image, small_cloud1_image, small_cloud2_image, small_cloud3_image])
     cloud = Cloud(x, y, speed, size, image)
     cloud_list.append(cloud)
+
+def main():
+    video_path = "C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/assets/video.mp4"
+    capture = cv2.VideoCapture(video_path)
+    
+    ret, frame = capture.read()
+    
+    while True:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                sys.exit()
+    
+        frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+        frame_rgb = np.rot90(frame_rgb)
+        frame_surface = pygame.surfarray.make_surface(frame_rgb)
+        frame_surface = pygame.transform.scale(frame_surface, (WIDTH, HEIGHT))
+        frame_surface = pygame.transform.flip(frame_surface, True, False)
+    
+        screen.blit(frame_surface, (0, 0))
+        pygame.display.flip()
+        clock.tick(FPS)
+    
+        ret, frame = capture.read()
+    
+        if not ret:
+            capture.set(cv2.CAP_PROP_POS_FRAMES, 0)
+            ret, frame = capture.read()
+    
+    capture.release()
+    pygame.quit()
 
 def game():
     run = True
