@@ -128,7 +128,7 @@ class Player(pygame.sprite.Sprite):
             self.jump_cooldown = False
             self.jump_count = 0
 
-    def shoot(self, all_sprites):
+    def shoot(self):
         if self.keys[pygame.K_s]:
             self.status = 'shoot'
             self.animatie()
