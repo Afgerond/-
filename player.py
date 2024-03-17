@@ -130,9 +130,8 @@ class Player(pygame.sprite.Sprite):
 
     def shoot(self):
         if self.keys[pygame.K_s]:
-            while self.index is not len(self.status):
-                self.status = 'shoot'
-                self.animatie()
+            self.status = 'shoot'
+            self.animatie()
             if self.rechts:
                 bullet_pos = self.rect.topright
                 bullet_direction = 1
