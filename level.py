@@ -271,7 +271,5 @@ class Level:
         self.verticale_movement_collisions()
         self.player.draw(self.display_surface)
 
-        print(self.world_shift)
-
         if self.collision_cooldown > 0:
             self.collision_cooldown -= 1 
