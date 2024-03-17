@@ -3,8 +3,54 @@ from tiles import *
 from settings import tile_size, WIDTH
 from player import Player
 from health import *
-from animated_tiles import Coin, Wheel, Flag, Cannon
-from sprites import coin_collect, coin_decrease
+from animated_tiles import Coin, Wheel, Flag
+from sprites import coin_collect, coin_decrease, import_wheel
+
+class Cannon(pygame.sprite.Sprite):
+    def __init__(self, pos):
+        super().__init__()
+        self.imports()
+        self.index = 0
+        self.animation_speed = 0.15
+
+        self.image = self.animations['idle'][self.index]
+        self.rect = self.image.get_rect(topleft = pos)
+
+        self.status = 'idle'
+
+    def imports(self):
+        character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/enemys/cannon/idle'
+        self.animations = {'idle': []}
+
+        for animation in self.animations.keys():
+            full_path = character_path
+            self.animations[animation] = import_wheel(full_path)
+
+    def animatie(self):
+        animation = self.animations['idle']
+
+        self.index += self.animation_speed
+
+        if self.index >= len(animation):
+            self.index = 0
+
+        image = animation[int(self.index)]
+        self.image = image
+
+    def shoot(self):
+        player = self.player.sprite
+        player_x = player.rect.centerx
+        direction_x = player.direction.x
+
+        cannon_x = self.rect.centerx
+        distance = abs(player_x - cannon_x)
+
+        if distance <= 40:
+            pass
+
+    def update(self, x_shift):
+        self.animatie()
+        self.rect.x += x_shift
 
 class Level:
     def __init__(self, level_data, surface):
