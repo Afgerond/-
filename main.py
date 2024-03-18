@@ -26,6 +26,7 @@ clock_rect = clock_icon.get_rect(topleft = (36, 142))
 # --------------------------------------------------------------- + --------------------------------------------------------------- # 
 
 big_cloud_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Big Clouds.png").convert_alpha()
+print(big_cloud_image.get_width(), big_cloud_image.get_height())
 small_cloud1_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 1.png").convert_alpha()
 small_cloud2_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 2.png").convert_alpha()
 small_cloud3_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 1.png").convert_alpha()
@@ -60,7 +61,7 @@ for _ in range(random.randint(3, 5)):
     size = random.randint(30, 80)
     image = random.choice([big_cloud_image, small_cloud1_image, small_cloud2_image, small_cloud3_image])
     if image == big_cloud_image:
-        cloud = Cloud(x, 368, speed, 2000, image)
+        cloud = Cloud(x, 368, speed, (2000), image)
     else:
         cloud = Cloud(x, y, speed, size, image)
     cloud_list.append(cloud)
@@ -68,7 +69,7 @@ for _ in range(random.randint(3, 5)):
 def game():
     run = True
     while run:
-        print(pygame.mouse.get_pos())
+        #print(pygame.mouse.get_pos())
         coin_txt = pygame.font.SysFont("behnschrift", 45).render(f"{level.coins}", "white", True)
         coin_txt_r = coin_txt.get_rect(topleft = (90, coin_rect.y + 10))
 
