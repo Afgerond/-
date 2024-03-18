@@ -201,12 +201,12 @@ class Level:
         diamond = self.diamond.sprites
 
         for sprite in self.tiles.sprites(), self.platform.sprites():
-                if sprite.rect.colliderect(player.rect):
-                    if isinstance(sprite, MovingPlatforms):
-                        if player.direction.x < 0:
-                            player.rect.left = sprite.rect.right
-                        elif player.direction.x > 0:
-                            player.rect.right = sprite.rect.left
+            if sprite.rect.colliderect(player.rect):
+                if isinstance(sprite, MovingPlatforms):
+                    if player.direction.x < 0:
+                        player.rect.left = sprite.rect.right
+                    elif player.direction.x > 0:
+                        player.rect.right = sprite.rect.left
                 if isinstance(sprite, Tile) and sprite.tile_type == 'spikes':
                     health_bar.hp -= 1
                     self.collision_cooldown = 60
