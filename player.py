@@ -2,18 +2,6 @@ import pygame
 from sprites import import_folder, jump_sound
 import time
 
-class PlayerBullet(pygame.sprite.Sprite):
-    def __init__(self, pos, direction):
-        super().__init__()
-        self.image = pygame.Surface((10, 10))
-        self.image.fill((255, 0, 0))  # Rode kogel
-        self.rect = self.image.get_rect(center=pos)
-        self.speed = 10
-        self.direction = direction
-
-    def update(self):
-        self.rect.x += self.speed * self.direction
-
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos):
         # Initialisatie
@@ -132,16 +120,6 @@ class Player(pygame.sprite.Sprite):
         if self.keys[pygame.K_s]:
             self.status = 'shoot'
             self.animatie()
-            if self.rechts:
-                bullet_pos = self.rect.topright
-                bullet_direction = 1
-            else:
-                bullet_pos = self.rect.topleft
-                bullet_direction = -1
-
-            bullets = pygame.sprite.Group()
-            bullet = PlayerBullet(bullet_pos, bullet_direction)
-            bullets.add(bullet)
 
     def update(self):
         self.movement()

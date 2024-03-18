@@ -110,3 +110,25 @@ class Flag(pygame.sprite.Sprite):
     def update(self, x_shift):
         self.animatie()
         self.rect.x += x_shift
+
+class MovingPlatforms(pygame.sprite.Sprite):
+    def __init__(self, pos):
+        super().__init__()
+        self.imports()
+        self.speed = 2  # Snelheid van het platform
+        self.direction = 1  # Richting van het platform (1 voor rechts, -1 voor links)
+        self.start_x = 0  # X-coördinaat van het startpunt van het platform
+        self.range = 200  # Afstand die het platform heen en weer beweegt
+
+        self.image = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Grass.png'
+        self.rect = self.image.get_rect(topleft = pos)
+
+    def animatie(self):
+        self.rect.x += self.speed * self.direction
+
+        if abs(self.rect.x - self.start_x) >= self.range:
+            self.direction *= -1
+
+    def update(self, x_shift):
+        self.animatie()
+        self.rect.x += x_shift

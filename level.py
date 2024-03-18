@@ -3,7 +3,7 @@ from tiles import *
 from settings import tile_size, WIDTH
 from player import Player
 from health import *
-from animated_tiles import Coin, Wheel, Flag
+from animated_tiles import Coin, Wheel, Flag, MovingPlatforms
 from sprites import coin_collect, coin_decrease, import_wheel
 
 class Cannon(pygame.sprite.Sprite):
@@ -70,6 +70,7 @@ class Level:
         self.cannon = pygame.sprite.Group()
         self.diamond = pygame.sprite.Group()
         self.player = pygame.sprite.GroupSingle()
+        self.platform = pygame.sprite.Group()
 
         for row_index, row in enumerate(layout):
             for col_index, cell in enumerate(row):
@@ -115,8 +116,9 @@ class Level:
                 elif cell == 'L':
                     cannon = Cannon((x, y))
                     self.cannon.add(cannon)
-                elif cell == 'E':
-                    pass
+                elif cell == 'A':
+                    platform = MovingPlatforms((x, y))
+                    self.platform.add(platform)
 
     def scroll_systeem(self):
         player = self.player.sprite
@@ -262,6 +264,10 @@ class Level:
         # Cannon
         self.cannon.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
         self.cannon.draw(self.display_surface)
+
+        # Platforms
+        self.platform.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
+        self.platform.draw(self.display_surface)
 
         # Player
         self.player.update()
