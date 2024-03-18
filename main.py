@@ -59,7 +59,10 @@ for _ in range(random.randint(4, 7)):
     speed = random.uniform(0.1, 0.8)
     size = random.randint(30, 80)
     image = random.choice([big_cloud_image, small_cloud1_image, small_cloud2_image, small_cloud3_image])
-    cloud = Cloud(x, y, speed, size, image)
+    if image == big_cloud_image:
+        cloud = Cloud(x, 490, speed, size, image)
+    else:
+        cloud = Cloud(x, y, speed, size, image)
     cloud_list.append(cloud)
 
 def game():
