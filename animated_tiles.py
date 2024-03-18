@@ -124,15 +124,10 @@ class MovingPlatforms(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(topleft=pos)
 
     def animatie(self):
-        self.richting = random.choice(["x", "y"])
-        if self.richting == "x":
-            if abs(self.rect.x - self.start) >= self.range:
-                self.direction *= -1
-            self.rect.x += self.speed * self.direction
-        if self.richting == "y":
-            if abs(self.rect.y - self.start) >= self.range:
-                self.direction *= -1
-            self.rect.y += self.speed * self.direction
+        if abs(self.rect.x - self.start) >= self.range:
+            self.direction *= -1
+
+        self.rect.x += self.speed * self.direction
 
     def update(self, x_shift):
         self.animatie()
