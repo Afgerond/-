@@ -61,7 +61,7 @@ for _ in range(random.randint(3, 5)):
     size = random.randint(30, 80)
     image = random.choice([big_cloud_image, small_cloud1_image, small_cloud2_image, small_cloud3_image])
     if image == big_cloud_image:
-        cloud = Cloud(x, 368, speed, (2000), image)
+        cloud = Cloud(x, 368, speed, (448, 101), image)
     else:
         cloud = Cloud(x, y, speed, size, image)
     cloud_list.append(cloud)
