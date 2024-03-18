@@ -58,12 +58,13 @@ for _ in range(random.randint(3, 5)):
     y = random.randint(0, HEIGHT // 2)
     speed = random.uniform(0.1, 0.8)
     image = random.choice([big_cloud_image, small_cloud1_image, small_cloud2_image, small_cloud3_image])
-    print(image)
+
     if image == big_cloud_image:
         size = random.randint(10000, 20000)
         cloud = Cloud(x, 368, speed, size, image)
         print(size)
     else:
+        print("gewoon")
         size = random.randint(30, 80)
         cloud = Cloud(x, y, speed, size, image)
     cloud_list.append(cloud)
