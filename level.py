@@ -286,7 +286,7 @@ class Level:
         self.cannon.draw(self.display_surface)
 
         # Platforms
-        self.platform.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
+        self.platform.update(-self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
         self.platform.draw(self.display_surface)
 
         # Player
