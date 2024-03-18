@@ -114,7 +114,6 @@ class Flag(pygame.sprite.Sprite):
 class MovingPlatforms(pygame.sprite.Sprite):
     def __init__(self, pos):
         super().__init__()
-        self.imports()
         self.speed = 2  # Snelheid van het platform
         self.direction = 1  # Richting van het platform (1 voor rechts, -1 voor links)
         self.start_x = 0  # X-coördinaat van het startpunt van het platform
