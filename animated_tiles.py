@@ -115,10 +115,10 @@ class Flag(pygame.sprite.Sprite):
 class MovingPlatforms(pygame.sprite.Sprite):
     def __init__(self, pos):
         super().__init__()
-        self.speed = 4
+        self.speed = 1.5
         self.direction = 1
         self.start_x = pos[0]  # Gebruik het x-coördinaat van het startpunt van het platform
-        self.range = 400
+        self.range = 50
         self.image = pygame.image.load('C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Grass.png')
         self.image = pygame.transform.scale(self.image, (tile_size, tile_size))
         self.rect = self.image.get_rect(topleft=pos)
