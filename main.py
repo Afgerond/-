@@ -26,7 +26,6 @@ clock_rect = clock_icon.get_rect(topleft = (36, 142))
 # --------------------------------------------------------------- + --------------------------------------------------------------- # 
 
 big_cloud_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Big Clouds.png").convert_alpha()
-print(big_cloud_image.get_width(), big_cloud_image.get_height())
 small_cloud1_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 1.png").convert_alpha()
 small_cloud2_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 2.png").convert_alpha()
 small_cloud3_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 1.png").convert_alpha()
@@ -59,7 +58,7 @@ for _ in range(random.randint(3, 5)):
     y = random.randint(0, HEIGHT // 2)
     speed = random.uniform(0.1, 0.8)
     image = random.choice([big_cloud_image, small_cloud1_image, small_cloud2_image, small_cloud3_image])
-    
+    print(image)
     if image == big_cloud_image:
         size = random.randint(10000, 20000)
         cloud = Cloud(x, 368, speed, size, image)
