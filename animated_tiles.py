@@ -124,8 +124,6 @@ class MovingPlatforms(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(topleft=pos)
 
     def update(self, x_shift):
-        self.animatie()  # Voer de animatie uit
-
         # Pas de positie van het platform aan op basis van x_shift en de richting
         self.rect.x += (self.speed * self.direction) + x_shift
 
