@@ -123,9 +123,10 @@ class MovingPlatforms(pygame.sprite.Sprite):
         self.image = pygame.transform.scale(self.image, (tile_size, tile_size))
         self.rect = self.image.get_rect(topleft=pos)
 
-    def update(self, x_shift):
-        # Pas de positie van het platform aan op basis van x_shift en de richting
-        self.rect.x += (self.speed * self.direction) + x_shift
+    def update(self, world_shift):
+
+        # Pas de positie van het platform aan op basis van de wereldverschuiving en de snelheid
+        self.rect.x += self.speed * self.direction + world_shift
 
         # Controleer of het platform buiten het bereik is en van richting moet veranderen
         if self.direction == 1 and self.rect.x >= self.start + self.range:
