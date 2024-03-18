@@ -128,7 +128,7 @@ class MovingPlatforms(pygame.sprite.Sprite):
         self.rect.x += (self.speed * self.direction) + x_shift
 
         # Controleer of het platform buiten het bereik is en van richting moet veranderen
-        if self.direction == 1 and self.rect.x >= self.start_x + self.range:
+        if self.direction == 1 and self.rect.x >= self.start + self.range:
             self.direction = -1
-        elif self.direction == -1 and self.rect.x <= self.start_x - self.range:
+        elif self.direction == -1 and self.rect.x <= self.start - self.range:
             self.direction = 1
