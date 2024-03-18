@@ -117,18 +117,20 @@ class MovingPlatforms(pygame.sprite.Sprite):
         super().__init__()
         self.speed = 1.5
         self.direction = 1
-        self.start = pos[0]  # Gebruik het x-coördinaat van het startpunt van het platform
+        self.start = pos[0]
         self.range = 50
         self.image = pygame.image.load('C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Grass.png')
         self.image = pygame.transform.scale(self.image, (tile_size, tile_size))
         self.rect = self.image.get_rect(topleft=pos)
 
-    def animatie(self):
-        if abs(self.rect.x - self.start) >= self.range:
-            self.direction *= -1
-
-        self.rect.x += self.speed * self.direction
-
     def update(self, x_shift):
-        self.animatie()
-        self.rect.x += x_shift
+        self.animatie()  # Voer de animatie uit
+
+        # Pas de positie van het platform aan op basis van x_shift en de richting
+        self.rect.x += (self.speed * self.direction) + x_shift
+
+        # Controleer of het platform buiten het bereik is en van richting moet veranderen
+        if self.direction == 1 and self.rect.x >= self.start_x + self.range:
+            self.direction = -1
+        elif self.direction == -1 and self.rect.x <= self.start_x - self.range:
+            self.direction = 1
