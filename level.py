@@ -140,7 +140,7 @@ class Level:
         player.rect.x += player.direction.x * player.speed
         coin = self.coin.sprites
 
-        for sprite in self.tiles.sprites(), self.platform.sprites():
+        for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, MovingPlatforms):
                     if player.direction.x < 0:
