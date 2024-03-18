@@ -15,6 +15,25 @@ level = Level(level_map, screen)
 
 pygame.display.set_caption('Duo Game - Pixel Platformer')
 
+coin = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/01.png")
+coin = pygame.transform.scale(coin, (45, 45))
+coin_rect = coin.get_rect(topleft = (33, 82))
+
+clock_icon = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/assets/clock.png")
+clock_icon = pygame.transform.scale(clock_icon, (40, 40))
+clock_rect = clock_icon.get_rect(topleft = (36, 142))
+
+# --------------------------------------------------------------- + --------------------------------------------------------------- # 
+
+big_cloud_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Big Clouds.png").convert_alpha()
+small_cloud1_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 1.png").convert_alpha()
+small_cloud2_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 2.png").convert_alpha()
+small_cloud3_image = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 1.png").convert_alpha()
+big_cloud_image = pygame.transform.scale_by(big_cloud_image, 1.2)
+small_cloud1_image = pygame.transform.scale_by(small_cloud1_image, 2)
+small_cloud2_image = pygame.transform.scale_by(small_cloud2_image, 2)
+small_cloud3_image = pygame.transform.scale_by(small_cloud3_image, 2)
+
 class Cloud:
     def __init__(self, x, y, speed, size, image):
         self.x = x
