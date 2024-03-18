@@ -227,10 +227,12 @@ class Level:
         for sprite in self.platform.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, MovingPlatforms):
-                        if player.direction.x < 0:
-                            player.rect.left = sprite.rect.right
-                        elif player.direction.x > 0:
-                            player.rect.right = sprite.rect.left
+                    if player.direction.y > 0:
+                        player.rect.bottom = sprite.rect.top
+                        player.direction.y = 0
+                    elif player.direction.y < 0:
+                        player.rect.top = sprite.rect.bottom
+                        player.direction.y = 0
         for sprite in self.coin.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Coin):
