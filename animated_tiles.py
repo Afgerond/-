@@ -2,6 +2,7 @@ import pygame
 from sprites import import_folder, import_coins, import_wheel
 from player import Player
 import random
+from settings import tile_size
 
 
 class Coin(pygame.sprite.Sprite):
@@ -119,7 +120,8 @@ class MovingPlatforms(pygame.sprite.Sprite):
         self.start_x = 0  # X-coördinaat van het startpunt van het platform
         self.range = 200  # Afstand die het platform heen en weer beweegt
 
-        self.image = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Grass.png'
+        self.image = pygame.image.load('C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Grass.png')
+        self.image = pygame.transform.scale(self.image, (tile_size, tile_size))
         self.rect = self.image.get_rect(topleft = pos)
 
     def animatie(self):
