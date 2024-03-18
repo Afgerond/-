@@ -53,7 +53,7 @@ class Cloud:
         
 cloud_list = []
 
-for _ in range(random.randint(4, 7)):
+for _ in range(random.randint(3, 5)):
     x = random.randint(0, WIDTH)
     y = random.randint(0, HEIGHT // 2)
     speed = random.uniform(0.1, 0.8)
