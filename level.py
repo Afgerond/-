@@ -140,7 +140,7 @@ class Level:
         player.rect.x += player.direction.x * player.speed
         coin = self.coin.sprites
 
-        for sprite in self.tiles.sprites():
+        for sprite in self.tiles.sprites() and self.platform.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Tile) and sprite.tile_type == 'spikes':
                     health_bar.hp -= 1
