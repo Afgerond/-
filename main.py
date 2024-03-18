@@ -61,9 +61,9 @@ for _ in range(random.randint(3, 5)):
     image = random.choice([big_cloud_image, small_cloud1_image, small_cloud2_image, small_cloud3_image])
     
     if image == big_cloud_image:
-        print("Hallo!")
         size = random.randint(10000, 20000)
         cloud = Cloud(x, 368, speed, size, image)
+        print(size)
     else:
         size = random.randint(30, 80)
         cloud = Cloud(x, y, speed, size, image)
