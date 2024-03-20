@@ -1,5 +1,5 @@
 import pygame
-from sprites import import_folder, import_coins, import_wheel
+from sprites import import_folder, import_coins, import_wheel, import_enemies
 from player import Player
 import random
 from settings import tile_size
@@ -161,7 +161,7 @@ class Enemies(pygame.sprite.Sprite):
 
         for animation in self.animations.keys():
             full_path = character_path + animation
-            self.animations[animation] = import_coins(full_path)
+            self.animations[animation] = import_enemies(full_path)
 
     def animatie(self):
         animation = self.animations[self.status]
