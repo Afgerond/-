@@ -186,3 +186,9 @@ class Enemies(pygame.sprite.Sprite):
         elif self.direction == -1 and self.rect.x <= self.start - self.range:
             self.direction = 1
             self.image = pygame.transform.flip(self.image, True, False)
+
+        # Update de afbeelding van de vijand op basis van de richting
+        if self.direction == 1:
+            self.image = self.animations[self.status][self.index]
+        else:
+            self.image = pygame.transform.flip(self.animations[self.status][self.index], True, False)
