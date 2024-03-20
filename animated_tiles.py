@@ -138,18 +138,17 @@ class Enemies(pygame.sprite.Sprite):
         self.imports()
         self.index = 0
         self.animation_speed = 0.15
-        
+
         self.speed = 1.25
         self.direction = 1
         self.start = pos[0]
         self.range = 50
 
-        self.type = random.choice(["crab", "pinky", "toothy"])
-
         self.image = self.animations['run'][self.index]
         self.rect = self.image.get_rect(topleft=pos)
 
     def imports(self):
+        self.type = random.choice(["crab", "pinky", "toothy"])
         if self.type == "crab":
             character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/enemys/crab/'
         elif self.type == "pinky":
