@@ -139,10 +139,10 @@ class Enemies(pygame.sprite.Sprite):
         self.index = 0
         self.animation_speed = 0.1
 
-        self.image = self.animations['run'][self.index]
-        self.rect = self.image.get_rect(topleft = pos)
+        self.status = 'run'
 
-        self.status = self.type
+        self.image = self.animations[self.status][self.index]
+        self.rect = self.image.get_rect(topleft = pos)
 
     def imports(self):
         self.type = random.choice(['toothy', 'pinky', 'crab'])
@@ -154,7 +154,7 @@ class Enemies(pygame.sprite.Sprite):
             self.animations[animation] = import_coins(full_path)
 
     def animatie(self):
-        animation = self.animations['run']
+        animation = self.animations[self.status]
 
         self.index += self.animation_speed
 
