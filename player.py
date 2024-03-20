@@ -1,6 +1,5 @@
-import pygame
+import pygame, sys, time
 from sprites import import_folder, jump_sound
-import time
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos):
@@ -46,6 +45,13 @@ class Player(pygame.sprite.Sprite):
 
     def animatie(self):
         animation = self.animations[self.status]
+
+        if self.health <= 0:
+            self.index = 0
+            self.status = 'die'
+            if self.index >= len(animation):
+                pygame.quit()
+                sys.exit()
 
         self.index += self.animation_speed
 

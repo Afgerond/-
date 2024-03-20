@@ -155,7 +155,7 @@ class Enemies(pygame.sprite.Sprite):
         flipped_image = pygame.transform.flip(self.image, True, False)
         self.rect = self.image.get_rect(topleft=pos)
 
-        # Health
+        # Health 
         self.max_health = 100
         self.current_health = self.max_health
         self.health_bar_width = self.rect.width
