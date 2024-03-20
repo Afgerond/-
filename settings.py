@@ -9,7 +9,7 @@ level_map = [
 '    B                         GG                                S C FB     ',
 '    B                                               S   C   C   GGGGGGGGGGG',
 '    B 1  C SS                     W   C  S        GGG   G   G   DDDDDDDDDDD',
-'GGGGGGGGGGGGG               C  E GGG  G  GGG  E  GDDD   D   D   DDDDDDDDDDD',
+'GGGGGGGGGGGGG               C  E GGG  G  GGG  L  GDDD   D   D   DDDDDDDDDDD',
 'DDDDDDDDDDDDD SSS   L   SSS GGGGGDDD  D  DDDGGGGGDDDD   D   D   DDDDDDDDDDD',   
 'DDDDDDDDDDDDD GGGGGGGGGGGGG DDDDDDDD  D  DDDDDDDDDDDD   D   D   DDDDDDDDDDD',
 'DDDDDDDDDDDDDKDDDDDDDDDDDDDKDDDDDDDDKKDKKDDDDDDDDDDDDKKKDKKKDKKKDDDDDDDDDDD',
