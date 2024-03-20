@@ -124,7 +124,7 @@ class MovingPlatforms(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(topleft=pos)
 
     def update(self, x_shift):
-        self.rect.x += x_shift
+        #self.rect.x += x_shift
         self.rect.x += self.speed * self.direction
 
         # Controleer of het platform buiten het bereik is en van richting moet veranderen

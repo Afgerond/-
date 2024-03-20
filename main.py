@@ -68,6 +68,11 @@ for _ in range(random.randint(3, 5)):
         cloud = Cloud(x, y, speed, size, image)
     cloud_list.append(cloud)
 
+def main():
+    while True:
+        pygame.display.update()
+        clock.tick(FPS)
+
 def game():
     run = True
     while run:
