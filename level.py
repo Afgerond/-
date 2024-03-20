@@ -226,30 +226,29 @@ class Level:
                         player.rect.top = sprite.rect.bottom
                         player.direction.y = 0                
     def run(self):
-
         # Level tiles
-        self.tiles.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
+        self.tiles.update(self.world_shift)
         self.tiles.draw(self.display_surface)
 
         # Coin
-        self.coin.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
+        self.coin.update(self.world_shift)
         self.coin.draw(self.display_surface)
 
         # Wheel
-        self.wheel.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
+        self.wheel.update(self.world_shift)
         self.wheel.draw(self.display_surface)
 
         # Flag
-        self.flag.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
+        self.flag.update(self.world_shift)
         self.flag.draw(self.display_surface)
 
         # Cannon
-        self.enemies.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
+        self.enemies.health(self.display_surface)
+        self.enemies.update(self.world_shift)
         self.enemies.draw(self.display_surface)
-        self.enemies.draw_health_bar(self.display_surface)
 
         # Platforms
-        self.platform.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
+        self.platform.update(self.world_shift)
         self.platform.draw(self.display_surface)
 
         # Player
