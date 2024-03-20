@@ -142,7 +142,7 @@ class Enemies(pygame.sprite.Sprite):
         self.animation_speed = 0.1
 
         # Default status
-        self.status = 'hit'
+        self.status = 'run'
 
         # Movement
         self.speed = random.choice([1.05, 1.1, 1.15, 1.2, 1.35, 1.5])
