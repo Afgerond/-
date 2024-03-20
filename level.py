@@ -246,6 +246,7 @@ class Level:
         # Cannon
         self.enemies.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
         self.enemies.draw(self.display_surface)
+        self.enemies.draw_health_bar(self.display_surface)
 
         # Platforms
         self.platform.update(self.world_shift) # Snelheid waarmee de map een bepaalde kant op beweegt!
@@ -258,8 +259,6 @@ class Level:
         self.horizontale_movement_collisions()
         self.verticale_movement_collisions()
         self.player.draw(self.display_surface)
-
-        print(self.world_shift)
 
         if self.collision_cooldown > 0:
             self.collision_cooldown -= 1 

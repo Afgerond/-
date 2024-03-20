@@ -186,6 +186,7 @@ class Enemies(pygame.sprite.Sprite):
 
     def update(self, x_shift):
         self.animatie()
+        self.draw_health_bar()
         self.rect.x += self.direction * self.speed + x_shift
         self.start += x_shift
 
@@ -195,7 +196,6 @@ class Enemies(pygame.sprite.Sprite):
             self.direction = 1
 
     def draw_health_bar(self, surface):
-        # Bereken de breedte van de gezondheidsbalk op basis van de huidige gezondheid
         health_percentage = self.current_health / self.max_health
         health_bar_width = int(self.health_bar_width * health_percentage)
 
