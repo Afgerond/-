@@ -242,8 +242,7 @@ class Level:
         self.flag.update(self.world_shift)
         self.flag.draw(self.display_surface)
 
-        # Cannon
-        self.enemies.health(self.display_surface)
+        # Enemies
         self.enemies.update(self.world_shift)
         self.enemies.draw(self.display_surface)
 
