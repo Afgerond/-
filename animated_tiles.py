@@ -173,7 +173,11 @@ class Enemies(pygame.sprite.Sprite):
             self.index = 0
 
         image = animation[int(self.index)]
-        self.image = image
+        if self.direction == 1:
+            self.image = image
+        else:
+            flipped_image = pygame.transform.flip(image, True, False)
+            self.image = flipped_image
 
     def update(self, x_shift):
         self.animatie()
