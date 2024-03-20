@@ -148,7 +148,7 @@ class Enemies(pygame.sprite.Sprite):
         self.speed = random.choice([1.05, 1.1, 1.15, 1.2, 1.35, 1.5])
         self.direction = 1
         self.start = pos[0]
-        self.range = 50
+        self.range = 75
 
         # Image & rect
         self.image = self.animations[self.status][self.index]
