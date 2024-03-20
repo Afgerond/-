@@ -122,6 +122,10 @@ class Level:
                             player.rect.left = sprite.rect.right
                         elif player.direction.x > 0:
                             player.rect.right = sprite.rect.left
+        for sprite in self.enemies.sprites():
+            if sprite.rect.colliderect(player.rect):
+                if isinstance(sprite, Enemies):
+                    health_bar.hp = 0
         for sprite in self.coin.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Coin):
@@ -187,6 +191,10 @@ class Level:
                     elif player.direction.y < 0:
                         player.rect.top = sprite.rect.bottom
                         player.direction.y = 0
+        for sprite in self.enemies.sprites():
+            if sprite.rect.colliderect(player.rect):
+                if isinstance(sprite, Enemies):
+                    health_bar.hp = 0
         for sprite in self.coin.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Coin):
