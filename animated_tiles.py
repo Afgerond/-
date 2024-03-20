@@ -115,7 +115,7 @@ class Flag(pygame.sprite.Sprite):
 class MovingPlatforms(pygame.sprite.Sprite):
     def __init__(self, pos):
         super().__init__()
-        self.speed = 1
+        self.speed = 1.5
         self.direction = 1
         self.start = pos[0]
         self.range = 50
@@ -124,9 +124,7 @@ class MovingPlatforms(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(topleft=pos)
 
     def update(self, x_shift):
-        #self.rect.x += x_shift
-        
-        self.rect.x += self.direction + x_shift
+        self.rect.x += self.direction * self.speed
         self.start += x_shift
         if self.direction == 1 and self.rect.x >= self.start + self.range:
             self.direction = -1
