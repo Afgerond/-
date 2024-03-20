@@ -154,7 +154,7 @@ class Enemies(pygame.sprite.Sprite):
             self.animations[animation] = import_coins(full_path)
 
     def animatie(self):
-        animation = self.animations[self.type]
+        animation = self.animations['run']
 
         self.index += self.animation_speed
 
