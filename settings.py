@@ -5,7 +5,7 @@ level_map = [
 '    B                                               SCS      GGG    B     ',
 '    B                             SC   CS    SS     GGG             B     ',
 '    B                   SC        GG   GG    GG                     B     ',
-'    B           AA      GG    CS                                    B     ',
+'    B  AA               GG    CS                                    B     ',
 '    B                         GG                               S C FB     ',
 '    B                                              S   C   L   GGGGGGGGGGG',
 '    B 1  C SS                     W   C  S       GGG   G   G   DDDDDDDDDDD',
