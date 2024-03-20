@@ -152,7 +152,6 @@ class Enemies(pygame.sprite.Sprite):
 
         # Image & rect
         self.image = self.animations[self.status][self.index]
-        flipped_image = pygame.transform.flip(self.image, True, False)
         self.rect = self.image.get_rect(topleft=pos)
 
         # Health
@@ -204,9 +203,11 @@ class Enemies(pygame.sprite.Sprite):
         health_bar_width = int(self.health_bar_width * (self.current_health / self.max_health))
         health_bar_rect = pygame.Rect(health_bar_x, health_bar_y, health_bar_width, self.health_bar_height)
 
-        # Teken de gezondheidsbalk op het scherm
+        # Teken de achtergrond van de gezondheidsbalk
+        pygame.draw.rect(surface, (255, 0, 0), (health_bar_x, health_bar_y, self.health_bar_width, self.health_bar_height))
+
+        # Teken de gevulde gezondheidsbalk
         pygame.draw.rect(surface, (0, 255, 0), health_bar_rect)
-        pygame.draw.rect(surface, (255, 0, 0), health_bar_rect, 2)
 
     def take_damage(self, damage_amount):
         self.current_health -= damage_amount
