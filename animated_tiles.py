@@ -136,11 +136,21 @@ class Enemies(pygame.sprite.Sprite):
     def __init__(self, pos):
         super().__init__()
         self.imports()
+
+        # Animations
         self.index = 0
         self.animation_speed = 0.1
 
+        # Default status
         self.status = 'run'
 
+        # Movement
+        self.speed = 1.5
+        self.direction = 1
+        self.start = pos[0]
+        self.range = 50
+
+        # Image & rect
         self.image = self.animations[self.status][self.index]
         self.rect = self.image.get_rect(topleft = pos)
 
@@ -166,4 +176,10 @@ class Enemies(pygame.sprite.Sprite):
 
     def update(self, x_shift):
         self.animatie()
-        self.rect.x += x_shift
+        self.rect.x += self.direction * self.speed + x_shift
+        self.start += x_shift
+
+        if self.direction == 1 and self.rect.x >= self.start + self.range:
+            self.direction = -1
+        elif self.direction == -1 and self.rect.x <= self.start - self.range:
+            self.direction = 1
