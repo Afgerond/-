@@ -126,7 +126,7 @@ class MovingPlatforms(pygame.sprite.Sprite):
     def update(self, x_shift):
         #self.rect.x += x_shift
         
-        self.rect.x += self.direction * x_shift
+        self.rect.x += self.direction + x_shift
 
         if self.direction == 1 and self.rect.x >= self.start + self.range:
             self.direction = -1
