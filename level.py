@@ -257,7 +257,7 @@ class Level:
         self.horizontale_movement_collisions()
         self.verticale_movement_collisions()
         self.player.draw(self.display_surface)
-        print(Player.health)
+        print(self.player.health)
 
         if self.collision_cooldown > 0:
             self.collision_cooldown -= 1 
