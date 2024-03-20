@@ -131,3 +131,54 @@ class MovingPlatforms(pygame.sprite.Sprite):
             self.direction = -1
         elif self.direction == -1 and self.rect.x <= self.start - self.range:
             self.direction = 1
+
+class Enemies(pygame.sprite.Sprite):
+    def __init__(self, pos):
+        super().__init__()
+        self.imports()
+        self.index = 0
+        self.animation_speed = 0.15
+        
+        self.speed = 1.25
+        self.direction = 1
+        self.start = pos[0]
+        self.range = 50
+
+        self.type = random.choice(["crab", "pinky", "toothy"])
+
+        self.image = self.animations['run'][self.index]
+        self.rect = self.image.get_rect(topleft=pos)
+
+    def imports(self):
+        if self.type == "crab":
+            character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/enemys/crab/'
+        elif self.type == "pinky":
+            character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/enemys/pinky/'
+        elif self.type == "toothy":
+            character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/enemys/toothy/'
+        self.animations = {'run': [], 'hit': [], 'dead': []}
+
+        for animation in self.animations.keys():
+            full_path = character_path
+            self.animations[animation] = import_wheel(full_path)  
+
+    def animatie(self):
+        animation = self.animations['run']
+
+        self.index += self.animation_speed
+
+        if self.index >= len(animation):
+            self.index = 0
+
+        image = animation[int(self.index)]
+        self.image = image
+
+    def update(self, x_shift):
+        self.animatie()
+        self.rect.x += self.direction * self.speed + x_shift
+        self.start += x_shift
+
+        if self.direction == 1 and self.rect.x >= self.start + self.range:
+            self.direction = -1
+        elif self.direction == -1 and self.rect.x <= self.start - self.range:
+            self.direction = 1
