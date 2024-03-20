@@ -152,6 +152,7 @@ class Enemies(pygame.sprite.Sprite):
 
         # Image & rect
         self.image = self.animations[self.status][self.index]
+        flipped_image = pygame.transform.flip(self.image, True, False)
         self.rect = self.image.get_rect(topleft = pos)
 
     def imports(self):
@@ -181,5 +182,7 @@ class Enemies(pygame.sprite.Sprite):
 
         if self.direction == 1 and self.rect.x >= self.start + self.range:
             self.direction = -1
+            self.image = pygame.transform.flip(self.image, True, False)
         elif self.direction == -1 and self.rect.x <= self.start - self.range:
             self.direction = 1
+            self.image = pygame.transform.flip(self.image, True, False)
