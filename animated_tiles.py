@@ -115,7 +115,7 @@ class Flag(pygame.sprite.Sprite):
 class MovingPlatforms(pygame.sprite.Sprite):
     def __init__(self, pos):
         super().__init__()
-        self.speed = random.choice([1.25, 1.5, 1.75, 2])
+        self.speed = random.choice([1.25, 1.375, 1.5, 1.625, 1.75, 1.875 ,2])
         self.direction = 1
         self.start = pos[0]
         self.range = 50
