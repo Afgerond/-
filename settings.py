@@ -8,9 +8,9 @@ level_map = [
 '    B           AA      GG    CS                                    B     ',
 '    B                         GG                               S C FB     ',
 '    B                                              S   C   C   GGGGGGGGGGG',
-'    B 1  C  L                     W   C  S       GGG   G   G   DDDDDDDDDDD',
+'    B 1  C SS                     W   C  S       GGG   G   G   DDDDDDDDDDD',
 'GGGGGGGGGGGGG               C  E GGG  G  GGG SS GDDD   D   D   DDDDDDDDDDD',
-'DDDDDDDDDDDDD SSS  V C  SSS GGGGGDDD  D  DDDGGGGDDDD   D   D   DDDDDDDDDDD',   
+'DDDDDDDDDDDDD SSS   L   SSS GGGGGDDD  D  DDDGGGGDDDD   D   D   DDDDDDDDDDD',   
 'DDDDDDDDDDDDD GGGGGGGGGGGGG DDDDDDDD  D  DDDDDDDDDDD   D   D   DDDDDDDDDDD',
 'DDDDDDDDDDDDDKDDDDDDDDDDDDDKDDDDDDDDKKDKKDDDDDDDDDDDKKKDKKKDKKKDDDDDDDDDDD',
 'DDDDDDDDDDDDDKDDDDDDDDDDDDDKDDDDDDDDKKDKKDDDDDDDDDDDKKKDKKKDKKKDDDDDDDDDDD']
