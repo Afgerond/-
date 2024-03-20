@@ -166,7 +166,6 @@ class Enemies(pygame.sprite.Sprite):
 
     def animatie(self):
         animation = self.animations[self.status]
-
         self.index += self.animation_speed
 
         if self.index >= len(animation):
