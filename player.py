@@ -48,7 +48,8 @@ class Player(pygame.sprite.Sprite):
         animation = self.animations[self.status]
 
         self.index += self.animation_speed
-        print(self.index)
+
+        print(self.status)
 
         if self.index >= len(animation):
             if self.status == 'die':
