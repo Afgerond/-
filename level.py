@@ -102,11 +102,11 @@ class Level:
                     elif player.direction.x > 0:
                         player.rect.right = sprite.rect.left
                 if isinstance(sprite, Tile) and sprite.tile_type == 'spikes':
-                    health_bar.hp -= 1
+                    player.health -= 1
                     self.collision_cooldown = 60
                 elif isinstance(sprite, Tile) and sprite.tile_type == 'flag':
                     print("Gewonnen")
-                    health_bar.hp = health_bar.max_hp
+                    player.health = health_bar.max_hp
                 elif isinstance(sprite, Tile) and sprite.tile_type == 'killingborder':
                     pygame.quit()
                     sys.exit()
@@ -125,7 +125,7 @@ class Level:
         for sprite in self.enemies.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Enemies):
-                    health_bar.hp = 0
+                    player.health = 0
         for sprite in self.coin.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Coin):
@@ -167,11 +167,11 @@ class Level:
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Tile) and sprite.tile_type == 'spikes':
-                    health_bar.hp -= 1
+                    player.health -= 1
                     self.collision_cooldown = 60
                 elif isinstance(sprite, Tile) and sprite.tile_type == 'flag':
                     print("Gewonnen")
-                    health_bar.hp = health_bar.max_hp
+                    player.health = health_bar.max_hp
                 elif isinstance(sprite, Tile) and sprite.tile_type == 'killingborder':
                     pygame.quit()
                     sys.exit()
@@ -194,7 +194,7 @@ class Level:
         for sprite in self.enemies.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Enemies):
-                    health_bar.hp = 0
+                    player.health.hp = 0
         for sprite in self.coin.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Coin):
