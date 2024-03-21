@@ -106,12 +106,14 @@ class Player(pygame.sprite.Sprite):
             self.status = 'jump'
         elif self.direction.y > self.gravity:
             self.status = 'fall'
-        elif self.status != 'shoot':
-            if self.health <= 0:
+        else:
+            if health_bar.hp <= 0:
                 self.status = 'die'
             else:
                 if self.direction.x != 0:
                     self.status = 'run'
+                elif self.keys[pygame.K_s]:
+                    self.status = 'shoot'
                 else:
                     self.status = 'idle'
 
@@ -136,12 +138,8 @@ class Player(pygame.sprite.Sprite):
 
     def shoot(self):
         if self.keys[pygame.K_s]:
-            if self.status != 'shoot':
-                self.status = 'shoot'
-                self.animatie()
-        else:
-            if self.status == 'shoot':
-                self.status = self.get_status()
+            self.status = 'shoot'
+            self.animatie()
 
     def update(self):
         self.movement()
