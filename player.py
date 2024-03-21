@@ -138,8 +138,12 @@ class Player(pygame.sprite.Sprite):
 
     def shoot(self):
         if self.keys[pygame.K_s]:
-            self.status = 'shoot'
-            self.animatie()
+            if self.status != 'shoot':
+                self.status = 'shoot'
+                self.animatie()
+        else:
+            if self.status == 'shoot':
+                self.status = self.get_status()
 
     def update(self):
         self.movement()
