@@ -51,7 +51,6 @@ class Player(pygame.sprite.Sprite):
 
         if self.index >= len(animation):
             if self.status == 'die':
-                print("Hallo?")
                 pygame.quit()
                 sys.exit()
             if self.status == 'shoot':
