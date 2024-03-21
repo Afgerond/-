@@ -69,25 +69,26 @@ class Player(pygame.sprite.Sprite):
     def movement(self):
         self.keys = pygame.key.get_pressed()
 
-        if self.keys[pygame.K_RIGHT] or self.keys[pygame.K_d]:
-            self.direction.x = 1
-            self.rechts = True
-        elif self.keys[pygame.K_LEFT] or self.keys[pygame.K_a]:
-            self.direction.x = -1
-            self.rechts = False
-        else:
-            self.direction.x = 0
+        if self.status != 'die':
+            if self.keys[pygame.K_RIGHT] or self.keys[pygame.K_d]:
+                self.direction.x = 1
+                self.rechts = True
+            elif self.keys[pygame.K_LEFT] or self.keys[pygame.K_a]:
+                self.direction.x = -1
+                self.rechts = False
+            else:
+                self.direction.x = 0
 
-        if self.keys[pygame.K_SPACE] or self.keys[pygame.K_UP] or self.keys[pygame.K_w]:
-            if self.sound_played == True:
-                self.sound_played = False
-            if self.sound_played == False:
-                #jump_sound.play()
-                self.sound_played = True
-            self.jump()
+            if self.keys[pygame.K_SPACE] or self.keys[pygame.K_UP] or self.keys[pygame.K_w]:
+                if self.sound_played == True:
+                    self.sound_played = False
+                if self.sound_played == False:
+                    #jump_sound.play()
+                    self.sound_played = True
+                self.jump()
 
-        if self.keys[pygame.K_s]:
-            self.status = 'shoot'
+            if self.keys[pygame.K_s]:
+                self.status = 'shoot'
 
     def get_status(self):
         if self.direction.y < 0:
