@@ -69,17 +69,25 @@ class Player(pygame.sprite.Sprite):
     def movement(self):
         self.keys = pygame.key.get_pressed()
 
-        if self.status != 'die':
-            if self.keys[pygame.K_RIGHT] or self.keys[pygame.K_d]:
+        if self.keys[pygame.K_RIGHT] or self.keys[pygame.K_d]:
+            if self.status == 'die':
+                None
+            else:
                 self.direction.x = 1
                 self.rechts = True
-            elif self.keys[pygame.K_LEFT] or self.keys[pygame.K_a]:
+        elif self.keys[pygame.K_LEFT] or self.keys[pygame.K_a]:
+            if self.status == 'die':
+                None
+            else:
                 self.direction.x = -1
                 self.rechts = False
-            else:
-                self.direction.x = 0
+        else:
+            self.direction.x = 0
 
-            if self.keys[pygame.K_SPACE] or self.keys[pygame.K_UP] or self.keys[pygame.K_w]:
+        if self.keys[pygame.K_SPACE] or self.keys[pygame.K_UP] or self.keys[pygame.K_w]:
+            if self.status == 'die':
+                None
+            else:
                 if self.sound_played == True:
                     self.sound_played = False
                 if self.sound_played == False:
@@ -87,7 +95,10 @@ class Player(pygame.sprite.Sprite):
                     self.sound_played = True
                 self.jump()
 
-            if self.keys[pygame.K_s]:
+        if self.keys[pygame.K_s]:
+            if self.status == 'die':
+                None
+            else:
                 self.status = 'shoot'
 
     def get_status(self):
