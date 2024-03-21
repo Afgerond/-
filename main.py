@@ -90,8 +90,6 @@ def game():
                 if event.key == pygame.K_q:
                     pygame.quit()
                     sys.exit()
-        if health_bar.hp <= 0:
-            run = False
 
         for cloud in cloud_list:
             cloud.move()

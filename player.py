@@ -1,5 +1,6 @@
 import pygame, sys, time
 from sprites import import_folder, jump_sound
+from health import health_bar
 
 class Player(pygame.sprite.Sprite):
     def __init__(self, pos):
@@ -46,7 +47,7 @@ class Player(pygame.sprite.Sprite):
     def animatie(self):
         animation = self.animations[self.status]
 
-        if self.health <= 0:
+        if health_bar.hp <= 0:
             self.index = 0
             self.status = 'die'
             if self.index >= len(animation):
