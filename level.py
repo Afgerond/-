@@ -194,7 +194,7 @@ class Level:
         for sprite in self.enemies.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Enemies):
-                    player.health.hp = 0
+                    player.health = 0
         for sprite in self.coin.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Coin):
