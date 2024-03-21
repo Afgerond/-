@@ -106,14 +106,12 @@ class Player(pygame.sprite.Sprite):
             self.status = 'jump'
         elif self.direction.y > self.gravity:
             self.status = 'fall'
-        else:
-            if health_bar.hp <= 0:
+        elif self.status != 'shoot':
+            if self.health <= 0:
                 self.status = 'die'
             else:
                 if self.direction.x != 0:
                     self.status = 'run'
-                elif self.keys[pygame.K_s]:
-                    self.status = 'shoot'
                 else:
                     self.status = 'idle'
 
