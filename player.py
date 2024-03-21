@@ -47,16 +47,12 @@ class Player(pygame.sprite.Sprite):
     def animatie(self):
         animation = self.animations[self.status]
 
-        if health_bar.hp <= 0:
-            self.index = 0
-            self.status = 'die'
-            if self.index >= len(animation):
-                pygame.quit()
-                sys.exit()
-
         self.index += self.animation_speed
 
         if self.index >= len(animation):
+            if self.status == 'die':
+                pygame.quit()
+                sys.exit()
             if self.status == 'shoot':
                 self.index = 0
                 self.get_status()
@@ -94,6 +90,8 @@ class Player(pygame.sprite.Sprite):
             self.status = 'shoot'
 
     def get_status(self):
+        if health_bar.hp <= 0:
+            self.status = 'die'
         if self.direction.y < 0:
             self.status = 'jump'
         elif self.direction.y > self.gravity:
