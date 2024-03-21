@@ -112,6 +112,8 @@ class Player(pygame.sprite.Sprite):
             else:
                 if self.direction.x != 0:
                     self.status = 'run'
+                elif self.keys[pygame.K_s]:
+                    self.status = 'shoot'
                 else:
                     self.status = 'idle'
 
