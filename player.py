@@ -1,5 +1,5 @@
 import pygame as pg
-import sys
+import sys, random
 from sprites import import_folder, jump_sound
 from health import health_bar
 
@@ -34,7 +34,7 @@ class Player(pg.sprite.Sprite):
 
     def imports(self):
         self.character = random.choice(["1", "2", "3"])
-        character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/character/'
+        character_path = f'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/character{self.character}/'
         self.animations = {'idle': [], 'run': [], 'jump': [], 'fall': [], 'die': [], 'shoot': []}
 
         for animation in self.animations.keys():
