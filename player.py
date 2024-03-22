@@ -17,15 +17,10 @@ class Player(pg.sprite.Sprite):
         self.rect = self.image.get_rect(topleft=pos)
 
         # Movement
-        self.direction = pg.math.Vector2(0, 0)
-        self.speed = 0.1
-        self.gravity = 0.42
-        self.jump_speed = -12
-        self.max_jump_count = 3
-        self.jump_count = 0
-        self.jump_cooldown = False
-        self.jump_cooldown_duration = 0.45
-        self.last_jump_time = 0.0
+        self.direction, self.speed = pg.math.Vector2(0, 0), 0.1
+        
+        # Jump
+        self.gravity, self.jump_speed, self.max_jump_count, self.jump_count, self.jump_cooldown, self.jump_cooldown_duration, self.last_jump_time = 0/42. -12, 3, 0, False, 0.45, 0.0
 
         # Status
         self.status = 'idle'
