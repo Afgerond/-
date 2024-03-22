@@ -83,11 +83,11 @@ def game():
         pg.display.update()
         clock.tick(FPS)
 
-main()
+game()
 
 def get_current_coins():
   with open('coins.txt', 'r') as file:
-    current_coins = int(file.read())
+    current_coins = int(file.read()) 
   return current_coins
 
 def update_current_level(coins):
