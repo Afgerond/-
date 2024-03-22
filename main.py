@@ -32,6 +32,24 @@ small_cloud3_image = pygame.transform.scale(pygame.image.load("C:/Users/josey/Pr
 
 cloud_images = [big_cloud_image, small_cloud1_image, small_cloud2_image, small_cloud3_image]
 
+class Cloud:
+    def __init__(self, x, y, speed, image):
+        self.x = x
+        self.y = y
+        self.speed = speed
+        self.image = image
+        self.size = image.get_size()
+
+    def move(self):
+        self.x += self.speed
+
+        if self.x > WIDTH:
+            self.x = -self.size[0]
+
+    def draw(self, surface):
+        surface.blit(self.image, (int(self.x), int(self.y)))
+
+
 cloud_list = [Cloud(random.randint(0, WIDTH), random.randint(0, HEIGHT // 2), random.uniform(0.1, 0.8), random.choice(cloud_images)) for _ in range(random.randint(3, 5))]
 
 def main():
