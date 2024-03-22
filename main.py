@@ -75,11 +75,7 @@ def game():
             cloud.draw(screen)
 
         health_bar.draw(screen)
-        screen.blit(health, health_rect)
-        screen.blit(coin_txt, coin_txt_r)
-        screen.blit(coin, coin_rect)
-        screen.blit(clock_icon, clock_rect)
-        screen.blit(time, time_r)
+        screen.blit(health, health_rect), screen.blit(coin_txt, coin_txt_r), screen.blit(coin, coin_rect), screen.blit(clock_icon, clock_rect), screen.blit(time, time_r)
 
         level.run()
 
