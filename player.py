@@ -5,12 +5,12 @@ from health import health_bar
 
 class Player(pg.sprite.Sprite):
     def __init__(self, pos):
+        # Initialisatie
         super().__init__()
         self.imports()
 
         # Animation
-        self.index = 0
-        self.animation_speed = 0.15
+        self.index, self.animation_speed = 0, 0.15
 
         # Op het scherm
         self.image = self.animations['idle'][self.index]
@@ -123,8 +123,7 @@ class Player(pg.sprite.Sprite):
 
     def shoot(self):
         if pg.key.get_pressed()[pg.K_s]:
-            self.status = 'shoot'
-            self.animatie()
+            self.status = 'shoot', self.animatie()
 
     def update(self):
         self.movement(), self.get_status(), self.animatie(), self.shoot()
