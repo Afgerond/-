@@ -1,11 +1,11 @@
-import pygame
+import pygame as pg
 from sprites import import_folder, import_coins, import_wheel, import_enemies
 from player import Player
 import random
 from settings import tile_size
 
 
-class Coin(pygame.sprite.Sprite):
+class Coin(pg.sprite.Sprite):
     def __init__(self, pos):
         super().__init__()
         self.imports()
@@ -42,7 +42,7 @@ class Coin(pygame.sprite.Sprite):
         self.animatie()
         self.rect.x += x_shift
 
-class Wheel(pygame.sprite.Sprite):
+class Wheel(pg.sprite.Sprite):
     def __init__(self, pos):
         super().__init__()
         self.imports()
@@ -77,7 +77,7 @@ class Wheel(pygame.sprite.Sprite):
         self.animatie()
         self.rect.x += x_shift
 
-class Flag(pygame.sprite.Sprite):
+class Flag(pg.sprite.Sprite):
     def __init__(self, pos):
         super().__init__()
         self.imports()
@@ -112,15 +112,15 @@ class Flag(pygame.sprite.Sprite):
         self.animatie()
         self.rect.x += x_shift
 
-class MovingPlatforms(pygame.sprite.Sprite):
+class MovingPlatforms(pg.sprite.Sprite):
     def __init__(self, pos):
         super().__init__()
         self.speed = 1.375
         self.direction = 1
         self.start = pos[0]
         self.range = 50
-        self.image = pygame.image.load('C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Grass.png')
-        self.image = pygame.transform.scale(self.image, (tile_size, tile_size))
+        self.image = pg.image.load('C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/Grass.png')
+        self.image = pg.transform.scale(self.image, (tile_size, tile_size))
         self.rect = self.image.get_rect(topleft=pos)
 
     def update(self, x_shift):
@@ -132,7 +132,7 @@ class MovingPlatforms(pygame.sprite.Sprite):
         elif self.direction == -1 and self.rect.x <= self.start - self.range:
             self.direction = 1
 
-class Enemies(pygame.sprite.Sprite):
+class Enemies(pg.sprite.Sprite):
     def __init__(self, pos):
         super().__init__()
         self.imports()
@@ -152,7 +152,7 @@ class Enemies(pygame.sprite.Sprite):
 
         # Image & rect
         self.image = self.animations[self.status][self.index]
-        flipped_image = pygame.transform.flip(self.image, True, False)
+        flipped_image = pg.transform.flip(self.image, True, False)
         self.rect = self.image.get_rect(topleft=pos)
 
         # Health 
@@ -181,7 +181,7 @@ class Enemies(pygame.sprite.Sprite):
         if self.direction == -1:
             self.image = image
         else:
-            flipped_image = pygame.transform.flip(image, True, False)
+            flipped_image = pg.transform.flip(image, True, False)
             self.image = flipped_image
 
     def update(self, x_shift):

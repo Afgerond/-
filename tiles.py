@@ -1,14 +1,14 @@
-import pygame
+import pygame as pg
 import random
 
-class Tile(pygame.sprite.Sprite):
+class Tile(pg.sprite.Sprite):
     def __init__(self, tile_type):
         super().__init__()
         self.tile_type = tile_type
 
     def load_image(self, image_path, size):
-        image = pygame.image.load(image_path)
-        image = pygame.transform.scale(image, (size, size))
+        image = pg.image.load(image_path)
+        image = pg.transform.scale(image, (size, size))
         return image
 
     def create_tile(self, pos, size, tile_type):
@@ -33,4 +33,3 @@ class Tile(pygame.sprite.Sprite):
 
     def update(self, x_shift):
         self.rect.x += x_shift
-        

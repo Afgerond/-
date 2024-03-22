@@ -1,4 +1,5 @@
-import pygame, sys
+import pygame as pg
+import sys
 from tiles import *
 from settings import tile_size, WIDTH
 from player import Player
@@ -17,14 +18,14 @@ class Level:
         self.sound_played = True
 
     def setup_level(self, layout):
-        self.tiles = pygame.sprite.Group()
-        self.coin = pygame.sprite.Group()
-        self.wheel = pygame.sprite.Group()
-        self.flag = pygame.sprite.Group()
-        self.enemies = pygame.sprite.Group()
-        self.diamond = pygame.sprite.Group()
-        self.player = pygame.sprite.GroupSingle()
-        self.platform = pygame.sprite.Group()
+        self.tiles = pg.sprite.Group()
+        self.coin = pg.sprite.Group()
+        self.wheel = pg.sprite.Group()
+        self.flag = pg.sprite.Group()
+        self.enemies = pg.sprite.Group()
+        self.diamond = pg.sprite.Group()
+        self.player = pg.sprite.GroupSingle()
+        self.platform = pg.sprite.Group()
 
         for row_index, row in enumerate(layout):
             for col_index, cell in enumerate(row):
@@ -108,7 +109,7 @@ class Level:
                     print("Gewonnen")
                     health_bar.hp = health_bar.max_hp
                 elif isinstance(sprite, Tile) and sprite.tile_type == 'killingborder':
-                    pygame.quit()
+                    pg.quit()
                     sys.exit()
                 else:
                     if player.direction.x < 0:
@@ -173,7 +174,7 @@ class Level:
                     print("Gewonnen")
                     health_bar.hp = health_bar.max_hp
                 elif isinstance(sprite, Tile) and sprite.tile_type == 'killingborder':
-                    pygame.quit()
+                    pg.quit()
                     sys.exit()
                 else:
                     if player.direction.y > 0:

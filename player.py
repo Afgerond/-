@@ -1,8 +1,9 @@
-import pygame, sys, time
+import pygame as pg
+import sys, time
 from sprites import import_folder, jump_sound
 from health import health_bar
 
-class Player(pygame.sprite.Sprite):
+class Player(pg.sprite.Sprite):
     def __init__(self, pos):
         # Initialisatie
         super().__init__()
@@ -14,7 +15,7 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect(topleft = pos)
 
         # Player Movement
-        self.direction = pygame.math.Vector2(0, 0)
+        self.direction = pg.math.Vector2(0, 0)
         self.speed = 0.1 #8
         self.gravity = 0.42 #0.55
         self.jump_speed = -12 #-16
@@ -51,7 +52,7 @@ class Player(pygame.sprite.Sprite):
 
         if self.index >= len(animation):
             if self.status == 'die':
-                pygame.quit()
+                pg.quit()
                 sys.exit()
             if self.status == 'shoot':
                 self.index = 0
@@ -63,19 +64,19 @@ class Player(pygame.sprite.Sprite):
         if self.rechts == True:
             self.image = image
         else:
-            flipped_image = pygame.transform.flip(image, True, False)
+            flipped_image = pg.transform.flip(image, True, False)
             self.image = flipped_image
 
     def movement(self):
-        self.keys = pygame.key.get_pressed()
+        self.keys = pg.key.get_pressed()
 
-        if self.keys[pygame.K_RIGHT] or self.keys[pygame.K_d]:
+        if self.keys[pg.K_RIGHT] or self.keys[pg.K_d]:
             if self.status == 'die':
                 None
             else:
                 self.direction.x = 1
                 self.rechts = True
-        elif self.keys[pygame.K_LEFT] or self.keys[pygame.K_a]:
+        elif self.keys[pg.K_LEFT] or self.keys[pg.K_a]:
             if self.status == 'die':
                 None
             else:
@@ -84,7 +85,7 @@ class Player(pygame.sprite.Sprite):
         else:
             self.direction.x = 0
 
-        if self.keys[pygame.K_SPACE] or self.keys[pygame.K_UP] or self.keys[pygame.K_w]:
+        if self.keys[pg.K_SPACE] or self.keys[pg.K_UP] or self.keys[pg.K_w]:
             if self.status == 'die':
                 None
             else:
@@ -95,7 +96,7 @@ class Player(pygame.sprite.Sprite):
                     self.sound_played = True
                 self.jump()
 
-        if self.keys[pygame.K_s]:
+        if self.keys[pg.K_s]:
             if self.status == 'die':
                 None
             else:
@@ -112,7 +113,7 @@ class Player(pygame.sprite.Sprite):
             else:
                 if self.direction.x != 0:
                     self.status = 'run'
-                elif self.keys[pygame.K_s]:
+                elif self.keys[pg.K_s]:
                     self.status = 'shoot'
                 else:
                     self.status = 'idle'
@@ -137,7 +138,7 @@ class Player(pygame.sprite.Sprite):
             self.jump_count = 0
 
     def shoot(self):
-        if self.keys[pygame.K_s]:
+        if self.keys[pg.K_s]:
             self.status = 'shoot'
             self.animatie()
 
@@ -146,4 +147,3 @@ class Player(pygame.sprite.Sprite):
         self.get_status()
         self.animatie()
         self.shoot()
-  
