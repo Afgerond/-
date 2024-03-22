@@ -7,10 +7,16 @@ class Player(pg.sprite.Sprite):
     def __init__(self, pos):
         super().__init__()
         self.imports()
+
+        # Animation
         self.index = 0
         self.animation_speed = 0.15
+
+        # Op het scherm
         self.image = self.animations['idle'][self.index]
         self.rect = self.image.get_rect(topleft=pos)
+
+        # Movement
         self.direction = pg.math.Vector2(0, 0)
         self.speed = 0.1
         self.gravity = 0.42
@@ -20,9 +26,15 @@ class Player(pg.sprite.Sprite):
         self.jump_cooldown = False
         self.jump_cooldown_duration = 0.45
         self.last_jump_time = 0.0
+
+        # Status
         self.status = 'idle'
         self.rechts = True
+
+        # Health
         self.health = 100
+
+        # Sounds
         self.sound_played = True
 
     def imports(self):
@@ -108,7 +120,7 @@ class Player(pg.sprite.Sprite):
                 self.jump_count += 1
                 self.last_jump_time = current_time
                 self.jump_cooldown = True
-                # jump_sound.play()
+                jump_sound.play()
 
         if self.jump_cooldown and current_time - self.last_jump_time >= self.jump_cooldown_duration:
             self.jump_cooldown = False
