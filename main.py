@@ -75,3 +75,13 @@ def game():
         clock.tick(FPS)
 
 game()
+
+def get_current_coins():
+  with open('coins.txt', 'r') as file:
+    current_coins = int(file.read())
+  return current_coins
+
+def update_current_level(coins):
+  with open('level.txt', 'w') as file:
+    file.write(str(coins))
+current_coins = get_current_coins()

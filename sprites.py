@@ -32,7 +32,7 @@ def import_folder(path):
         for image in img_files:
             full_path = path + '/' + image
             image_surf = pg.image.load(full_path).convert_alpha()
-            image_surf = pg.transform.scale_by(image_surf, 0.075)
+            image_surf = pg.transform.scale_by(image_surf, 0.1)
             surface_list.append(image_surf)
 
         return surface_list
