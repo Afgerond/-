@@ -33,6 +33,7 @@ class Player(pg.sprite.Sprite):
         self.sound_played = True
 
     def imports(self):
+        self.character = random.choice(["1", "2", "3"])
         character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/character/'
         self.animations = {'idle': [], 'run': [], 'jump': [], 'fall': [], 'die': [], 'shoot': []}
 
