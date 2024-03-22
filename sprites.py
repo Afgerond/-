@@ -17,7 +17,7 @@ clock_icon = pg.transform.scale(pg.image.load("C:/Users/josey/Privé/Programmere
 clock_rect = clock_icon.get_rect(topleft=(36, 142))
 
 health = pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/assets/heart.png")
-health = pg.transform.scale(health, (40, 40))
+health = pg.transform.scale(health, (35, 35))
 health_rect = health.get_rect(topleft = (36, 42))
 
 coin_collect = pg.mixer.Sound("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/assets/coin_collect.mp3")
