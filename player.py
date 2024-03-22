@@ -1,45 +1,33 @@
 import pygame as pg
-import sys, time
+import sys
 from sprites import import_folder, jump_sound
 from health import health_bar
 
 class Player(pg.sprite.Sprite):
     def __init__(self, pos):
-        # Initialisatie
         super().__init__()
         self.imports()
         self.index = 0
         self.animation_speed = 0.15
-
         self.image = self.animations['idle'][self.index]
-        self.rect = self.image.get_rect(topleft = pos)
-
-        # Player Movement
+        self.rect = self.image.get_rect(topleft=pos)
         self.direction = pg.math.Vector2(0, 0)
-        self.speed = 0.1 #8
-        self.gravity = 0.42 #0.55
-        self.jump_speed = -12 #-16
-
-        # Jump 
+        self.speed = 0.1
+        self.gravity = 0.42
+        self.jump_speed = -12
         self.max_jump_count = 3
         self.jump_count = 0
         self.jump_cooldown = False
         self.jump_cooldown_duration = 0.45
         self.last_jump_time = 0.0
-
-        # Status
         self.status = 'idle'
         self.rechts = True
-
-        # Health
         self.health = 100
-
-        # Sound
         self.sound_played = True
 
     def imports(self):
         character_path = 'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/character/'
-        self.animations = {'idle': [], 'run':[], 'jump': [], 'fall': [], 'die': [], 'shoot': []}
+        self.animations = {'idle': [], 'run': [], 'jump': [], 'fall': [], 'die': [], 'shoot': []}
 
         for animation in self.animations.keys():
             full_path = character_path + animation
@@ -47,7 +35,6 @@ class Player(pg.sprite.Sprite):
 
     def animatie(self):
         animation = self.animations[self.status]
-
         self.index += self.animation_speed
 
         if self.index >= len(animation):
@@ -61,45 +48,35 @@ class Player(pg.sprite.Sprite):
                 self.index = 0
 
         image = animation[int(self.index)]
-        if self.rechts == True:
-            self.image = image
-        else:
-            flipped_image = pg.transform.flip(image, True, False)
-            self.image = flipped_image
+        if not self.rechts:
+            image = pg.transform.flip(image, True, False)
+        self.image = image
 
     def movement(self):
-        self.keys = pg.key.get_pressed()
+        keys = pg.key.get_pressed()
 
-        if self.keys[pg.K_RIGHT] or self.keys[pg.K_d]:
-            if self.status == 'die':
-                None
-            else:
+        if keys[pg.K_RIGHT] or keys[pg.K_d]:
+            if self.status != 'die':
                 self.direction.x = 1
                 self.rechts = True
-        elif self.keys[pg.K_LEFT] or self.keys[pg.K_a]:
-            if self.status == 'die':
-                None
-            else:
+        elif keys[pg.K_LEFT] or keys[pg.K_a]:
+            if self.status != 'die':
                 self.direction.x = -1
                 self.rechts = False
         else:
             self.direction.x = 0
 
-        if self.keys[pg.K_SPACE] or self.keys[pg.K_UP] or self.keys[pg.K_w]:
-            if self.status == 'die':
-                None
-            else:
-                if self.sound_played == True:
+        if keys[pg.K_SPACE] or keys[pg.K_UP] or keys[pg.K_w]:
+            if self.status != 'die':
+                if self.sound_played:
                     self.sound_played = False
-                if self.sound_played == False:
-                    #jump_sound.play()
+                if not self.sound_played:
+                    # jump_sound.play()
                     self.sound_played = True
                 self.jump()
 
-        if self.keys[pg.K_s]:
-            if self.status == 'die':
-                None
-            else:
+        if keys[pg.K_s]:
+            if self.status != 'die':
                 self.status = 'shoot'
 
     def get_status(self):
@@ -113,7 +90,7 @@ class Player(pg.sprite.Sprite):
             else:
                 if self.direction.x != 0:
                     self.status = 'run'
-                elif self.keys[pg.K_s]:
+                elif pg.key.get_pressed()[pg.K_s]:
                     self.status = 'shoot'
                 else:
                     self.status = 'idle'
@@ -123,10 +100,10 @@ class Player(pg.sprite.Sprite):
         self.rect.y += self.direction.y
 
     def jump(self):
-        current_time = time.time()
+        current_time = pg.time.get_ticks() / 1000
 
         if self.jump_count < self.max_jump_count:
-            if self.jump_cooldown == False:
+            if not self.jump_cooldown:
                 self.direction.y = self.jump_speed
                 self.jump_count += 1
                 self.last_jump_time = current_time
@@ -138,7 +115,7 @@ class Player(pg.sprite.Sprite):
             self.jump_count = 0
 
     def shoot(self):
-        if self.keys[pg.K_s]:
+        if pg.key.get_pressed()[pg.K_s]:
             self.status = 'shoot'
             self.animatie()
 

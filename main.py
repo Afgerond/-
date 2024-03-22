@@ -9,32 +9,24 @@ from health import *
 
 pg.init()
 
-screen = pg.display.set_mode((WIDTH, HEIGHT))
-clock = pg.time.Clock()
-FPS = 60
+screen, clock, FPS = pg.display.set_mode((WIDTH, HEIGHT)), pg.time.Clock(), 60
 level = Level(level_map, screen)
 
 pg.display.set_caption('Duo Game - Pixel Platformer')
 pg.display.set_icon(logo)
 
-coin = pg.transform.scale(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/01.png"), (45, 45))
+coin = pg.transform.scale(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/01.png"), (45, 45)), 
 coin_rect = coin.get_rect(topleft=(33, 82))
 
 clock_icon = pg.transform.scale(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/assets/clock.png"), (40, 40))
 clock_rect = clock_icon.get_rect(topleft=(36, 142))
 
-big_cloud_image = pg.transform.scale_by(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Big Clouds.png").convert_alpha(), 3)
-small_cloud1_image = pg.transform.scale_by(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 1.png").convert_alpha(), 2)
-small_cloud2_image = pg.transform.scale_by(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 2.png").convert_alpha(), 2)
-small_cloud3_image = pg.transform.scale_by(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 3.png").convert_alpha(), 2)
-
+big_cloud_image, small_cloud1_image, small_cloud2_image, small_cloud3_image = pg.transform.scale_by(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Big Clouds.png").convert_alpha(), 3), pg.transform.scale_by(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 1.png").convert_alpha(), 2), pg.transform.scale_by(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 2.png").convert_alpha(), 2), pg.transform.scale_by(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 3.png").convert_alpha(), 2)
 cloud_images = [big_cloud_image, small_cloud1_image, small_cloud2_image, small_cloud3_image]
 
 class Cloud:
     def __init__(self, x, y, speed, image):
-        self.x = x
-        self.y = y
-        self.speed = speed
+        self.x, self.y, self.speed = x, y, speed
         self.image = image
         self.size = image.get_size()
 
@@ -46,7 +38,6 @@ class Cloud:
 
     def draw(self, surface):
         surface.blit(self.image, (int(self.x), int(self.y)))
-
 
 cloud_list = [Cloud(random.randint(0, WIDTH), random.randint(0, HEIGHT // 2), random.uniform(0.1, 0.8), random.choice(cloud_images)) for _ in range(random.randint(3, 5))]
 
