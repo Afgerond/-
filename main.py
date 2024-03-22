@@ -13,6 +13,8 @@ screen, clock, FPS = pg.display.set_mode((WIDTH, HEIGHT)), pg.time.Clock(), 60
 level = Level(level_map, screen)
 
 pg.display.set_caption('Duo Game - Pixel Platformer'), pg.display.set_icon(logo)
+
+big_cloud_image, small_cloud1_image, small_cloud2_image, small_cloud3_image = pg.transform.scale_by(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Big Clouds.png").convert_alpha(), 4), pg.transform.scale_by(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 1.png").convert_alpha(), 2), pg.transform.scale_by(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 2.png").convert_alpha(), 2), pg.transform.scale_by(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 3.png").convert_alpha(), 2)
 cloud_images = [big_cloud_image, small_cloud1_image, small_cloud2_image, small_cloud3_image]
 
 class Cloud:
