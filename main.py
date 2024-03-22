@@ -94,3 +94,5 @@ def update_current_level(coins):
   with open('level.txt', 'w') as file:
     file.write(str(coins))
 current_coins = get_current_coins()
+
+print(current_coins)
