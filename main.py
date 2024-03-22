@@ -36,6 +36,15 @@ cloud_list = [Cloud(random.randint(0, WIDTH), random.randint(0, HEIGHT // 2), ra
 
 def main():
     while True:
+        for event in pg.event.get():
+            if event.type == pg.QUIT:
+                pg.quit()
+                sys.exit()
+            if event.type == pg.KEYDOWN:
+                if event.key == pg.K_q:
+                    pg.quit()
+                    sys.exit()
+
         pg.display.update()
         clock.tick(FPS)
 
