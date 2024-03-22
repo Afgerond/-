@@ -39,7 +39,6 @@ def main():
         pg.display.update()
         clock.tick(FPS)
 
-
 def game():
     run = True
     while run:
@@ -62,7 +61,6 @@ def game():
             cloud.move()
 
         screen.fill("black")
-
         screen.blit(background, (0, 0))
 
         for cloud in cloud_list:
@@ -75,6 +73,5 @@ def game():
 
         pg.display.update()
         clock.tick(FPS)
-
 
 game()
