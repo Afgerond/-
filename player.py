@@ -127,7 +127,4 @@ class Player(pg.sprite.Sprite):
             self.animatie()
 
     def update(self):
-        self.movement()
-        self.get_status()
-        self.animatie()
-        self.shoot()
+        self.movement(), self.get_status(), self.animatie(), self.shoot()
