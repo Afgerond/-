@@ -15,7 +15,7 @@ level = Level(level_map, screen)
 pg.display.set_caption('Duo Game - Pixel Platformer')
 pg.display.set_icon(logo)
 
-coin = pg.transform.scale(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/01.png"), (45, 45)), 
+coin = pg.transform.scale(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/01.png"), (45, 45))
 coin_rect = coin.get_rect(topleft=(33, 82))
 
 clock_icon = pg.transform.scale(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/assets/clock.png"), (40, 40))
