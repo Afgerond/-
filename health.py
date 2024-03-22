@@ -11,7 +11,16 @@ class Health:
 
     def draw(self, surface):
         ratio = self.hp / self.max_hp
+        border_width = 2  # Breedte van de rand
+
+        # Teken de rode achtergrond
         pg.draw.rect(surface, "red", (self.x, self.y, self.w, self.h))
-        pg.draw.rect(surface, "green", (self.x, self.y, self.w * ratio, self.h))
+
+        # Teken de groene gevulde balk
+        filled_width = self.w * ratio
+        pg.draw.rect(surface, "green", (self.x, self.y, filled_width, self.h))
+
+        # Teken de rand rondom de groene balk
+        pg.draw.rect(surface, "black", (self.x, self.y, self.w, self.h), border_width)
 
 health_bar = Health(90, 42, 100, 20, 100)
