@@ -63,7 +63,6 @@ for _ in range(random.randint(3, 5)):
     if image == big_cloud_image:
         size = random.randint(10000, 20000)
         cloud = Cloud(x, 368, speed, size, image)
-        print(size)
     else:
         size = random.randint(30, 80)
         cloud = Cloud(x, y, speed, size, image)
