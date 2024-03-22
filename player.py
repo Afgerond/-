@@ -116,7 +116,7 @@ class Player(pg.sprite.Sprite):
                 self.jump_count += 1
                 self.last_jump_time = current_time
                 self.jump_cooldown = True
-                jump_sound.play()
+                #jump_sound.play()
 
         if self.jump_cooldown and current_time - self.last_jump_time >= self.jump_cooldown_duration:
             self.jump_cooldown = False
