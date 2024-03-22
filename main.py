@@ -1,7 +1,5 @@
-import pygame
-import sys
-import os
-import random
+import pygame as pg
+import sys, os, random
 from settings import *
 from tiles import Tile
 from level import Level
@@ -9,26 +7,26 @@ from sprites import *
 from player import Player
 from health import *
 
-pygame.init()
+pg.init()
 
-screen = pygame.display.set_mode((WIDTH, HEIGHT))
-clock = pygame.time.Clock()
+screen = pg.display.set_mode((WIDTH, HEIGHT))
+clock = pg.time.Clock()
 FPS = 60
 level = Level(level_map, screen)
 
-pygame.display.set_caption('Duo Game - Pixel Platformer')
-pygame.display.set_icon(logo)
+pg.display.set_caption('Duo Game - Pixel Platformer')
+pg.display.set_icon(logo)
 
-coin = pygame.transform.scale(pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/01.png"), (45, 45))
+coin = pg.transform.scale(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/01.png"), (45, 45))
 coin_rect = coin.get_rect(topleft=(33, 82))
 
-clock_icon = pygame.transform.scale(pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/assets/clock.png"), (40, 40))
+clock_icon = pg.transform.scale(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/assets/clock.png"), (40, 40))
 clock_rect = clock_icon.get_rect(topleft=(36, 142))
 
-big_cloud_image = pygame.transform.scale_by(pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Big Clouds.png").convert_alpha(), 3)
-small_cloud1_image = pygame.transform.scale_by(pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 1.png").convert_alpha(), 2)
-small_cloud2_image = pygame.transform.scale_by(pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 2.png").convert_alpha(), 2)
-small_cloud3_image = pygame.transform.scale_by(pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 3.png").convert_alpha(), 2)
+big_cloud_image = pg.transform.scale_by(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Big Clouds.png").convert_alpha(), 3)
+small_cloud1_image = pg.transform.scale_by(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 1.png").convert_alpha(), 2)
+small_cloud2_image = pg.transform.scale_by(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 2.png").convert_alpha(), 2)
+small_cloud3_image = pg.transform.scale_by(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 3.png").convert_alpha(), 2)
 
 cloud_images = [big_cloud_image, small_cloud1_image, small_cloud2_image, small_cloud3_image]
 
@@ -54,26 +52,26 @@ cloud_list = [Cloud(random.randint(0, WIDTH), random.randint(0, HEIGHT // 2), ra
 
 def main():
     while True:
-        pygame.display.update()
+        pg.display.update()
         clock.tick(FPS)
 
 
 def game():
     run = True
     while run:
-        coin_txt = pygame.font.SysFont("behnschrift", 45).render(f"{level.coins}", True, "white")
+        coin_txt = pg.font.SysFont("behnschrift", 45).render(f"{level.coins}", True, "white")
         coin_txt_r = coin_txt.get_rect(topleft=(90, coin_rect.y + 10))
 
-        time = pygame.font.SysFont("behnschrift", 45).render(f"{round((pygame.time.get_ticks() / 1000), 1)}", True, "white")
+        time = pg.font.SysFont("behnschrift", 45).render(f"{round((pg.time.get_ticks() / 1000), 1)}", True, "white")
         time_r = time.get_rect(topleft=(90, 150))
 
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
+        for event in pg.event.get():
+            if event.type == pg.QUIT:
+                pg.quit()
                 sys.exit()
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_q:
-                    pygame.quit()
+            if event.type == pg.KEYDOWN:
+                if event.key == pg.K_q:
+                    pg.quit()
                     sys.exit()
 
         for cloud in cloud_list:
@@ -95,7 +93,7 @@ def game():
 
         level.run()
 
-        pygame.display.update()
+        pg.display.update()
         clock.tick(FPS)
 
 
