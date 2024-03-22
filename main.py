@@ -14,6 +14,7 @@ FPS = 60
 level = Level(level_map, screen)
 
 pygame.display.set_caption('Duo Game - Pixel Platformer')
+pygame.display.set_icon(logo)
 
 coin = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/01.png")
 coin = pygame.transform.scale(coin, (45, 45))

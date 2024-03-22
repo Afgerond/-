@@ -4,6 +4,8 @@ from settings import WIDTH, HEIGHT, tile_size
 
 pygame.init()
 
+logo = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/assets/logo.png")
+
 background = pygame.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/assets/background.png")
 background = pygame.transform.scale(background, (WIDTH, HEIGHT))
 
