@@ -9,7 +9,6 @@ logo = pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/An
 background = pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/assets/background.png")
 background = pg.transform.scale(background, (WIDTH, HEIGHT))
 
-
 coin = pg.transform.scale(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/coins/gold/01.png"), (45, 45))
 coin_rect = coin.get_rect(topleft=(33, 82))
 

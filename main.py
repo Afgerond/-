@@ -32,6 +32,21 @@ class Cloud:
     def draw(self, surface):
         surface.blit(self.image, (int(self.x), int(self.y)))
 
+class Text:
+    def __init__(self, x, y, text, size, color):
+        self.x = x
+        self.y = y
+        self.text = text
+        self.font = pg.font.SysFont("behnschrift", size)
+        self.color = color
+        self.surface = self.font.render(text, True, color)
+
+        self.rect = self.surface.get_rect(center = (self.x, self.y))
+
+    def draw(self, surface):
+        surface.blit(self.surface, (self.rect))
+
+txt = Text((WIDTH / 2), (HEIGHT / 4), "Play", 40, "white")
 cloud_list = [Cloud(random.randint(0, WIDTH), random.randint(0, HEIGHT // 2), random.uniform(0.1, 0.8), random.choice(cloud_images)) for _ in range(random.randint(3, 5))]
 
 def main():
@@ -45,6 +60,8 @@ def main():
                 if event.key == pg.K_q:
                     pg.quit()
                     sys.exit()
+
+        txt.draw(screen)
 
         pg.display.update()
         clock.tick(FPS)
