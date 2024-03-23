@@ -1,7 +1,7 @@
 import pygame as pg
 import sys, random
 from sprites import import_folder, jump_sound
-from health import health_bar
+from health import *
 
 class Player(pg.sprite.Sprite):
     def __init__(self, pos):

@@ -12,7 +12,7 @@ pg.init()
 screen, clock, FPS = pg.display.set_mode((WIDTH, HEIGHT)), pg.time.Clock(), 60
 level = Level(level_map, screen)
 
-pg.display.set_caption('Duo Game - Pixel Platformer'), pg.display.set_icon(logo)
+pg.display.set_icon(logo)
 
 big_cloud_image, small_cloud1_image, small_cloud2_image, small_cloud3_image = pg.transform.scale_by(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Big Clouds.png").convert_alpha(), 2.5), pg.transform.scale_by(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 1.png").convert_alpha(), 2), pg.transform.scale_by(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 2.png").convert_alpha(), 2), pg.transform.scale_by(pg.image.load("C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/clouds/Small Cloud 3.png").convert_alpha(), 2)
 cloud_images = [big_cloud_image, small_cloud1_image, small_cloud2_image, small_cloud3_image]
@@ -35,6 +35,7 @@ class Cloud:
 cloud_list = [Cloud(random.randint(0, WIDTH), random.randint(0, HEIGHT // 2), random.uniform(0.1, 0.8), random.choice(cloud_images)) for _ in range(random.randint(3, 5))]
 
 def main():
+    pg.display.set_caption('Pixel Platformer - Main Menu') 
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT:
@@ -49,6 +50,7 @@ def main():
         clock.tick(FPS)
 
 def game():
+    pg.display.set_caption('Pixel Platformer - Game')
     run = True
     while run:
         coin_txt = pg.font.SysFont("behnschrift", 45).render(f"{level.coins}", True, "white")
@@ -83,7 +85,7 @@ def game():
         pg.display.update()
         clock.tick(FPS)
 
-game()
+main()
 
 def get_current_coins():
   with open('coins.txt', 'r') as file:
