@@ -184,7 +184,6 @@ class Enemies(pg.sprite.Sprite):
                 self.index = 0
             if self.status == 'die':
                 self.kill()
-                self.groups().remove(self)
 
         image = self.animation[int(self.index)]
         if self.direction == -1:
