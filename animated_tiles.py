@@ -164,7 +164,7 @@ class Enemies(pg.sprite.Sprite):
     def imports(self):
         self.type = random.choice(['toothy', 'pinky', 'crab'])
         character_path = f'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/enemys/{self.type}/'
-        self.animations = {'run': [], 'hit': [], 'dead': []}
+        self.animations = {'run': [], 'hit': [], 'die': []}
 
         for animation in self.animations.keys():
             full_path = character_path + animation
