@@ -171,7 +171,7 @@ class Enemies(pg.sprite.Sprite):
             self.animations[animation] = import_enemies(full_path)
 
             if self.animations[animation] is None:
-                print(f"Error: Animatie '{animation}' voor enemy '{self.type}' niet kunnen laden")
+                raise ValueError(f"Error: Animatie '{animation}' voor enemy '{self.type}' niet kunnen laden")
 
     def animatie(self):
         self.animation = self.animations[self.status]
