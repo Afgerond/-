@@ -164,6 +164,7 @@ class Level:
         player.apply_gravity()
         coin = self.coin.sprites
         diamond = self.diamond.sprites
+        enemies = self.enemies.sprites
 
         for sprite in self.tiles.sprites():
             if sprite.rect.colliderect(player.rect):
@@ -195,7 +196,9 @@ class Level:
         for sprite in self.enemies.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Enemies):
-                    health_bar.hp = 0
+                    print("Collision")
+                    self.enemies.remove(sprite)
+
         for sprite in self.coin.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Coin):
