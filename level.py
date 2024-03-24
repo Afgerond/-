@@ -194,6 +194,7 @@ class Level:
                     elif player.direction.y < 0:
                         player.rect.top = sprite.rect.bottom
                         player.direction.y = 0
+                        
         for enemy in self.enemies.sprites():
             if enemy.rect.colliderect(player.rect):
                 if isinstance(enemy, Enemies):
