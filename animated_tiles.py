@@ -177,12 +177,12 @@ class Enemies(pg.sprite.Sprite):
         self.animation = self.animations[self.status]
         self.index += self.animation_speed
 
-        if self.status == 'dead':
+        if self.status == 'die':
             self.index = 0
         if self.index >= len(self.animation):
-            if self.status != 'dead':
+            if self.status != 'die':
                 self.index = 0
-            if self.status == 'dead':
+            if self.status == 'die':
                 self.kill()
                 self.groups().remove(self)
 
