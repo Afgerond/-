@@ -193,13 +193,13 @@ class Level:
                     elif player.direction.y < 0:
                         player.rect.top = sprite.rect.bottom
                         player.direction.y = 0
-        for sprite in self.enemies.sprites():
-            if sprite.rect.colliderect(player.rect):
-                if isinstance(sprite, Enemies):
-                    self.enemies.status = 'dead'
-                    self.enemies.index = 0
-                    if self.enemies.index >= len(self.enemies.animation):
-                        self.enemies.remove(sprite)
+        for enemy in self.enemies.sprites():
+            if enemy.rect.colliderect(player.rect):
+                if isinstance(enemy, Enemies):
+                    enemy.status = 'dead'
+                    enemy.index = 0
+                    if enemy.index >= len(enemy.animation):
+                        self.enemies.remove(enemy)
 
         for sprite in self.coin.sprites():
             if sprite.rect.colliderect(player.rect):
