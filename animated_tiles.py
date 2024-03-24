@@ -166,9 +166,9 @@ class Enemies(pg.sprite.Sprite):
         character_path = f'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/enemys/{self.type}/'
         self.animations = {'run': [], 'hit': [], 'dead': []}
 
-        for animation in self.animations.keys():
-            full_path = character_path + animation
-            self.animations[animation] = import_enemies(full_path)
+        for self.animation in self.animations.keys():
+            full_path = character_path + self.animation
+            self.animations[self.animation] = import_enemies(full_path)
 
     def animatie(self):
         animation = self.animations[self.status]
