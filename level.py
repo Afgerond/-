@@ -196,8 +196,10 @@ class Level:
         for sprite in self.enemies.sprites():
             if sprite.rect.colliderect(player.rect):
                 if isinstance(sprite, Enemies):
-                    print("Collision")
-                    self.enemies.remove(sprite)
+                    self.enemies.status = 'dead'
+                    self.enemies.index = 0
+                    if self.enemies.index >= len(self.enemies.animation):
+                        self.enemies.remove(sprite)
 
         for sprite in self.coin.sprites():
             if sprite.rect.colliderect(player.rect):
