@@ -166,22 +166,22 @@ class Enemies(pg.sprite.Sprite):
         character_path = f'C:/Users/josey/Privé/Programmeren/Portfolio/Platformer/Animations/graphics/map/enemys/{self.type}/'
         self.animations = {'run': [], 'hit': [], 'dead': []}
 
-        for self.animation in self.animations.keys():
-            full_path = character_path + self.animation
-            self.animations[self.animation] = import_enemies(full_path)
+        for animation in self.animations.keys():
+            full_path = character_path + animation
+            self.animations[animation] = import_enemies(full_path)
 
     def animatie(self):
-        animation = self.animations[self.status]
+        self.animation = self.animations[self.status]
         self.index += self.animation_speed
 
         if self.status == 'dead':
             self.index = 0
-            if self.index >= len(animation):
+            if self.index >= len(self.animation):
                 self.kill()
-        if self.index >= len(animation):
+        if self.index >= len(self.animation):
             self.index = 0
 
-        image = animation[int(self.index)]
+        image = self.animation[int(self.index)]
         if self.direction == -1:
             self.image = image
         else:
