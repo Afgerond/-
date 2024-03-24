@@ -177,7 +177,7 @@ class Enemies(pg.sprite.Sprite):
         if self.status == 'dead':
             self.index = 0
             if self.index >= len(self.animation):
-                self.kill()
+                pass
         if self.index >= len(self.animation):
             self.index = 0
 
